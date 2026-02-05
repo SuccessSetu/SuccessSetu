@@ -12,7 +12,7 @@
 <!-- HEADER -->
 <div class="app-header hero">
   <img src="../images/exam-point-logo.png" class="app-logo" alt="Profile">
-  <h1>Atul Agrawal</h1>
+  <h1> id="userName"</h1>
   <p>SSC CGL Aspirant • Consistency is Power 💪</p>
 </div>
 
@@ -41,22 +41,22 @@
   <div class="progress-list">
     <div class="progress-item">
       <span>📘 Math</span>
-      <div class="bar"><div style="width:70%"></div></div>
+      <div class="bar"><div id="mathBar"></div></div>
     </div>
 
     <div class="progress-item">
       <span>📕 GS</span>
-      <div class="bar"><div style="width:55%"></div></div>
+      <div class="bar"><div id="gsBar"></div></div>
     </div>
 
     <div class="progress-item">
       <span>📗 English</span>
-      <div class="bar"><div style="width:65%"></div></div>
+      <div class="bar"><div id="engBar"></div></div>
     </div>
 
     <div class="progress-item">
       <span>🧠 Reasoning</span>
-      <div class="bar"><div style="width:80%"></div></div>
+      <div class="bar"><div id="reasonBar"></div></div>
     </div>
   </div>
 
@@ -92,7 +92,8 @@
 <script src="../../script.js"></script>
 
 <script>
-let userData = {
+/* Default Data */
+let defaultData = {
   name: "Atul Agrawal",
   hours: 120,
   chapters: 38,
@@ -103,18 +104,26 @@ let userData = {
   reasoning: 80
 };
 
-// Save once
+/* Save first time */
 if(!localStorage.getItem("userData")){
-  localStorage.setItem("userData", JSON.stringify(userData));
+  localStorage.setItem("userData", JSON.stringify(defaultData));
 }
-</script>
 
-<script>
+/* Load Data */
 let data = JSON.parse(localStorage.getItem("userData"));
+
+/* Set Values */
+document.getElementById("userName").innerText = data.name;
 
 document.getElementById("hours").innerText = data.hours;
 document.getElementById("chapters").innerText = data.chapters;
 document.getElementById("syllabus").innerText = data.syllabus + "%";
+
+/* Progress Bars */
+document.getElementById("mathBar").style.width = data.math + "%";
+document.getElementById("gsBar").style.width = data.gs + "%";
+document.getElementById("engBar").style.width = data.english + "%";
+document.getElementById("reasonBar").style.width = data.reasoning + "%";
 </script>
 
 </body>
