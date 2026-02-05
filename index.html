@@ -42,20 +42,20 @@
 
  <a class="card subject-card" data-subject="math" href="start-learning/Math/index.html">
     <div class="badge">⭐ Recommended</div>
-    <div class="progress">65%</div>
+    <div class="progress" id="progress-math">0%</div>
     <span>📘</span>
     <div>Math</div>
   </a>
 
   <a class="card subject-card" data-subject="english" href="start-learning/English/index.html">
-    <div class="progress">40%</div>
+    <div class="progress" id="progress-english">0%</div>
     <span>📗</span>
     <div>English</div>
   </a>
 
   <a class="card subject-card" data-subject="gs" href="start-learning/gs/index.html">
     <div class="badge">🔥 Trending</div>
-    <div class="progress">30%</div>
+    <div class="progress" id="progress-gs">0%</div>
     <span>📕</span>
     <div>General Studies</div>
   </a>
@@ -153,6 +153,28 @@ document.querySelectorAll('.subject-card').forEach(card=>{
 
   document.getElementById("greeting").innerHTML =
     `${greetingText} ${emoji}`;
+</script>
+<script>
+// Save Progress (call from subject pages later)
+function saveProgress(subject, percent) {
+  localStorage.setItem("progress_" + subject, percent);
+}
+
+// Load Progress on Home
+function loadProgress() {
+  const subjects = ["math", "english", "gs"];
+
+  subjects.forEach(sub => {
+    let value = localStorage.getItem("progress_" + sub) || 0;
+    let el = document.getElementById("progress-" + sub);
+
+    if (el) {
+      el.innerText = value + "%";
+    }
+  });
+}
+
+loadProgress();
 </script>
 
 
