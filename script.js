@@ -18,7 +18,6 @@ function toggleTheme(){
   );
 }
 
-<script>
 // 📊 SUBJECT PROGRESS SYSTEM
 
 const progressData = {
@@ -46,4 +45,3 @@ function updateProgress(){
 }
 
 updateProgress();
-</script>
