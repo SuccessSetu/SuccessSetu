@@ -5,6 +5,42 @@
   <title>My Profile | Exam Point</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
+  <style>
+.edit-box{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  width:300px;
+  z-index:9999;
+  box-shadow:0 0 30px rgba(0,0,0,.4);
+  text-align:center;
+}
+
+.edit-box input{
+  width:100%;
+  margin:8px 0;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+.edit-box button{
+  margin:8px;
+  padding:8px 16px;
+  border:none;
+  border-radius:8px;
+  background:#14b8a6;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
+</style>
+
 </head>
 
 <body>
@@ -12,7 +48,7 @@
 <!-- HEADER -->
 <div class="app-header hero">
   <img src="../images/exam-point-logo.png" class="app-logo" alt="Profile">
-  <h1>Atul Agrawal</h1>
+  <h1 id="userName"></h1>
   <p>SSC CGL Aspirant • Consistency is Power 💪</p>
 </div>
 
@@ -22,15 +58,15 @@
   <!-- STATS -->
   <div class="profile-stats">
     <div class="stat-box">
-      <h2>120</h2>
+      <h3 id="hours"></h3>
       <p>Study Hours</p>
     </div>
     <div class="stat-box">
-      <h2>38</h2>
+      <h3 id="chapters"></h3>
       <p>Chapters Done</p>
     </div>
     <div class="stat-box">
-      <h2>62%</h2>
+      <h3 id="syllabus"></h3>
       <p>Syllabus</p>
     </div>
   </div>
@@ -41,22 +77,22 @@
   <div class="progress-list">
     <div class="progress-item">
       <span>📘 Math</span>
-      <div class="bar"><div style="width:70%"></div></div>
+      <div class="bar"><div id="mathBar"></div></div>
     </div>
 
     <div class="progress-item">
       <span>📕 GS</span>
-      <div class="bar"><div style="width:55%"></div></div>
+      <div class="bar"><div id="gsBar"></div></div>
     </div>
 
     <div class="progress-item">
       <span>📗 English</span>
-      <div class="bar"><div style="width:65%"></div></div>
+      <div class="bar"><div id="engBar"></div></div>
     </div>
 
     <div class="progress-item">
       <span>🧠 Reasoning</span>
-      <div class="bar"><div style="width:80%"></div></div>
+      <div class="bar"><div id="reasonBar"></div></div>
     </div>
   </div>
 
@@ -76,10 +112,25 @@
     🕒 Daily Study Goal: <b>6 Hours</b>
   </div>
 
+  <!-- EDIT POPUP -->
+<div id="editBox" class="edit-box" style="display:none;">
+
+  <h3>Edit Profile</h3>
+
+  <input id="editName" placeholder="Your Name">
+  <input id="editHours" type="number" placeholder="Study Hours">
+  <input id="editChapters" type="number" placeholder="Chapters Done">
+  <input id="editSyllabus" type="number" placeholder="Syllabus %">
+
+  <button onclick="saveProfile()">Save</button>
+  <button onclick="closeEdit()">Cancel</button>
+
+</div>
+
   <!-- ACTION BUTTONS -->
   <div style="text-align:center;margin-top:30px;">
     <a href="../index.html" class="btn">🏠 Back to Home</a>
-    <a href="#" class="btn outline">⚙ Edit Profile</a>
+    <button class="btn outline" onclick="openEdit()">⚙ Edit Profile</button>
   </div>
 
 </div>
@@ -90,6 +141,71 @@
   <a class="active" href="#"><span>👤</span>Profile</a>
 </div>
 <script src="../../script.js"></script>
+
+<script>
+/* Default Data */
+let defaultData = {
+  name: "SuccessSetu",
+  hours: 0,
+  chapters: 0,
+  syllabus: 0,
+  math: 0,
+  gs: 0,
+  english: 0,
+  reasoning: 0
+};
+
+/* Save first time */
+if(!localStorage.getItem("userData")){
+  localStorage.setItem("userData", JSON.stringify(defaultData));
+}
+
+/* Load Data */
+let data = JSON.parse(localStorage.getItem("userData"));
+
+/* Set Values */
+document.getElementById("userName").innerText = data.name;
+
+document.getElementById("hours").innerText = data.hours;
+document.getElementById("chapters").innerText = data.chapters;
+document.getElementById("syllabus").innerText = data.syllabus + "%";
+
+/* Progress Bars */
+document.getElementById("mathBar").style.width = data.math + "%";
+document.getElementById("gsBar").style.width = data.gs + "%";
+document.getElementById("engBar").style.width = data.english + "%";
+document.getElementById("reasonBar").style.width = data.reasoning + "%";
+
+function openEdit(){
+  let d = JSON.parse(localStorage.getItem("userData"));
+
+  document.getElementById("editName").value = d.name;
+  document.getElementById("editHours").value = d.hours;
+  document.getElementById("editChapters").value = d.chapters;
+  document.getElementById("editSyllabus").value = d.syllabus;
+
+  document.getElementById("editBox").style.display="block";
+}
+
+function closeEdit(){
+  document.getElementById("editBox").style.display="none";
+}
+
+function saveProfile(){
+
+  let d = JSON.parse(localStorage.getItem("userData"));
+
+  d.name = editName.value;
+  d.hours = Number(editHours.value);
+  d.chapters = Number(editChapters.value);
+  d.syllabus = Number(editSyllabus.value);
+
+  localStorage.setItem("userData",JSON.stringify(d));
+
+  location.reload();
+}
+
+</script>
 
 </body>
 </html>
