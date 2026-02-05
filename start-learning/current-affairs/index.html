@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Current Affairs | Exam Point</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MAIN SITE CSS (root se) -->
+  <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="app-header hero">
+    <img src="../../images/exam-point-logo.png" alt="Exam Point Logo" class="app-logo">
+    <h1>Current Affairs</h1>
+    <p>Monthly PDFs & Important Updates</p>
+  </div>
+
+  <!-- SECTION TITLE -->
+  <h2 class="section-title">📅 Monthly Current Affairs</h2>
+
+  <!-- CARDS -->
+  <div class="card-container">
+
+    <!-- JAN 2026 PDF -->
+  <a class="card subject-card" href="view.html?file=jan-2026.pdf">
+    <span>📄</span>
+    <div>January 2026 Current Affairs</div>
+  </a>
+
+
+    <!-- FUTURE MONTHS (ready) -->
+    <!--
+    <a class="card subject-card" href="./pdf/feb-2026.pdf" target="_blank">
+      <span>📄</span>
+      <div>February 2026 (PDF)</div>
+    </a>
+    -->
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="../../index.html"><span>🏠</span>Home</a>
+    <a href="../../contact.html"><span>📞</span>Contact</a>
+    <a href="#"><span>👤</span>Profile</a>
+  </div>
+
+  <div class="fab" id="fab">🌙</div>
+
+<div class="fab-menu" id="fabMenu">
+  <button onclick="toggleDark()">🌙 Night Mode</button>
+  <button onclick="openSearch()">🔍 Search</button>
+  <button>📌 Bookmark</button>
+  <button>🔔 Reminder</button>
+</div>
+<script src="../../script.js"></script>
+
+
+</body>
+</html>
+
+  <!-- RIPPLE EFFECT -->
+  <script>
+    document.querySelectorAll('.subject-card').forEach(card => {
+      card.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        this.appendChild(ripple);
+
+        const rect = this.getBoundingClientRect();
+        ripple.style.left = (e.clientX - rect.left) + 'px';
+        ripple.style.top = (e.clientY - rect.top) + 'px';
+
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+  </script>
+
+

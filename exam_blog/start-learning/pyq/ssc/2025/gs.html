@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SSC PYQ 2025 - GS | Exam Point</title>
+
+  <link rel="stylesheet" href="../../../../style.css">
+
+  <style>
+    .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 120px;}
+    .hero{
+      background: linear-gradient(135deg,#020617,#0f766e,#14b8a6);
+      border-radius:26px;
+      padding:26px 22px;
+      color:#fff;
+      box-shadow:0 18px 55px rgba(0,0,0,.18);
+      position:relative;overflow:hidden;
+    }
+    .hero::after{
+      content:"";position:absolute;right:-140px;top:-140px;
+      width:300px;height:300px;border-radius:50%;
+      background:rgba(255,255,255,.10);
+    }
+    .top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;}
+    .brand{display:flex;gap:12px;align-items:center;}
+    .brand img{
+      width:54px;height:54px;background:#fff;border-radius:18px;padding:8px;
+      object-fit:contain;box-shadow:0 10px 25px rgba(0,0,0,.25);
+    }
+    .brand h1{margin:0;font-size:20px;font-weight:950;}
+    .brand p{margin:3px 0 0;font-size:13px;opacity:.9;font-weight:600;}
+    .pill{
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      padding:10px 12px;border-radius:999px;
+      font-size:13px;font-weight:900;
+      backdrop-filter: blur(10px);
+    }
+    .title{margin-top:16px;font-size:34px;font-weight:950;}
+    .sub{margin-top:6px;opacity:.92;font-size:15px;max-width:760px;line-height:1.5;}
+    .search{
+      width:100%;
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      border:none;
+      outline:none;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:0 18px 45px rgba(0,0,0,.18);
+    }
+
+    .list{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap:16px;
+    }
+
+    .paper{
+      background:#fff;
+      border-radius:22px;
+      padding:18px 18px;
+      box-shadow:0 18px 45px rgba(0,0,0,.10);
+      border:1px solid rgba(2,6,23,.06);
+      position:relative;
+      overflow:hidden;
+      transition:.25s;
+    }
+    .paper:hover{
+      transform: translateY(-6px);
+      box-shadow:0 26px 60px rgba(0,0,0,.16);
+    }
+
+    .badge{
+      position:absolute;
+      top:14px;left:14px;
+      background:#f97316;
+      color:#fff;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .paper h3{margin:12px 0 6px;font-size:18px;font-weight:950;color:#020617;}
+    .paper p{margin:0;color:#475569;font-size:13px;font-weight:600;line-height:1.5;}
+
+    .btnRow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:900;
+      font-size:13px;
+      background:#14b8a6;
+      color:#fff;
+      transition:.25s;
+    }
+    .btn:hover{background:#0f766e;transform: translateY(-2px);}
+    .btn.outline{
+      background:transparent;
+      border:2px solid #0f766e;
+      color:#0f766e;
+    }
+    .btn.outline:hover{background:#0f766e;color:#fff;}
+
+    .backRow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;}
+    .backBtn{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:12px 16px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:900;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.20);
+      color:#fff;
+    }
+    .backBtn:hover{background: rgba(255,255,255,.22);}
+
+    body.dark .paper{
+      background:#020617;
+      border:1px solid rgba(255,255,255,.06);
+    }
+    body.dark .paper h3{color:#e5e7eb;}
+    body.dark .paper p{color:#94a3b8;}
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="top">
+        <div class="brand">
+          <img src="../../../../images/exam-point-logo.png" alt="Exam Point Logo">
+          <div>
+            <h1>SSC PYQ 2025 - GS</h1>
+            <p>Premium papers list (fast + clean)</p>
+          </div>
+        </div>
+
+        <div class="pill">🌍 GS • 2025</div>
+      </div>
+
+      <div class="title">GS PYQ Papers</div>
+      <div class="sub">
+        Yaha tum PDF add karoge. Abhi sample diya hai.  
+        (PDF folder ka naam same rakhna bas.)
+      </div>
+
+      <input id="search" class="search" placeholder="Search paper... (Tier 1, Tier 2, Shift, Date)" />
+
+      <div class="backRow">
+        <a class="backBtn" href="../index.html">⬅ Back</a>
+        <a class="backBtn" href="../../../../index.html">🏠 Home</a>
+      </div>
+    </div>
+
+    <div class="list" id="paperList">
+
+      <!-- SAMPLE 1 -->
+      <div class="paper">
+        <div class="badge">🔥 Trending</div>
+        <h3>SSC CGL 2025 (Tier 1)</h3>
+        <p>Shift 1 • Full GS PYQ Paper (PDF)</p>
+        <div class="btnRow">
+          <a class="btn outline" href="./pdf/gs-tier1-shift1.pdf" target="_blank">👁 View</a>
+          <a class="btn" href="./pdf/gs-tier1-shift1.pdf" download>⬇ Download</a>
+        </div>
+      </div>
+
+      <!-- SAMPLE 2 -->
+      <div class="paper">
+        <div class="badge" style="background:#0ea5e9;">⭐ Recommended</div>
+        <h3>SSC CGL 2025 (Tier 1)</h3>
+        <p>Shift 2 • Most repeated questions</p>
+        <div class="btnRow">
+          <a class="btn outline" href="./pdf/gs-tier1-shift2.pdf" target="_blank">👁 View</a>
+          <a class="btn" href="./pdf/gs-tier1-shift2.pdf" download>⬇ Download</a>
+        </div>
+      </div>
+
+      <!-- SAMPLE 3 -->
+      <div class="paper">
+        <div class="badge" style="background:#16a34a;">🥇 Completed</div>
+        <h3>SSC CGL 2025 (Tier 2)</h3>
+        <p>GS Mixed Questions • Practice Set</p>
+        <div class="btnRow">
+          <a class="btn outline" href="./pdf/gs-tier2-mixed.pdf" target="_blank">👁 View</a>
+          <a class="btn" href="./pdf/gs-tier2-mixed.pdf" download>⬇ Download</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="../../../../index.html" class="nav-item"><span>🏠</span>Home</a>
+    <a href="../../../../profile/index.html" class="nav-item"><span>👤</span>Profile</a>
+  </div>
+
+  <script>
+    const search = document.getElementById("search");
+    const cards = document.querySelectorAll(".paper");
+
+    search.addEventListener("input", (e) => {
+      const val = e.target.value.toLowerCase();
+      cards.forEach(card => {
+        card.style.display = card.innerText.toLowerCase().includes(val) ? "block" : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
