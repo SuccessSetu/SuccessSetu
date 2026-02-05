@@ -18,7 +18,6 @@ function toggleTheme(){
   );
 }
 
-
 // 📊 SUBJECT PROGRESS SYSTEM
 
 const progressData = {
