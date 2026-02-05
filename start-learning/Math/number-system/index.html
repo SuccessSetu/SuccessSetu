@@ -1,84 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Number System | SuccessSetu</title>
-
-<link rel="stylesheet" href="../../style.css">
+<title>Number System Flowchart | SuccessSetu</title>
 
 <style>
 
 body{
   background:#020617;
   color:white;
-  padding:20px;
-  margin-top:30px;
+  font-family:Arial, sans-serif;
+  margin:0;
+  padding:30px;
 }
 
+/* MAIN CONTAINER */
 .container{
-  max-width:1000px;
+  max-width:1800px;
   margin:auto;
 }
 
-/* Cards */
+/* TITLE */
+h1{
+  text-align:center;
+  color:#5eead4;
+  margin-bottom:40px;
+  font-size:40px;
+}
 
-.card{
+/* FLOW SECTION */
+.flow-section{
   background:#020617;
-  border-radius:14px;
-  padding:20px;
-  margin-bottom:25px;
-  border-left:6px solid #14b8a6;
+  border:2px solid #14b8a6;
+  border-radius:15px;
+  padding:30px;
+  margin-bottom:60px;
 }
 
-.card h2{
-  color:#0f766e;
+/* SECTION TITLE */
+.flow-section h2{
+  text-align:center;
+  color:#14b8a6;
+  margin-bottom:30px;
+  font-size:28px;
 }
 
-.formula{
+/* ROW */
+.row{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+}
+
+/* BOX */
+.box{
   background:#0f172a;
-  padding:10px;
-  border-radius:8px;
-  margin:10px 0;
+  border:2px solid #5eead4;
+  border-radius:12px;
+  padding:20px;
+  min-width:250px;
+  text-align:center;
+  box-shadow:0 0 15px rgba(20,184,166,0.3);
 }
 
-.example{
-  background:#020617;
-  padding:10px;
-  border-radius:8px;
-  margin-top:10px;
+/* BOX TITLE */
+.box h3{
+  color:#5eead4;
+  margin-bottom:10px;
 }
 
-/* Practice */
+/* ARROW */
+.arrow{
+  text-align:center;
+  font-size:40px;
+  color:#5eead4;
+  margin:20px 0;
+}
 
+/* PRACTICE */
 .practice{
   background:#020617;
-  padding:20px;
+  border:2px solid #22c55e;
+  border-radius:15px;
+  padding:25px;
   margin-top:30px;
-  border-radius:14px;
+}
+
+.practice h3{
+  color:#22c55e;
 }
 
 .question{
   background:rgba(255,255,255,0.1);
-  padding:12px;
+  padding:15px;
   border-radius:10px;
-  margin:10px 0;
+  margin:15px 0;
 }
 
 .answer{
   color:#22c55e;
+  margin-top:8px;
   font-weight:bold;
 }
 
+/* FOOTER */
 footer{
   text-align:center;
-  margin-top:40px;
-  color:#94a3b8;
+  margin-top:60px;
+  color:#64748b;
 }
 
 </style>
-
 </head>
 
 
@@ -86,181 +120,201 @@ footer{
 
 <div class="container">
 
-<h1 align="center">📘 Number System</h1>
-<p align="center">Concepts + Practice + Solutions</p>
+<h1>📘 Number System – Flowcharts</h1>
 
-<hr>
+<!-- ================================================= -->
+<!-- SECTION 1 : CLASSIFICATION -->
+<!-- ================================================= -->
 
-<!-- ================= BASIC TYPES ================= -->
+<div class="flow-section">
 
-<div class="card">
-<h2>1. Natural Numbers</h2>
-<p>Counting numbers.</p>
+<h2>Classification of Numbers</h2>
 
-<div class="formula">
-1, 2, 3, 4, 5...
+<div class="row">
+
+  <div class="box">
+    <h3>Numbers</h3>
+    All Numbers
+  </div>
+
 </div>
 
-<div class="example">
-Example: 5, 10, 25
-</div>
-</div>
+<div class="arrow">⬇</div>
 
+<div class="row">
 
-<div class="card">
-<h2>2. Whole Numbers</h2>
+  <div class="box">
+    <h3>Real Numbers</h3>
+    On Number Line
+  </div>
 
-<div class="formula">
-0, 1, 2, 3...
-</div>
+  <div class="box">
+    <h3>Imaginary</h3>
+    Not on Line
+  </div>
 
-<div class="example">
-Example: 0, 8, 20
-</div>
 </div>
 
+<div class="arrow">⬇</div>
 
-<div class="card">
-<h2>3. Integers</h2>
+<div class="row">
 
-<div class="formula">
--3, -2, -1, 0, 1, 2
+  <div class="box">
+    <h3>Rational</h3>
+    p/q form
+  </div>
+
+  <div class="box">
+    <h3>Irrational</h3>
+    √2, π
+  </div>
+
 </div>
-
-<div class="example">
-Example: -5, 0, 7
-</div>
-</div>
-
-
-<div class="card">
-<h2>4. Rational Numbers</h2>
-
-<div class="formula">
-P / Q (Q ≠ 0)
-</div>
-
-<div class="example">
-Example: 1/2 , 0.25
-</div>
-</div>
-
-
-<div class="card">
-<h2>5. Irrational Numbers</h2>
-
-<div class="formula">
-√2 , √3 , π
-</div>
-
-<div class="example">
-Example: √3 = 1.732...
-</div>
-</div>
-
-
-<hr>
-
-<!-- ================= FACTORS ================= -->
-
-<div class="card">
-
-<h2>6. Factors</h2>
-
-<p>Numbers that divide completely.</p>
-
-<p>Example: 12 → 1,2,3,4,6,12</p>
-
-<p>
-Formula:  
-No. of factors = (p+1)(q+1)
-</p>
 
 </div>
 
 
-<!-- ================= DIVISIBILITY ================= -->
+<!-- ================================================= -->
+<!-- SECTION 2 : TYPES OF INTEGERS -->
+<!-- ================================================= -->
 
-<div class="card">
+<div class="flow-section">
 
-<h2>7. Divisibility Rule (2,3,4)</h2>
+<h2>Types of Integers</h2>
 
-<p>2 → Last digit even</p>
-<p>3 → Sum divisible by 3</p>
-<p>4 → Last two digits divisible by 4</p>
+<div class="row">
+
+  <div class="box">
+    <h3>Integers</h3>
+    Z
+  </div>
+
+</div>
+
+<div class="arrow">⬇</div>
+
+<div class="row">
+
+  <div class="box">
+    <h3>Negative</h3>
+    -1, -2
+  </div>
+
+  <div class="box">
+    <h3>Zero</h3>
+    0
+  </div>
+
+  <div class="box">
+    <h3>Positive</h3>
+    1,2,3
+  </div>
+
+</div>
 
 </div>
 
 
-<!-- ================= REMAINDER ================= -->
+<!-- ================================================= -->
+<!-- SECTION 3 : PRIME / COMPOSITE -->
+<!-- ================================================= -->
 
-<div class="card">
+<div class="flow-section">
 
-<h2>8. Remainder Theorem</h2>
+<h2>Prime & Composite Numbers</h2>
 
-<p>
-Dividend = Divisor × Quotient + Remainder
-</p>
+<div class="row">
 
-<p>
-Example: 17 ÷ 5 = 3 R 2
-</p>
+  <div class="box">
+    <h3>Natural Numbers</h3>
+    1,2,3...
+  </div>
+
+</div>
+
+<div class="arrow">⬇</div>
+
+<div class="row">
+
+  <div class="box">
+    <h3>Prime</h3>
+    2,3,5,7
+  </div>
+
+  <div class="box">
+    <h3>Composite</h3>
+    4,6,8
+  </div>
+
+</div>
 
 </div>
 
 
-<!-- ================= PRACTICE ================= -->
+<!-- ================================================= -->
+<!-- SECTION 4 : DIVISIBILITY -->
+<!-- ================================================= -->
+
+<div class="flow-section">
+
+<h2>Divisibility Rules</h2>
+
+<div class="row">
+
+  <div class="box">
+    <h3>Divisible by 2</h3>
+    Last digit even
+  </div>
+
+  <div class="box">
+    <h3>Divisible by 3</h3>
+    Sum ÷ 3
+  </div>
+
+  <div class="box">
+    <h3>Divisible by 4</h3>
+    Last 2 digits
+  </div>
+
+  <div class="box">
+    <h3>Divisible by 5</h3>
+    0 or 5
+  </div>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- PRACTICE SECTION -->
+<!-- ================================================= -->
 
 <div class="practice">
 
-<h2>📝 Practice</h2>
-
-
-<div class="question">
-Q1. √16 rational or not?
-
-<div class="answer">
-Answer: Rational (4)
-</div>
-</div>
-
+<h3>📝 Practice Questions</h3>
 
 <div class="question">
-Q2. 0.25 in fraction?
-
-<div class="answer">
-Answer: 1/4
+Q1. Is 456 divisible by 3?
+<div class="answer">Answer: Yes (4+5+6=15)</div>
 </div>
-</div>
-
 
 <div class="question">
-Q3. Integer?
-
-3.5 , -7 , 2/3
-
-<div class="answer">
-Answer: -7
+Q2. Is 128 divisible by 4?
+<div class="answer">Answer: Yes (28 ÷ 4)</div>
 </div>
-</div>
-
 
 <div class="question">
-Q4. Remainder of 2100 ÷ 101?
-
-<div class="answer">
-Answer: 80
+Q3. Is 75 divisible by 5?
+<div class="answer">Answer: Yes (Last digit 5)</div>
 </div>
-</div>
-
 
 </div>
 
 
 <footer>
-© 2026 SuccessSetu | Learn Smart 🚀
+© 2026 SuccessSetu | Smart Learning 🚀
 </footer>
-
 
 </div>
 
