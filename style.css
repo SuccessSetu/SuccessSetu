@@ -624,7 +624,7 @@ body.dark .stat-box{
 
 
 /* HOVER OVERLAY */
-body.dark .card::before,
+body.dark .card::before
 body.dark .subCard::before,
 body.dark .year-card::before{
   background:linear-gradient(135deg,#14b8a6,#0f766e);
