@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Number System | SuccessSetu</title>
+
+<link rel="stylesheet" href="../../style.css">
+
+<style>
+
+/* Page Layout */
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:25px;
+}
+
+/* Heading */
+.page-title{
+  text-align:center;
+  font-size:32px;
+  font-weight:900;
+  margin-bottom:20px;
+  color:#0f766e;
+}
+
+/* Card */
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* Dark Mode */
+body.dark .card{
+  background:#020617;
+  color:#e5e7eb;
+}
+
+/* Section Title */
+.section-title{
+  font-size:22px;
+  font-weight:800;
+  color:#0f766e;
+  margin-bottom:10px;
+}
+
+/* Formula Box */
+.formula{
+  background:#ecfeff;
+  padding:12px;
+  border-radius:10px;
+  font-weight:700;
+  margin:10px 0;
+}
+
+body.dark .formula{
+  background:#022c22;
+}
+
+/* Example */
+.example{
+  background:#f1f5f9;
+  padding:12px;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+body.dark .example{
+  background:#020617;
+}
+
+/* Practice */
+.practice{
+  margin-top:10px;
+  font-weight:700;
+}
+
+/* Button */
+.btn{
+  background:#0f766e;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+/* Answer */
+.answer{
+  display:none;
+  background:#dcfce7;
+  padding:10px;
+  border-radius:8px;
+  margin-top:8px;
+}
+
+body.dark .answer{
+  background:#022c22;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="page-title">📘 Number System</h1>
+
+<!-- ================= CARD 1 ================= -->
+
+<div class="card">
+
+<h2 class="section-title">1. Natural Numbers</h2>
+
+<p>
+Natural numbers are counting numbers starting from 1.
+</p>
+
+<div class="formula">
+1, 2, 3, 4, 5, ...
+</div>
+
+<div class="example">
+<b>Example:</b> 5, 12, 20 are natural numbers.
+</div>
+
+<div class="practice">
+Q1: Is 0 a natural number?
+</div>
+
+<button class="btn" onclick="toggleAns(1)">Show Answer</button>
+
+<div class="answer" id="ans1">
+❌ No, 0 is not a natural number.
+</div>
+
+</div>
+
+
+<!-- ================= CARD 2 ================= -->
+
+<div class="card">
+
+<h2 class="section-title">2. Whole Numbers</h2>
+
+<p>
+Whole numbers include 0 and natural numbers.
+</p>
+
+<div class="formula">
+0, 1, 2, 3, 4, ...
+</div>
+
+<div class="example">
+<b>Example:</b> 0, 8, 15 are whole numbers.
+</div>
+
+<div class="practice">
+Q2: Is 0 a whole number?
+</div>
+
+<button class="btn" onclick="toggleAns(2)">Show Answer</button>
+
+<div class="answer" id="ans2">
+✅ Yes, 0 is a whole number.
+</div>
+
+</div>
+
+
+<!-- ================= CARD 3 ================= -->
+
+<div class="card">
+
+<h2 class="section-title">3. Prime Numbers</h2>
+
+<p>
+Prime numbers have only two factors: 1 and itself.
+</p>
+
+<div class="formula">
+2, 3, 5, 7, 11, 13...
+</div>
+
+<div class="example">
+<b>Example:</b> 7 has only (1,7) → Prime
+</div>
+
+<div class="practice">
+Q3: Is 9 a prime number?
+</div>
+
+<button class="btn" onclick="toggleAns(3)">Show Answer</button>
+
+<div class="answer" id="ans3">
+❌ No, 9 = 3 × 3 (More than 2 factors)
+</div>
+
+</div>
+
+
+<!-- ================= CARD 4 ================= -->
+
+<div class="card">
+
+<h2 class="section-title">4. Rational Numbers</h2>
+
+<p>
+Numbers that can be written in p/q form.
+</p>
+
+<div class="formula">
+p/q , q ≠ 0
+</div>
+
+<div class="example">
+<b>Example:</b> 1/2, 3/5, -7/9
+</div>
+
+<div class="practice">
+Q4: Is 0.5 a rational number?
+</div>
+
+<button class="btn" onclick="toggleAns(4)">Show Answer</button>
+
+<div class="answer" id="ans4">
+✅ Yes, 0.5 = 1/2
+</div>
+
+</div>
+
+
+<!-- ================= CARD 5 ================= -->
+
+<div class="card">
+
+<h2 class="section-title">5. Irrational Numbers</h2>
+
+<p>
+Numbers which cannot be written in p/q form.
+</p>
+
+<div class="formula">
+√2 , π , √3
+</div>
+
+<div class="example">
+<b>Example:</b> √2 = 1.414213...
+</div>
+
+<div class="practice">
+Q5: Is √4 irrational?
+</div>
+
+<button class="btn" onclick="toggleAns(5)">Show Answer</button>
+
+<div class="answer" id="ans5">
+❌ No, √4 = 2 (Rational)
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+function toggleAns(num){
+
+  let box = document.getElementById("ans"+num);
+
+  if(box.style.display==="block"){
+    box.style.display="none";
+  }else{
+    box.style.display="block";
+  }
+
+}
+
+</script>
+
+
+</body>
+</html>
