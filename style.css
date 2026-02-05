@@ -695,3 +695,75 @@ body.dark .icon{
   display:block;
   margin:auto;
 }
+/* ===== PRO UI UPGRADE ===== */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f8fafc, #eef2f7);
+}
+
+/* Header Glass Effect */
+.header {
+  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg,#0f766e,#14b8a6);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Logo Animation */
+.header img {
+  transition: 0.4s;
+}
+
+.header img:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* Subject Cards */
+.subject-card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.subject-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+}
+
+/* Progress Bar */
+.progress {
+  height: 7px;
+  border-radius: 20px;
+  background: linear-gradient(90deg,#14b8a6,#22c55e);
+}
+
+/* Search Bar */
+.search-bar input {
+  border-radius: 50px;
+  border: none;
+  padding: 14px 22px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.search-bar input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #14b8a6;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.8);
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Button Effects */
+button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
