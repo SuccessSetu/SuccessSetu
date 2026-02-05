@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Theory of Equations | SuccessSetu</title>
+
+<style>
+
+/* ================= BASE ================= */
+
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#dff6fb;
+}
+
+.container{
+  max-width:1900px;
+  margin:auto;
+  padding:25px;
+  position:relative;
+}
+
+/* ================= WATERMARK ================= */
+
+.watermark{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-30deg);
+  font-size:90px;
+  color:rgba(15,118,110,0.08);
+  font-weight:900;
+  letter-spacing:8px;
+  z-index:0;
+  pointer-events:none;
+  user-select:none;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  background:linear-gradient(135deg,#0ea5a4,#14b8a6);
+  color:white;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  font-size:36px;
+  font-weight:700;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:30px;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= BOX ================= */
+
+.box{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  border-left:6px solid #0ea5a4;
+  box-shadow:0 8px 22px rgba(0,0,0,0.12);
+}
+
+.box h2{
+  color:#0f766e;
+  margin-bottom:12px;
+  border-bottom:2px solid #ecfeff;
+  padding-bottom:5px;
+}
+
+.box p{
+  line-height:1.7;
+  font-size:16px;
+}
+
+/* ================= FORMULA ================= */
+
+.formula{
+  background:#ecfeff;
+  padding:12px 15px;
+  border-radius:12px;
+  margin:10px 0;
+  font-weight:600;
+  font-size:16px;
+}
+
+/* ================= EXAMPLE ================= */
+
+.example{
+  background:#f1f5f9;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  font-size:15px;
+}
+
+/* ================= ARROW ================= */
+
+.arrow{
+  text-align:center;
+  font-size:22px;
+  margin:6px 0;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  margin-top:40px;
+  color:#475569;
+  font-size:15px;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .watermark{
+    font-size:60px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- WATERMARK -->
+<div class="watermark">
+  SuccessSetu
+</div>
+
+
+<div class="container">
+
+
+<!-- HEADER -->
+<div class="header">
+📘 Theory of Equations (समीकरणों का सिद्धांत)
+</div>
+
+
+<!-- ================= GRID ================= -->
+
+<div class="grid">
+
+
+<!-- LEFT COLUMN -->
+<div class="box">
+
+<h2>🔹 Polynomial</h2>
+
+<p>
+A polynomial is an algebraic expression of the form:
+</p>
+
+<div class="formula">
+a₀ + a₁x + a₂x² + ... + aₙxⁿ
+</div>
+
+<p>
+Where n is a natural number.
+</p>
+
+
+<hr>
+
+
+<h2>🔹 Real Polynomial</h2>
+
+<p>
+If all coefficients and variable x are real, then it is called real polynomial.
+</p>
+
+<div class="example">
+Example: 3x² + 2x + 5
+</div>
+
+
+<hr>
+
+
+<h2>🔹 Degree of Polynomial</h2>
+
+<p>
+Highest power of x is called degree.
+</p>
+
+<div class="formula">
+f(x)=5x⁴+2x²+1 → Degree = 4
+</div>
+
+
+<hr>
+
+
+<h2>🔹 Types of Polynomial</h2>
+
+<div class="formula">
+Linear → Degree 1
+</div>
+
+<div class="formula">
+Quadratic → Degree 2
+</div>
+
+<div class="formula">
+Cubic → Degree 3
+</div>
+
+<div class="formula">
+Biquadratic → Degree 4
+</div>
+
+
+<hr>
+
+
+<h2>🔹 Polynomial Equation</h2>
+
+<p>
+If f(x)=0 then it is called polynomial equation.
+</p>
+
+<div class="example">
+Example: x²+3x+2=0
+</div>
+
+</div>
+
+
+<!-- RIGHT COLUMN -->
+<div class="box">
+
+<h2>🔹 Quadratic Equation</h2>
+
+<p>
+General form:
+</p>
+
+<div class="formula">
+ax² + bx + c = 0 (a ≠ 0)
+</div>
+
+
+<hr>
+
+
+<h2>🔹 Roots of Equation</h2>
+
+<p>
+Values of x which satisfy equation are called roots.
+</p>
+
+<div class="example">
+If x²-5x+6=0 → Roots = 2,3
+</div>
+
+
+<hr>
+
+
+<h2>🔹 Factorisation Method</h2>
+
+<div class="formula">
+ax²+bx+c = a(x-α)(x-β)
+</div>
+
+<p>
+Then roots are α and β.
+</p>
+
+
+<hr>
+
+
+<h2>🔹 Direct Formula</h2>
+
+<div class="formula">
+x = (-b ± √(b²-4ac)) / 2a
+</div>
+
+<p>
+Discriminant:
+</p>
+
+<div class="formula">
+D = b² - 4ac
+</div>
+
+
+<hr>
+
+
+<h2>🔹 Nature of Roots</h2>
+
+<div class="formula">
+D > 0 → Two Real Roots
+</div>
+
+<div class="formula">
+D = 0 → Equal Roots
+</div>
+
+<div class="formula">
+D < 0 → Imaginary Roots
+</div>
+
+
+<hr>
+
+
+<h2>🔹 Sridharacharya Formula</h2>
+
+<p>
+Quadratic formula is also known as Sridharacharya Formula.
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+
+© 2026 SuccessSetu | Learn Smart • Grow Fast 🚀
+
+</div>
+
+
+</div>
+
+</body>
+</html>
