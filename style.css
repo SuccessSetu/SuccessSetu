@@ -752,6 +752,22 @@ body {
   box-shadow: 0 0 0 2px #14b8a6;
 }
 
+.bar{
+  width:100%;
+  height:10px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.bar div{
+  height:100%;
+  background:linear-gradient(90deg,#0f766e,#14b8a6);
+  border-radius:20px;
+  transition:0.5s;
+}
+
+
 /* Bottom Nav */
 .bottom-nav {
   backdrop-filter: blur(10px);
