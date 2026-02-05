@@ -22,15 +22,15 @@
   <!-- STATS -->
   <div class="profile-stats">
     <div class="stat-box">
-      <h2>120</h2>
+      <h3 id="hours"></h3>
       <p>Study Hours</p>
     </div>
     <div class="stat-box">
-      <h2>38</h2>
+      <h3 id="chapters"></h3>
       <p>Chapters Done</p>
     </div>
     <div class="stat-box">
-      <h2>62%</h2>
+      <h3 id="syllabus"></h3>
       <p>Syllabus</p>
     </div>
   </div>
@@ -90,6 +90,32 @@
   <a class="active" href="#"><span>👤</span>Profile</a>
 </div>
 <script src="../../script.js"></script>
+
+<script>
+let userData = {
+  name: "Atul Agrawal",
+  hours: 120,
+  chapters: 38,
+  syllabus: 62,
+  math: 70,
+  gs: 55,
+  english: 65,
+  reasoning: 80
+};
+
+// Save once
+if(!localStorage.getItem("userData")){
+  localStorage.setItem("userData", JSON.stringify(userData));
+}
+</script>
+
+<script>
+let data = JSON.parse(localStorage.getItem("userData"));
+
+document.getElementById("hours").innerText = data.hours;
+document.getElementById("chapters").innerText = data.chapters;
+document.getElementById("syllabus").innerText = data.syllabus + "%";
+</script>
 
 </body>
 </html>
