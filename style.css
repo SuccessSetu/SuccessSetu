@@ -783,3 +783,37 @@ button {
 button:hover {
   transform: scale(1.05);
 }
+/* EDIT PROFILE POPUP */
+
+.edit-box{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  width:280px;
+  z-index:9999;
+  box-shadow:0 0 30px rgba(0,0,0,.3);
+  text-align:center;
+}
+
+.edit-box input{
+  width:100%;
+  margin:8px 0;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.edit-box button{
+  margin:8px;
+  padding:8px 14px;
+  border:none;
+  border-radius:8px;
+  background:#14b8a6;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
