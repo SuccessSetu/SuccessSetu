@@ -76,10 +76,25 @@
     🕒 Daily Study Goal: <b>6 Hours</b>
   </div>
 
+  <!-- EDIT POPUP -->
+<div id="editBox" class="edit-box" style="display:none;">
+
+  <h3>Edit Profile</h3>
+
+  <input id="editName" placeholder="Your Name">
+  <input id="editHours" type="number" placeholder="Study Hours">
+  <input id="editChapters" type="number" placeholder="Chapters Done">
+  <input id="editSyllabus" type="number" placeholder="Syllabus %">
+
+  <button onclick="saveProfile()">Save</button>
+  <button onclick="closeEdit()">Cancel</button>
+
+</div>
+
   <!-- ACTION BUTTONS -->
   <div style="text-align:center;margin-top:30px;">
     <a href="../index.html" class="btn">🏠 Back to Home</a>
-    <a href="#" class="btn outline">⚙ Edit Profile</a>
+    <button class="btn outline" onclick="openEdit()">⚙ Edit Profile</button>
   </div>
 
 </div>
@@ -124,6 +139,36 @@ document.getElementById("mathBar").style.width = data.math + "%";
 document.getElementById("gsBar").style.width = data.gs + "%";
 document.getElementById("engBar").style.width = data.english + "%";
 document.getElementById("reasonBar").style.width = data.reasoning + "%";
+
+function openEdit(){
+  let d = JSON.parse(localStorage.getItem("userData"));
+
+  document.getElementById("editName").value = d.name;
+  document.getElementById("editHours").value = d.hours;
+  document.getElementById("editChapters").value = d.chapters;
+  document.getElementById("editSyllabus").value = d.syllabus;
+
+  document.getElementById("editBox").style.display="block";
+}
+
+function closeEdit(){
+  document.getElementById("editBox").style.display="none";
+}
+
+function saveProfile(){
+
+  let d = JSON.parse(localStorage.getItem("userData"));
+
+  d.name = editName.value;
+  d.hours = Number(editHours.value);
+  d.chapters = Number(editChapters.value);
+  d.syllabus = Number(editSyllabus.value);
+
+  localStorage.setItem("userData",JSON.stringify(d));
+
+  location.reload();
+}
+
 </script>
 
 </body>
