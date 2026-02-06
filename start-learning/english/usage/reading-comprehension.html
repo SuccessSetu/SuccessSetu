@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Reading Comprehension Quiz</title>
+<title>Reading Quiz - Pride and Prejudice</title>
 
 <style>
 
 body{
     font-family: Arial, sans-serif;
-    background:#f4f6f9;
+    background:#f5f6fa;
     margin:0;
     padding:20px;
 }
@@ -16,10 +16,10 @@ body{
 .container{
     max-width:900px;
     margin:auto;
-    background:white;
+    background:#fff;
     padding:25px;
     border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    box-shadow:0 0 12px rgba(0,0,0,0.1);
 }
 
 h1{
@@ -29,20 +29,20 @@ h1{
 
 /* Passage */
 .passage{
-    background:#eef3f7;
+    background:#eef6ff;
     padding:20px;
-    border-left:5px solid #3498db;
-    margin-bottom:25px;
+    border-left:6px solid #3498db;
     line-height:1.7;
+    margin-bottom:25px;
 }
 
-/* Question Box */
+/* Question */
 .question{
-    background:#fafafa;
-    padding:15px;
-    margin-bottom:20px;
-    border-radius:8px;
     border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
+    background:#fafafa;
 }
 
 .question h3{
@@ -58,15 +58,15 @@ h1{
 
 /* Button */
 button{
+    display:block;
+    margin:25px auto;
+    padding:12px 30px;
     background:#3498db;
     color:white;
     border:none;
-    padding:12px 25px;
-    font-size:16px;
     border-radius:6px;
+    font-size:16px;
     cursor:pointer;
-    display:block;
-    margin:auto;
 }
 
 button:hover{
@@ -93,42 +93,46 @@ button:hover{
 
 <h1>📘 Reading Comprehension Test</h1>
 
+
 <!-- Passage -->
 <div class="passage">
 
 <h3>Read the Passage Carefully:</h3>
 
 <p>
-"Pride and Prejudice" by Jane Austen explores themes of love, marriage,
-social status, and morality. The novel highlights how pride and prejudice
-affect human relationships. Mr. Darcy’s pride and Elizabeth’s prejudice
-initially prevent their union, but later they overcome their flaws.
-Austen emphasizes that successful marriages are based on mutual respect,
-understanding, and love rather than convenience or wealth.
+Pride and Prejudice by Jane Austen is a classic known for its humor and
+complex characters. The novel explores themes of money, status, and marriage.
+Darcy’s pride and Elizabeth’s prejudice create misunderstandings.
+Austen criticizes class consciousness and promotes love marriages based on
+mutual respect and understanding.
 </p>
 
 </div>
 
 
 <!-- Question 1 -->
-<div class="question" data-answer="1">
+<div class="question" data-answer="0">
 
-<h3>1. What is the main theme of the novel?</h3>
+<h3>1. What kind of marriage does Jane Austen prize the most?</h3>
 
 <label class="option">
-<input type="radio" name="q1" value="0"> Nature and countryside
+<input type="radio" name="q1" value="0">
+Based on mutual respect, love, and understanding
 </label>
 
 <label class="option">
-<input type="radio" name="q1" value="1"> Love, pride, and prejudice
+<input type="radio" name="q1" value="1">
+Marriage for convenience
 </label>
 
 <label class="option">
-<input type="radio" name="q1" value="2"> War and politics
+<input type="radio" name="q1" value="2">
+Marriage for financial security
 </label>
 
 <label class="option">
-<input type="radio" name="q1" value="3"> Education system
+<input type="radio" name="q1" value="3">
+Romantic love alone
 </label>
 
 <p class="result"></p>
@@ -137,24 +141,28 @@ understanding, and love rather than convenience or wealth.
 
 
 <!-- Question 2 -->
-<div class="question" data-answer="2">
+<div class="question" data-answer="0">
 
-<h3>2. Who are affected by pride and prejudice?</h3>
+<h3>2. What does "Pride and Prejudice" mainly refer to?</h3>
 
 <label class="option">
-<input type="radio" name="q2" value="0"> Mr. Bennet and Mrs. Bennet
+<input type="radio" name="q2" value="0">
+Darcy’s pride and Elizabeth’s prejudice
 </label>
 
 <label class="option">
-<input type="radio" name="q2" value="1"> Lydia and Wickham
+<input type="radio" name="q2" value="1">
+Mr. Bennet’s wit
 </label>
 
 <label class="option">
-<input type="radio" name="q2" value="2"> Darcy and Elizabeth
+<input type="radio" name="q2" value="2">
+Lady Catherine’s arrogance
 </label>
 
 <label class="option">
-<input type="radio" name="q2" value="3"> Collins and Charlotte
+<input type="radio" name="q2" value="3">
+Lydia’s behavior
 </label>
 
 <p class="result"></p>
@@ -163,24 +171,28 @@ understanding, and love rather than convenience or wealth.
 
 
 <!-- Question 3 -->
-<div class="question" data-answer="0">
+<div class="question" data-answer="1">
 
-<h3>3. What prevents Darcy and Elizabeth initially?</h3>
+<h3>3. How is Lady Catherine used in the novel?</h3>
 
 <label class="option">
-<input type="radio" name="q3" value="0"> Pride and prejudice
+<input type="radio" name="q3" value="0">
+Symbol of maternal love
 </label>
 
 <label class="option">
-<input type="radio" name="q3" value="1"> Family problems
+<input type="radio" name="q3" value="1">
+Symbol of social tyranny and class prejudice
 </label>
 
 <label class="option">
-<input type="radio" name="q3" value="2"> Distance
+<input type="radio" name="q3" value="2">
+Comic relief only
 </label>
 
 <label class="option">
-<input type="radio" name="q3" value="3"> Financial issues
+<input type="radio" name="q3" value="3">
+Symbol of working class struggle
 </label>
 
 <p class="result"></p>
@@ -189,24 +201,28 @@ understanding, and love rather than convenience or wealth.
 
 
 <!-- Question 4 -->
-<div class="question" data-answer="3">
+<div class="question" data-answer="0">
 
-<h3>4. What kind of marriage is discouraged?</h3>
+<h3>4. What event changes Elizabeth’s view of Darcy?</h3>
 
 <label class="option">
-<input type="radio" name="q4" value="0"> Love marriage
+<input type="radio" name="q4" value="0">
+Visit to Pemberley and Darcy’s letter
 </label>
 
 <label class="option">
-<input type="radio" name="q4" value="1"> Respectful marriage
+<input type="radio" name="q4" value="1">
+Lydia’s elopement
 </label>
 
 <label class="option">
-<input type="radio" name="q4" value="2"> Understanding marriage
+<input type="radio" name="q4" value="2">
+Mr. Collins proposal
 </label>
 
 <label class="option">
-<input type="radio" name="q4" value="3"> Marriage for wealth and convenience
+<input type="radio" name="q4" value="3">
+Netherfield Ball
 </label>
 
 <p class="result"></p>
@@ -215,24 +231,28 @@ understanding, and love rather than convenience or wealth.
 
 
 <!-- Question 5 -->
-<div class="question" data-answer="1">
+<div class="question" data-answer="0">
 
-<h3>5. What does Austen support most?</h3>
+<h3>5. What kind of marriage is most successful in the novel?</h3>
 
 <label class="option">
-<input type="radio" name="q5" value="0"> Marriage for money
+<input type="radio" name="q5" value="0">
+Love with respect and understanding
 </label>
 
 <label class="option">
-<input type="radio" name="q5" value="1"> Marriage based on love and respect
+<input type="radio" name="q5" value="1">
+Marriage for status
 </label>
 
 <label class="option">
-<input type="radio" name="q5" value="2"> Political marriage
+<input type="radio" name="q5" value="2">
+Marriage for money
 </label>
 
 <label class="option">
-<input type="radio" name="q5" value="3"> Forced marriage
+<input type="radio" name="q5" value="3">
+Forced marriage
 </label>
 
 <p class="result"></p>
@@ -241,7 +261,7 @@ understanding, and love rather than convenience or wealth.
 
 
 <!-- Button -->
-<button onclick="showAnswers()">Show Answers</button>
+<button onclick="checkAnswers()">Show Answers</button>
 
 
 </div>
@@ -249,31 +269,26 @@ understanding, and love rather than convenience or wealth.
 
 <script>
 
-function showAnswers(){
+function checkAnswers(){
 
-    const questions = document.querySelectorAll('.question');
+    const questions = document.querySelectorAll(".question");
 
-    questions.forEach((question, index)=>{
+    questions.forEach(q=>{
 
-        const correct = question.getAttribute("data-answer");
+        const correct = q.dataset.answer;
+        const selected = q.querySelector("input:checked");
+        const result = q.querySelector(".result");
 
-        const selected = question.querySelector('input:checked');
-
-        const result = question.querySelector('.result');
-
-        if(selected){
-
-            if(selected.value === correct){
-                result.innerHTML = "✔ Correct";
-                result.className = "result correct";
-            }
-            else{
-                result.innerHTML = "❌ Wrong";
-                result.className = "result wrong";
-            }
-
-        }else{
-            result.innerHTML = "⚠ Please select an option";
+        if(!selected){
+            result.innerHTML = "⚠ Select an option";
+            result.className = "result wrong";
+        }
+        else if(selected.value === correct){
+            result.innerHTML = "✔ Correct";
+            result.className = "result correct";
+        }
+        else{
+            result.innerHTML = "❌ Wrong";
             result.className = "result wrong";
         }
 
