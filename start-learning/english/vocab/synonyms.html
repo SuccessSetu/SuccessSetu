@@ -5,111 +5,107 @@
 <title>Vocabulary List</title>
 
 <style>
-
-body{
-    margin:0;
+body {
+    margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(120deg,#74b9ff,#a29bfe);
-    padding:20px;
+    background: linear-gradient(120deg, #74b9ff, #a29bfe);
+    padding: 20px;
+    min-height: 100vh;
 }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    background:#fff;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+/* ============ WATERMARK (LOGO) ============ */
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg); /* Center mein aur thoda tedha */
+    z-index: -1; /* Content ke piche */
+    pointer-events: none; /* Click block nahi karega */
+    user-select: none;
 }
 
-h1{
-    text-align:center;
-    color:#2c3e50;
-    margin-bottom:25px;
+.watermark img {
+    width: 600px; /* Logo ka size yahan se badein/ghatayein */
+    opacity: 0.06; /* Bilkul halka dikhne ke liye */
+    filter: grayscale(100%); /* Optional: Black & white effect ke liye */
 }
 
-/* Word Card */
-.word-card{
-    background:#f8f9fa;
-    border-left:6px solid #6c5ce7;
-    padding:15px 20px;
-    margin-bottom:15px;
-    border-radius:6px;
-    transition:0.3s;
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.95); /* Thoda transparent taaki watermark halka dikhe */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    position: relative;
 }
 
-.word-card:hover{
-    background:#eef1ff;
-    transform:scale(1.01);
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #6c5ce7;
+    padding-bottom: 10px;
 }
 
-.word{
-    font-size:20px;
-    font-weight:bold;
-    color:#d63031;
+/* Word Card Style */
+.word-card {
+    background: #f8f9fa;
+    border-left: 6px solid #6c5ce7;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    transition: 0.3s;
 }
 
-.meaning{
-    margin-top:6px;
-    color:#2d3436;
+.word-card:hover {
+    background: #eef1ff;
+    transform: scale(1.01);
 }
 
-.synonyms{
-    margin-top:5px;
-    color:#0984e3;
-    font-size:14px;
+.word {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d63031;
 }
 
-.letter{
-    background:#6c5ce7;
-    color:white;
-    padding:6px 15px;
-    border-radius:20px;
-    display:inline-block;
-    margin:20px 0 10px;
-    font-weight:bold;
+.meaning {
+    margin-top: 6px;
+    color: #2d3436;
+    font-weight: 500;
 }
 
-.footer{
-    text-align:center;
-    margin-top:25px;
-    color:#636e72;
-    font-size:14px;
-}
-/* ============ WATERMARK ============ */
-
-.watermark{
-  position:fixed;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:140px;
-  font-weight:900;
-  color:rgba(15,118,110,0.07);
-  letter-spacing:10px;
-  pointer-events:none;
-  user-select:none;
-  z-index:-1;
-}
-/* ============ MOBILE ============ */
-
-@media(max-width:900px){
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .header{
-    font-size:28px;
-  }
-
-  .watermark{
-    font-size:70px;
-  }
-
+.synonyms {
+    margin-top: 5px;
+    color: #0984e3;
+    font-size: 14px;
+    font-style: italic;
 }
 
+.letter-heading {
+    background: #6c5ce7;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 25px 0 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media(max-width:600px){
+    .watermark img { width: 300px; }
+    .container { padding: 15px; }
+    .word { font-size: 18px; }
+}
 </style>
 </head>
 
