@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coordinate Geometry | SuccessSetu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ============ BASE ============ */
+
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#dff6fb;
+}
+
+.container{
+  max-width:1900px; /* 4K */
+  margin:auto;
+  padding:40px;
+  position:relative;
+}
+
+/* ============ WATERMARK ============ */
+
+.watermark{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:140px;
+  font-weight:900;
+  color:rgba(15,118,110,0.07);
+  letter-spacing:10px;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+}
+
+/* ============ HEADER ============ */
+
+.header{
+  background:linear-gradient(135deg,#0284c7,#0ea5a4);
+  color:white;
+  padding:30px;
+  border-radius:25px;
+  text-align:center;
+  font-size:42px;
+  font-weight:700;
+  margin-bottom:35px;
+  position:relative;
+  z-index:2;
+}
+
+/* ============ GRID ============ */
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  position:relative;
+  z-index:2;
+}
+
+/* ============ BOX ============ */
+
+.box{
+  background:white;
+  border-radius:22px;
+  padding:25px;
+  border-left:7px solid #0284c7;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+.box h2{
+  color:#0f766e;
+  margin-bottom:15px;
+  border-bottom:2px solid #ecfeff;
+  padding-bottom:5px;
+}
+
+.box p{
+  line-height:1.7;
+  font-size:17px;
+}
+
+/* ============ FORMULA ============ */
+
+.formula{
+  background:#ecfeff;
+  padding:14px;
+  border-radius:12px;
+  margin:12px 0;
+  font-weight:600;
+}
+
+/* ============ FLOW ============ */
+
+.flow{
+  background:#f1f5f9;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  font-size:15px;
+}
+
+/* ============ FOOTER ============ */
+
+.footer{
+  text-align:center;
+  margin-top:50px;
+  color:#475569;
+  font-size:16px;
+  position:relative;
+  z-index:2;
+}
+
+/* ============ MOBILE ============ */
+
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .header{
+    font-size:28px;
+  }
+
+  .watermark{
+    font-size:70px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- WATERMARK -->
+<div class="watermark">SuccessSetu</div>
+
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+📐 Co-ordinate Geometry (निर्देशांक ज्यामिति)
+</div>
+
+
+<div class="grid">
+
+<!-- ========== LEFT SIDE ========== -->
+
+<div class="box">
+
+<h2>📘 Quadrants</h2>
+
+<p>Plane is divided into four quadrants.</p>
+
+<div class="formula">
+I (+,+) | II (-,+) | III (-,-) | IV (+,-)
+</div>
+
+<div class="flow">
+Origin O = (0,0)
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Coordinates of Point</h2>
+
+<p>Any point is represented as:</p>
+
+<div class="formula">
+P = (x , y)
+</div>
+
+<div class="flow">
+x → Abscissa, y → Ordinate
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Equation of Axes</h2>
+
+<div class="formula">
+X-axis → y = 0 <br>
+Y-axis → x = 0
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Polar Coordinates</h2>
+
+<p>Point represented using distance & angle.</p>
+
+<div class="formula">
+P = (r cosθ , r sinθ)
+</div>
+
+</div>
+
+
+<!-- ========== RIGHT SIDE ========== -->
+
+<div class="box">
+
+<h2>📘 Mid Point Formula</h2>
+
+<div class="formula">
+M = ( (x₁+x₂)/2 , (y₁+y₂)/2 )
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Distance Formula</h2>
+
+<div class="formula">
+√[(x₂-x₁)² + (y₂-y₁)²]
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Section Formula (Internal)</h2>
+
+<div class="formula">
+P = ( (m₁x₂+m₂x₁)/(m₁+m₂) , (m₁y₂+m₂y₁)/(m₁+m₂) )
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Trigonometric Form</h2>
+
+<div class="formula">
+sinθ = y/r <br>
+cosθ = x/r <br>
+tanθ = y/x
+</div>
+
+</div>
+
+
+<!-- ========== PRACTICE ========== -->
+
+<div class="box">
+
+<h2>✍️ Practice 1</h2>
+
+<p>Find midpoint of (2,4) & (6,8)</p>
+
+<div class="flow">
+Use midpoint formula
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>✍️ Practice 2</h2>
+
+<p>Find distance between (1,2) & (4,6)</p>
+
+<div class="flow">
+Apply distance formula
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+
+© 2026 SuccessSetu | Coordinate Geometry Notes 🚀
+
+</div>
+
+</div>
+
+</body>
+</html>
