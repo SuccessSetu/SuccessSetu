@@ -104,7 +104,29 @@ body{
   margin-top:40px;
   color:#64748b;
 }
+/* WATERMARK */
+.watermark{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-30deg);
+  font-size:110px;
+  color:rgba(15,118,110,0.08);
+  font-weight:900;
+  letter-spacing:8px;
+  z-index:0;
+  pointer-events:none;
+}
+/* MOBILE */
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:1fr;
+  }
 
+  .watermark{
+    font-size:70px;
+  }
+}
 </style>
 </head>
 
