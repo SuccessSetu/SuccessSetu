@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Probability | SuccessSetu</title>
+
+<link rel="stylesheet" href="../../style.css">
+
+<style>
+
+/* 4K Container */
+.container{
+  max-width:1800px;
+  margin:auto;
+  padding:30px;
+  position:relative;
+}
+
+/* WATERMARK */
+.watermark{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-30deg);
+  font-size:110px;
+  color:rgba(15,118,110,0.08);
+  font-weight:900;
+  letter-spacing:8px;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,#0ea5a4,#14b8a6);
+  color:white;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:25px;
+  z-index:2;
+  position:relative;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  position:relative;
+  z-index:2;
+}
+
+/* BOX */
+.box{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  border-left:6px solid #0ea5a4;
+  box-shadow:0 8px 22px rgba(0,0,0,0.12);
+}
+
+.box h2{
+  color:#0f766e;
+  border-bottom:2px solid #ecfeff;
+  padding-bottom:5px;
+  margin-bottom:12px;
+}
+
+.flow{
+  margin:15px 0;
+  padding-left:20px;
+  border-left:3px dashed #0ea5a4;
+}
+
+.flow span{
+  color:#0f766e;
+  font-weight:bold;
+}
+
+/* Formula */
+.formula{
+  background:#ecfeff;
+  padding:12px;
+  border-radius:12px;
+  font-weight:600;
+  margin:10px 0;
+}
+
+/* Example */
+.example{
+  background:#f1f5f9;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+/* Question */
+.question{
+  background:#f8fafc;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+  border:1px solid #e2e8f0;
+}
+
+.options{
+  margin-top:10px;
+  line-height:1.8;
+}
+
+details{
+  margin-top:10px;
+  cursor:pointer;
+  font-weight:600;
+  color:#0f766e;
+}
+
+.answer{
+  margin-top:8px;
+  color:#16a34a;
+  font-weight:700;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:40px;
+  color:#475569;
+  font-size:15px;
+  z-index:2;
+  position:relative;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .watermark{
+    font-size:70px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- WATERMARK -->
+<div class="watermark">SUCCESSSETU</div>
+
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+📘 Probability – Concepts & PYQ
+</div>
+
+
+<!-- ================= GRID ================= -->
+
+<div class="grid">
+
+<!-- ================= LEFT ================= -->
+
+<div class="box">
+
+<h2>1️⃣ Random Experiment</h2>
+
+<p>An experiment which gives different outcomes every time.</p>
+
+<div class="flow">
+<span>Experiment</span> → <span>Outcome</span> → <span>Sample Space</span> → <span>Probability</span>
+</div>
+
+<div class="example">
+Example: Tossing a coin → H, T
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>2️⃣ Sample Space</h2>
+
+<p>All possible outcomes of an experiment.</p>
+
+<div class="formula">
+S = {H, T}
+</div>
+
+<div class="example">
+Two coins → {HH, HT, TH, TT}
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>3️⃣ Probability Formula</h2>
+
+<div class="formula">
+P(E) = Favorable / Total Outcomes
+</div>
+
+<div class="example">
+Die → P(2) = 1/6
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>4️⃣ Types of Events</h2>
+
+<div class="flow">
+➤ Impossible → P = 0 <br>
+➤ Sure Event → P = 1 <br>
+➤ Complement → 1 – P(E)
+</div>
+
+</div>
+
+
+<!-- ================= RIGHT ================= -->
+
+<div class="box">
+
+<h2>📝 PYQ – Question 1</h2>
+
+<div class="question">
+
+<p>Two coins are tossed. Find probability of one head.</p>
+
+<div class="options">
+a) 1/4 <br>
+b) 1/2 <br>
+c) 3/4 <br>
+d) 1
+</div>
+
+<details>
+<summary>Show Answer</summary>
+<div class="answer">✔ Answer: 1/2</div>
+</details>
+
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📝 PYQ – Question 2</h2>
+
+<div class="question">
+
+<p>A die is thrown. Find probability of prime number.</p>
+
+<div class="options">
+a) 1/6 <br>
+b) 1/2 <br>
+c) 1/3 <br>
+d) 2/3
+</div>
+
+<details>
+<summary>Show Answer</summary>
+<div class="answer">✔ Answer: 1/2</div>
+</details>
+
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📝 PYQ – Question 3</h2>
+
+<div class="question">
+
+<p>Probability value lies between?</p>
+
+<div class="options">
+a) -1 to 1 <br>
+b) 0 to 1 <br>
+c) 1 to ∞ <br>
+d) None
+</div>
+
+<details>
+<summary>Show Answer</summary>
+<div class="answer">✔ Answer: 0 to 1</div>
+</details>
+
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📌 Important Note</h2>
+
+<div class="flow">
+✔ Always write Sample Space <br>
+✔ Count favorable cases <br>
+✔ Apply formula
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+© 2026 SuccessSetu | Probability Notes 🚀
+</div>
+
+
+</div>
+
+</body>
+</html>
