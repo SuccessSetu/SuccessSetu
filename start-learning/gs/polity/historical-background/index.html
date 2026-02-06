@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=3840, initial-scale=1.0">
+<title>Indian Polity Historical Background Flowchart</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    overflow-x:auto;
+}
+
+/* Main Container */
+.container{
+    width:3840px;
+    min-height:2160px;
+    padding:80px;
+}
+
+/* Title */
+.title{
+    text-align:center;
+    font-size:70px;
+    font-weight:bold;
+    margin-bottom:80px;
+    color:#ffcc00;
+    text-shadow:0 0 15px #000;
+}
+
+/* Timeline */
+.timeline{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    position:relative;
+}
+
+/* Vertical Line */
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:8px;
+    height:100%;
+    background:#ffcc00;
+    transform:translateX(-50%);
+    border-radius:10px;
+}
+
+/* Flow Card */
+.card{
+    width:900px;
+    background:rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:80px;
+    box-shadow:0 0 25px rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+    border:2px solid rgba(255,204,0,0.4);
+}
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 40px #ffcc00;
+}
+
+/* Left & Right */
+.left{
+    margin-right:100px;
+}
+
+.right{
+    margin-left:100px;
+}
+
+/* Year */
+.year{
+    font-size:38px;
+    font-weight:bold;
+    color:#ffcc00;
+    margin-bottom:15px;
+}
+
+/* Heading */
+.heading{
+    font-size:32px;
+    margin-bottom:15px;
+    color:#00ffff;
+}
+
+/* Content */
+.content{
+    font-size:24px;
+    line-height:1.7;
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    font-size:24px;
+    margin-top:80px;
+    color:#ccc;
+}
+
+/* Animation */
+.card{
+    opacity:0;
+    transform:translateY(60px);
+}
+
+.card.show{
+    opacity:1;
+    transform:translateY(0);
+    transition:1s;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">
+        📜 Historical Background of Indian Constitution (1773–1786)
+    </div>
+
+    <div class="timeline">
+
+        <div class="left">
+
+            <!-- 1773 -->
+            <div class="card">
+                <div class="year">1773</div>
+                <div class="heading">Regulating Act</div>
+                <div class="content">
+                    • First control by British Government<br>
+                    • Governor-General of Bengal created<br>
+                    • Supreme Court in Calcutta (1774)<br>
+                    • Company servants banned from private trade<br>
+                    • Reporting to Court of Directors
+                </div>
+            </div>
+
+            <!-- 1784 -->
+            <div class="card">
+                <div class="year">1784</div>
+                <div class="heading">Pitt’s India Act</div>
+                <div class="content">
+                    • Separate political & commercial powers<br>
+                    • Board of Control created<br>
+                    • Double Government System<br>
+                    • British supremacy established
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right">
+
+            <!-- 1781 -->
+            <div class="card">
+                <div class="year">1781</div>
+                <div class="heading">Amending Act</div>
+                <div class="content">
+                    • Limited Supreme Court powers<br>
+                    • Revenue matters excluded<br>
+                    • Personal laws recognized<br>
+                    • Appeals to Governor-General-in-Council
+                </div>
+            </div>
+
+            <!-- 1786 -->
+            <div class="card">
+                <div class="year">1786</div>
+                <div class="heading">Act of 1786</div>
+                <div class="content">
+                    • Lord Cornwallis appointed<br>
+                    • Override Council decisions<br>
+                    • Commander-in-Chief power<br>
+                    • Strengthened Governor-General
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Designed for 4K Display | Indian Polity | M. Laxmikanth
+    </div>
+
+</div>
+
+<script>
+
+// Animation on Scroll
+
+const cards = document.querySelectorAll('.card');
+
+function showCards(){
+    const trigger = window.innerHeight * 0.8;
+
+    cards.forEach(card=>{
+        const top = card.getBoundingClientRect().top;
+
+        if(top < trigger){
+            card.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll',showCards);
+showCards();
+
+</script>
+
+</body>
+</html>
