@@ -2,205 +2,703 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Vocabulary List</title>
+<title>A–Z Vocabulary List | SuccessSetu</title>
 
 <style>
-
 body{
     margin:0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(120deg,#74b9ff,#a29bfe);
+    background:#000;
     padding:20px;
+    color:#fff;
 }
 
+/* ===== MAIN CONTAINER ===== */
 .container{
     max-width:900px;
     margin:auto;
-    background:#fff;
+    background:#111;
     padding:25px;
     border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    box-shadow:0 5px 25px rgba(0,0,0,0.8);
+    position:relative;
+    z-index:2;
 }
 
+/* ===== HEADING ===== */
 h1{
     text-align:center;
-    color:#2c3e50;
+    color:#ffffff;
     margin-bottom:25px;
+    font-size:28px;
 }
 
-/* Word Card */
+/* ===== WORD CARD ===== */
 .word-card{
-    background:#f8f9fa;
+    background:#1c1c1c;
     border-left:6px solid #6c5ce7;
     padding:15px 20px;
     margin-bottom:15px;
-    border-radius:6px;
-    transition:0.3s;
+    border-radius:8px;
+    transition:0.3s ease;
 }
 
 .word-card:hover{
-    background:#eef1ff;
+    background:#262626;
     transform:scale(1.01);
 }
 
+/* ===== WORD ===== */
 .word{
     font-size:20px;
     font-weight:bold;
-    color:#d63031;
+    color:#ff7675;
 }
 
+/* ===== MEANING ===== */
 .meaning{
     margin-top:6px;
-    color:#2d3436;
+    color:#dfe6e9;
+    font-size:15px;
 }
 
+/* ===== SYNONYMS ===== */
 .synonyms{
     margin-top:5px;
-    color:#0984e3;
+    color:#74b9ff;
     font-size:14px;
 }
 
+/* ===== LETTER BADGE ===== */
 .letter{
     background:#6c5ce7;
     color:white;
-    padding:6px 15px;
+    padding:6px 16px;
     border-radius:20px;
     display:inline-block;
     margin:20px 0 10px;
     font-weight:bold;
+    font-size:14px;
 }
 
+/* ===== FOOTER ===== */
 .footer{
     text-align:center;
     margin-top:25px;
-    color:#636e72;
+    color:#b2bec3;
     font-size:14px;
 }
-/* ============ WATERMARK ============ */
-/* Background Logo */
 
-.bg-logo{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.08;          /* Light watermark effect */
-    z-index: -1;            /* Content ke peeche */
-    pointer-events: none;
-}
-
-.bg-logo img{
-    width: 300px;           /* Size adjust kar sakte ho */
-    max-width: 80vw;
-}
-
-/* Logo Header */
-.header{
+/* ===== WATERMARK LOGO ===== */
+.watermark{
+    position:fixed;
+    inset:0;
     display:flex;
-    align-items:center;
     justify-content:center;
-    gap:15px;
-    margin-bottom:20px;
+    align-items:center;
+    pointer-events:none;
+    user-select:none;
+    z-index:-1;
 }
 
-.logo{
-    width:60px;
-    height:60px;
-    object-fit:contain;
+.watermark img{
+    width:35%;
+    max-width:420px;
+    opacity:0.15;
+    filter:brightness(1.5) contrast(1.2);
 }
 
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:900px){
 
+    h1{
+        font-size:24px;
+    }
+
+    .word{
+        font-size:18px;
+    }
+
+    .watermark img{
+        width:60%;
+        opacity:0.12;
+    }
+
+}
 </style>
 </head>
 
 <body>
+<div class="watermark">
+  <!-- Yaha apna logo rakho -->
+  <img src="../../../images/exam-point-logo.png" alt="Exam Point Logo">
+</div>
 
-<!-- Watermark -->
-<!-- Background Center Logo -->
-<div class="bg-logo">
-    <img src="../../../../images/exam-point-logo.png" alt="Logo">
+<div class="container">
+
+<h1>📘 A–Z Vocabulary List (Easy Synonyms)</h1>
+
+
+<!-- A -->
+<div class="letter">A</div>
+
+<div class="word-card">
+    <div class="word">Abhorrent</div>
+    <div class="meaning">Very hateful or disgusting</div>
+    <div class="synonyms">Synonyms: hateful, terrible</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Arcadian</div>
+    <div class="meaning">Peaceful and simple</div>
+    <div class="synonyms">Synonyms: calm, natural</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Audacious</div>
+    <div class="meaning">Very bold and brave</div>
+    <div class="synonyms">Synonyms: brave, daring</div>
 </div>
 
 
-    <!-- Header with Logo -->
-    <div class="header">
+<!-- B -->
+<div class="letter">B</div>
 
-        <img src="../../../../images/exam-point-logo.png"
-             class="logo"
-             alt="Exam Point Logo">
-
-        <h1>📘 Vocabulary List</h1>
-
-    </div>
+<div class="word-card">
+    <div class="word">Beleaguer</div>
+    <div class="meaning">To trouble again and again</div>
+    <div class="synonyms">Synonyms: bother, disturb</div>
+</div>
 
 
-    <!-- A -->
-    <div class="letter">A</div>
+<!-- C -->
+<div class="letter">C</div>
 
-    <div class="word-card">
-        <div class="word">Abhorrent</div>
-        <div class="meaning">Very hateful or disgusting</div>
-        <div class="synonyms">Synonyms: hateful, terrible</div>
-    </div>
+<div class="word-card">
+    <div class="word">Capitulate</div>
+    <div class="meaning">To give up</div>
+    <div class="synonyms">Synonyms: surrender, quit</div>
+</div>
 
-    <div class="word-card">
-        <div class="word">Arcadian</div>
-        <div class="meaning">Peaceful and simple</div>
-        <div class="synonyms">Synonyms: calm, natural</div>
-    </div>
+<div class="word-card">
+    <div class="word">Choleric</div>
+    <div class="meaning">Easily angry</div>
+    <div class="synonyms">Synonyms: angry, hot-tempered</div>
+</div>
 
-    <div class="word-card">
-        <div class="word">Audacious</div>
-        <div class="meaning">Very bold and brave</div>
-        <div class="synonyms">Synonyms: brave, daring</div>
-    </div>
+<div class="word-card">
+    <div class="word">Copious</div>
+    <div class="meaning">In large amount</div>
+    <div class="synonyms">Synonyms: plenty, much</div>
+</div>
 
-
-    <!-- B -->
-    <div class="letter">B</div>
-
-    <div class="word-card">
-        <div class="word">Beleaguer</div>
-        <div class="meaning">To trouble again and again</div>
-        <div class="synonyms">Synonyms: bother, disturb</div>
-    </div>
+<div class="word-card">
+    <div class="word">Circumspect</div>
+    <div class="meaning">Careful</div>
+    <div class="synonyms">Synonyms: careful, alert</div>
+</div>
 
 
-    <!-- C -->
-    <div class="letter">C</div>
+<!-- D -->
+<div class="letter">D</div>
 
-    <div class="word-card">
-        <div class="word">Capitulate</div>
-        <div class="meaning">To give up</div>
-        <div class="synonyms">Synonyms: surrender, quit</div>
-    </div>
+<div class="word-card">
+    <div class="word">Deride</div>
+    <div class="meaning">To make fun of</div>
+    <div class="synonyms">Synonyms: mock, tease</div>
+</div>
 
-    <div class="word-card">
-        <div class="word">Choleric</div>
-        <div class="meaning">Easily angry</div>
-        <div class="synonyms">Synonyms: angry, hot-tempered</div>
-    </div>
+<div class="word-card">
+    <div class="word">Didactic</div>
+    <div class="meaning">Teaching lesson</div>
+    <div class="synonyms">Synonyms: teaching, instructive</div>
+</div>
 
-    <div class="word-card">
-        <div class="word">Copious</div>
-        <div class="meaning">In large amount</div>
-        <div class="synonyms">Synonyms: plenty, much</div>
-    </div>
-
-    <div class="word-card">
-        <div class="word">Circumspect</div>
-        <div class="meaning">Careful</div>
-        <div class="synonyms">Synonyms: careful, alert</div>
-    </div>
+<div class="word-card">
+    <div class="word">Desiccate</div>
+    <div class="meaning">To dry</div>
+    <div class="synonyms">Synonyms: dry, remove water</div>
+</div>
 
 
-    <!-- Footer -->
-    <div class="footer">
-        www.successsetu.com ✨
-    </div>
+<!-- E -->
+<div class="letter">E</div>
+
+<div class="word-card">
+    <div class="word">Ennui</div>
+    <div class="meaning">Boredom</div>
+    <div class="synonyms">Synonyms: tiredness, boredom</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Enormity</div>
+    <div class="meaning">Great seriousness</div>
+    <div class="synonyms">Synonyms: greatness, seriousness</div>
+</div>
+
+
+<!-- F -->
+<div class="letter">F</div>
+
+<div class="word-card">
+    <div class="word">Feral</div>
+    <div class="meaning">Wild</div>
+    <div class="synonyms">Synonyms: wild, untamed</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Fluctuate</div>
+    <div class="meaning">Change again and again</div>
+    <div class="synonyms">Synonyms: rise and fall, vary</div>
+</div>
+
+
+<!-- G -->
+<div class="letter">G</div>
+
+<div class="word-card">
+    <div class="word">Grandiloquent</div>
+    <div class="meaning">Using big words</div>
+    <div class="synonyms">Synonyms: showy, fancy</div>
+</div>
+
+
+<!-- I -->
+<div class="letter">I</div>
+
+<div class="word-card">
+    <div class="word">Incorrigible</div>
+    <div class="meaning">Cannot change</div>
+    <div class="synonyms">Synonyms: stubborn, bad</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Importunate</div>
+    <div class="meaning">Demanding again and again</div>
+    <div class="synonyms">Synonyms: persistent, forceful</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Inscrutable</div>
+    <div class="meaning">Hard to understand</div>
+    <div class="synonyms">Synonyms: confusing, unclear</div>
+</div>
+
+
+<!-- L -->
+<div class="letter">L</div>
+
+<div class="word-card">
+    <div class="word">Laudable</div>
+    <div class="meaning">Deserving praise</div>
+    <div class="synonyms">Synonyms: good, praiseworthy</div>
+</div>
+
+
+<!-- P -->
+<div class="letter">P</div>
+
+<div class="word-card">
+    <div class="word">Pernicious</div>
+    <div class="meaning">Very harmful</div>
+    <div class="synonyms">Synonyms: harmful, dangerous</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Pithy</div>
+    <div class="meaning">Short and meaningful</div>
+    <div class="synonyms">Synonyms: brief, clear</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Prodigal</div>
+    <div class="meaning">Wasteful</div>
+    <div class="synonyms">Synonyms: careless, spender</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Prosaic</div>
+    <div class="meaning">Boring</div>
+    <div class="synonyms">Synonyms: dull, simple</div>
+</div>
+
+
+<!-- R -->
+<div class="letter">R</div>
+
+<div class="word-card">
+    <div class="word">Ruminate</div>
+    <div class="meaning">Think deeply</div>
+    <div class="synonyms">Synonyms: think, reflect</div>
+</div>
+
+
+<!-- S -->
+<div class="letter">S</div>
+
+<div class="word-card">
+    <div class="word">Stagnant</div>
+    <div class="meaning">Not growing</div>
+    <div class="synonyms">Synonyms: stopped, inactive</div>
+</div>
+
+<div class="word-card">
+    <div class="word">Sycophant</div>
+    <div class="meaning">Fake flatterer</div>
+    <div class="synonyms">Synonyms: flatterer, yes-man</div>
+</div>
+
+
+<!-- T -->
+<div class="letter">T</div>
+
+<div class="word-card">
+    <div class="word">Taciturn</div>
+    <div class="meaning">Very quiet</div>
+    <div class="synonyms">Synonyms: silent, reserved</div>
+</div>
+
+
+<!-- U -->
+<div class="letter">U</div>
+
+<div class="word-card">
+    <div class="word">Untoward</div>
+    <div class="meaning">Unexpected</div>
+    <div class="synonyms">Synonyms: wrong, bad</div>
+</div>
+
+
+<!-- V -->
+<div class="letter">V</div>
+
+<div class="word-card">
+    <div class="word">Vex</div>
+    <div class="meaning">To annoy</div>
+    <div class="synonyms">Synonyms: irritate, bother</div>
+</div>
+<!-- A -->
+<div class="letter">A</div>
+
+<div class="word-card">
+  <div class="word">Aegis</div>
+  <div class="meaning">Protection</div>
+  <div class="synonyms">Synonyms: support, shield</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Abeyance</div>
+  <div class="meaning">Temporary stop</div>
+  <div class="synonyms">Synonyms: pause, delay</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Abhorrent</div>
+  <div class="meaning">Hateful</div>
+  <div class="synonyms">Synonyms: disgusting, terrible</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Audacious</div>
+  <div class="meaning">Very bold</div>
+  <div class="synonyms">Synonyms: brave, daring</div>
+</div>
+
+
+<!-- C -->
+<div class="letter">C</div>
+
+<div class="word-card">
+  <div class="word">Capitulate</div>
+  <div class="meaning">Give up</div>
+  <div class="synonyms">Synonyms: surrender, quit</div>
+</div>
+
+
+<!-- D -->
+<div class="letter">D</div>
+
+<div class="word-card">
+  <div class="word">Diffuse</div>
+  <div class="meaning">Spread out</div>
+  <div class="synonyms">Synonyms: scattered, unfocused</div>
+</div>
+
+
+<!-- E -->
+<div class="letter">E</div>
+
+<div class="word-card">
+  <div class="word">Exigency</div>
+  <div class="meaning">Urgent need</div>
+  <div class="synonyms">Synonyms: emergency, urgency</div>
+</div>
+
+
+<!-- F -->
+<div class="letter">F</div>
+
+<div class="word-card">
+  <div class="word">Forbearance</div>
+  <div class="meaning">Patience</div>
+  <div class="synonyms">Synonyms: tolerance, control</div>
+</div>
+
+
+<!-- H -->
+<div class="letter">H</div>
+
+<div class="word-card">
+  <div class="word">Haphazard</div>
+  <div class="meaning">Without plan</div>
+  <div class="synonyms">Synonyms: careless, random</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Haughty</div>
+  <div class="meaning">Proud</div>
+  <div class="synonyms">Synonyms: arrogant, proud</div>
+</div>
+
+
+<!-- I -->
+<div class="letter">I</div>
+
+<div class="word-card">
+  <div class="word">Idiosyncrasy</div>
+  <div class="meaning">Personal habit</div>
+  <div class="synonyms">Synonyms: habit, peculiarity</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Imminent</div>
+  <div class="meaning">About to happen</div>
+  <div class="synonyms">Synonyms: near, coming</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Inchoation</div>
+  <div class="meaning">Beginning</div>
+  <div class="synonyms">Synonyms: start, beginning</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Indelible</div>
+  <div class="meaning">Cannot erase</div>
+  <div class="synonyms">Synonyms: permanent, lasting</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Insouciant</div>
+  <div class="meaning">Carefree</div>
+  <div class="synonyms">Synonyms: careless, relaxed</div>
+</div>
+
+
+<!-- J -->
+<div class="letter">J</div>
+
+<div class="word-card">
+  <div class="word">Jocular</div>
+  <div class="meaning">Funny</div>
+  <div class="synonyms">Synonyms: humorous, playful</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Juxtapose</div>
+  <div class="meaning">Place together</div>
+  <div class="synonyms">Synonyms: compare, place side by side</div>
+</div>
+
+
+<!-- K -->
+<div class="letter">K</div>
+
+<div class="word-card">
+  <div class="word">Knack</div>
+  <div class="meaning">Special skill</div>
+  <div class="synonyms">Synonyms: talent, ability</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Kinetic</div>
+  <div class="meaning">Related to motion</div>
+  <div class="synonyms">Synonyms: active, moving</div>
+</div>
+
+
+<!-- L -->
+<div class="letter">L</div>
+
+<div class="word-card">
+  <div class="word">Livid</div>
+  <div class="meaning">Very angry</div>
+  <div class="synonyms">Synonyms: furious, mad</div>
+</div>
+
+
+<!-- M -->
+<div class="letter">M</div>
+
+<div class="word-card">
+  <div class="word">Maverick</div>
+  <div class="meaning">Independent person</div>
+  <div class="synonyms">Synonyms: rebel, free thinker</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Meticulous</div>
+  <div class="meaning">Very careful</div>
+  <div class="synonyms">Synonyms: precise, careful</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Maladroit</div>
+  <div class="meaning">Clumsy</div>
+  <div class="synonyms">Synonyms: awkward, unskilled</div>
+</div>
+
+
+<!-- N -->
+<div class="letter">N</div>
+
+<div class="word-card">
+  <div class="word">Nonchalant</div>
+  <div class="meaning">Unconcerned</div>
+  <div class="synonyms">Synonyms: relaxed, careless</div>
+</div>
+
+
+<!-- O -->
+<div class="letter">O</div>
+
+<div class="word-card">
+  <div class="word">Obduracy</div>
+  <div class="meaning">Stubbornness</div>
+  <div class="synonyms">Synonyms: firmness, rigidity</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Obtrusive</div>
+  <div class="meaning">Too noticeable</div>
+  <div class="synonyms">Synonyms: intrusive, disturbing</div>
+</div>
+
+
+<!-- P -->
+<div class="letter">P</div>
+
+<div class="word-card">
+  <div class="word">Precarity</div>
+  <div class="meaning">Insecurity</div>
+  <div class="synonyms">Synonyms: instability, danger</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Pithy</div>
+  <div class="meaning">Short and meaningful</div>
+  <div class="synonyms">Synonyms: brief, clear</div>
+</div>
+
+
+<!-- Q -->
+<div class="letter">Q</div>
+
+<div class="word-card">
+  <div class="word">Quell</div>
+  <div class="meaning">Stop</div>
+  <div class="synonyms">Synonyms: suppress, control</div>
+</div>
+
+
+<!-- R -->
+<div class="letter">R</div>
+
+<div class="word-card">
+  <div class="word">Recourse</div>
+  <div class="meaning">Help</div>
+  <div class="synonyms">Synonyms: option, support</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Ruminate</div>
+  <div class="meaning">Think deeply</div>
+  <div class="synonyms">Synonyms: think, reflect</div>
+</div>
+
+
+<!-- S -->
+<div class="letter">S</div>
+
+<div class="word-card">
+  <div class="word">Slack</div>
+  <div class="meaning">Careless</div>
+  <div class="synonyms">Synonyms: lazy, loose</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Stagnant</div>
+  <div class="meaning">Not growing</div>
+  <div class="synonyms">Synonyms: inactive, stopped</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Sycophant</div>
+  <div class="meaning">Flatterer</div>
+  <div class="synonyms">Synonyms: yes-man, flatterer</div>
+</div>
+
+
+<!-- T -->
+<div class="letter">T</div>
+
+<div class="word-card">
+  <div class="word">Taciturn</div>
+  <div class="meaning">Quiet</div>
+  <div class="synonyms">Synonyms: silent, reserved</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Temper</div>
+  <div class="meaning">Soften</div>
+  <div class="synonyms">Synonyms: balance, control</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Terse</div>
+  <div class="meaning">Short</div>
+  <div class="synonyms">Synonyms: brief, concise</div>
+</div>
+
+
+<!-- U -->
+<div class="letter">U</div>
+
+<div class="word-card">
+  <div class="word">Untoward</div>
+  <div class="meaning">Unusual</div>
+  <div class="synonyms">Synonyms: wrong, bad</div>
+</div>
+
+
+<!-- V -->
+<div class="letter">V</div>
+
+<div class="word-card">
+  <div class="word">Vestige</div>
+  <div class="meaning">Remain</div>
+  <div class="synonyms">Synonyms: trace, remnant</div>
+</div>
+
+<div class="word-card">
+  <div class="word">Vex</div>
+  <div class="meaning">Annoy</div>
+  <div class="synonyms">Synonyms: irritate, bother</div>
+</div>
 
 </div>
 
 </body>
+
 
 </html>
