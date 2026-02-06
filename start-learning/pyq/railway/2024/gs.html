@@ -1,0 +1,71 @@
+<div class="container">
+
+  <!-- WATERMARK -->
+  <div class="watermark">YOUR NAME</div>
+
+  <!-- HEADER -->
+  <div class="header">
+    PYQ Practice – General Awareness
+  </div>
+
+  <!-- QUESTIONS -->
+
+  <div class="box">
+
+    <!-- Question -->
+    <h2>Q1. The Harsha inscription of 554 CE mentions the rise of Yajnavarman from which place?</h2>
+
+    <!-- Options -->
+    <p>A) Kannouj</p>
+    <p>B) Magadha</p>
+    <p>C) Gaya</p>
+    <p>D) Thanesar</p>
+
+    <!-- Show Answer Button -->
+    <button onclick="toggleAnswer('a1')">
+      Show Answer
+    </button>
+
+    <!-- Hidden Answer -->
+    <div id="a1" style="display:none;" class="example">
+      ✅ Correct Answer: C) Gaya
+    </div>
+
+  </div>
+
+
+  <div class="box">
+
+    <h2>Q2. Public health services remained largely inaccessible during colonial rule. Life expectancy was?</h2>
+
+    <p>A) 42–45 years</p>
+    <p>B) 55–60 years</p>
+    <p>C) 30–32 years</p>
+    <p>D) 60–65 years</p>
+
+    <button onclick="toggleAnswer('a2')">
+      Show Answer
+    </button>
+
+    <div id="a2" style="display:none;" class="example">
+      ✅ Correct Answer: C) 30–32 years
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- SCRIPT -->
+<script>
+function toggleAnswer(id){
+  let ans = document.getElementById(id);
+
+  if(ans.style.display === "none"){
+    ans.style.display = "block";
+  }else{
+    ans.style.display = "none";
+  }
+}
+</script>

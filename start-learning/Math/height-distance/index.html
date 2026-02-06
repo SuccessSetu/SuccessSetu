@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Height & Distance | SuccessSetu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ================= BODY ================= */
+
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#dff6fb;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+  max-width:1800px;   /* 4K Friendly */
+  margin:auto;
+  padding:40px;
+  position:relative;
+}
+
+/* ================= WATERMARK ================= */
+
+.watermark{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-30deg);
+  font-size:120px;
+  color:rgba(15,118,110,0.08);
+  font-weight:900;
+  letter-spacing:8px;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  background:linear-gradient(135deg,#0ea5a4,#14b8a6);
+  color:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:30px;
+  z-index:2;
+  position:relative;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= BOX ================= */
+
+.box{
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  border-left:7px solid #0ea5a4;
+  box-shadow:0 8px 22px rgba(0,0,0,0.12);
+}
+
+.box h2{
+  color:#0f766e;
+  margin-bottom:15px;
+  border-bottom:2px solid #ecfeff;
+  padding-bottom:5px;
+}
+
+.box p{
+  line-height:1.7;
+  font-size:17px;
+}
+
+/* ================= FORMULA ================= */
+
+.formula{
+  background:#ecfeff;
+  padding:14px;
+  border-radius:12px;
+  margin:12px 0;
+  font-weight:600;
+}
+
+/* ================= EXAMPLE ================= */
+
+.example{
+  background:#f1f5f9;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  margin-top:50px;
+  color:#475569;
+  font-size:16px;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .header{
+    font-size:28px;
+  }
+
+  .watermark{
+    font-size:70px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- WATERMARK -->
+<div class="watermark">SuccessSetu</div>
+
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+📐 Height & Distance (ऊँचाई और दूरी)
+</div>
+
+
+<!-- GRID START -->
+<div class="grid">
+
+
+<!-- ================= LEFT COLUMN ================= -->
+
+<div class="box">
+
+<h2>📘 Angle of Elevation</h2>
+
+<p>
+When an object is above eye level, the angle formed is called
+<b>Angle of Elevation</b>.
+</p>
+
+<div class="formula">
+Angle between horizontal line and line of sight (upwards)
+</div>
+
+<div class="example">
+Example: Watching top of a tower.
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Angle of Depression</h2>
+
+<p>
+When an object is below eye level, the angle formed is called
+<b>Angle of Depression</b>.
+</p>
+
+<div class="formula">
+Angle between horizontal line and line of sight (downwards)
+</div>
+
+<div class="example">
+Example: Looking down from building.
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Angle–Side Ratio</h2>
+
+<p>Important Trigonometric Ratios:</p>
+
+<div class="formula">
+sinθ = Perpendicular / Hypotenuse <br>
+cosθ = Base / Hypotenuse <br>
+tanθ = Perpendicular / Base
+</div>
+
+<div class="example">
+tan30° = 1/√3 <br>
+tan45° = 1 <br>
+tan60° = √3
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Standard Angles</h2>
+
+<p>Common Values:</p>
+
+<div class="formula">
+30° → 1 : √3 : 2 <br>
+45° → 1 : 1 : √2 <br>
+60° → √3 : 1 : 2
+</div>
+
+</div>
+
+
+
+<!-- ================= RIGHT COLUMN ================= -->
+
+<div class="box">
+
+<h2>📘 Change of Angle (30° → 45°)</h2>
+
+<p>
+When elevation changes from 30° to 45°:
+</p>
+
+<div class="formula">
+Distance changes by ( √3 − 1 ) × Height
+</div>
+
+<div class="example">
+Used in tower problems.
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Change of Angle (30° → 60°)</h2>
+
+<p>
+When elevation changes from 30° to 60°:
+</p>
+
+<div class="formula">
+Distance = Height × 3
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Change of Angle (45° → 60°)</h2>
+
+<p>
+When elevation changes from 45° to 60°:
+</p>
+
+<div class="formula">
+Distance = Height × (√3 − 1)
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>📘 Change of Angle (15° → 30°)</h2>
+
+<p>
+When elevation changes from 15° to 30°:
+</p>
+
+<div class="formula">
+Distance = Height × (2 − √3)
+</div>
+
+</div>
+
+
+
+<!-- ================= PRACTICE ================= -->
+
+<div class="box">
+
+<h2>✍️ Practice 1</h2>
+
+<p>
+A tower subtends angle 30°. Height = 10m.
+Find distance.
+</p>
+
+<div class="example">
+tan30° = 1/√3 <br>
+Distance = 10√3 m
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>✍️ Practice 2</h2>
+
+<p>
+Angle of elevation = 45°. Height = 20m.
+Find distance.
+</p>
+
+<div class="example">
+tan45° = 1 <br>
+Distance = 20m
+</div>
+
+</div>
+
+
+</div>
+<!-- GRID END -->
+
+
+<!-- FOOTER -->
+<div class="footer">
+
+© 2026 SuccessSetu | Height & Distance Notes 🚀 <br>
+Practice Daily for Speed & Accuracy
+
+</div>
+
+
+</div>
+
+</body>
+</html>
