@@ -125,11 +125,6 @@ body{
   opacity:1;
 }
 
-.card:hover{
-  transform:translateY(-6px) scale(1.04);
-  color:white;
-  box-shadow:0 25px 55px rgba(0,0,0,.2);
-}
 
 /* ================= BADGES ================= */
 .badge{
@@ -896,4 +891,121 @@ body.dark .side-menu a{
 
 body.dark .close-btn{
   color:white;
+}
+
+.header{
+  background: linear-gradient(270deg,#0f766e,#14b8a6,#06b6d4);
+  background-size:400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.logo{
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+.stats{
+  display:flex;
+  justify-content:space-around;
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  margin:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+.card{
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+/* ===== STATS BAR ===== */
+
+.stats-bar{
+  display:flex;
+  gap:20px;
+  justify-content:space-between;
+  margin:25px 0;
+}
+
+.stat-card{
+  flex:1;
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
+  transition:0.3s;
+  font-size:20px;
+  font-weight:600;
+}
+
+.stat-card p{
+  font-size:14px;
+  color:#64748b;
+  margin-top:5px;
+}
+
+.stat-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== LAST STUDY CARD ===== */
+
+.last-study-card{
+  max-width:400px;
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  margin:20px 0;
+}
+
+.last-study-card h3{
+  color:#0f766e;
+  margin-bottom:15px;
+  border-bottom:2px solid #ecfeff;
+  padding-bottom:6px;
+}
+
+.ls-row{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
+  font-size:15px;
+}
+
+.ls-row span{
+  color:#64748b;
+}
+
+.last-study-card button{
+  width:100%;
+  margin-top:15px;
+  background:linear-gradient(135deg,#0ea5a4,#14b8a6);
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.last-study-card button:hover{
+  opacity:0.9;
+  transform:scale(1.02);
 }
