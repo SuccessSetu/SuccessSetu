@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=3840, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Indian Polity Historical Background Flowchart</title>
 
 <style>
@@ -22,10 +22,11 @@ body{
 
 /* Main Container */
 .container{
-    width:1100px;
-    min-height:600px;
-    padding:80px;
+  width:3800px;
+  max-width:3800px;
+  padding:120px;
 }
+
 
 /* Title */
 .title{
@@ -74,10 +75,12 @@ body{
 
 /* Year */
 .year{
-    font-size:38px;
-    font-weight:bold;
-    color:#ffcc00;
-    margin-bottom:15px;
+  background:#ffcc00;
+  color:#000;
+  display:inline-block;
+  padding:6px 18px;
+  border-radius:20px;
+  font-size:32px;
 }
 
 /* Heading */
@@ -112,752 +115,142 @@ body{
     transform:translateY(0);
     transition:1s;
 }
+.lang-switch{
+  margin-top:15px;
+}
+
+.lang-switch button{
+  padding:8px 18px;
+  border:none;
+  border-radius:20px;
+  margin:5px;
+  cursor:pointer;
+  background:white;
+  color:#0f766e;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.lang-switch button:hover{
+  background:#ccfbf1;
+}
+.lang{
+  display:none;
+}
+
+.lang.en{
+  display:block;
+}
+.watermark{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  font-size:120px;
+  font-weight:900;
+  color:rgba(255,255,255,0.06);
+  z-index:0;
+  pointer-events:none;
+  user-select:none;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:6px;
+  background:#ffcc00;
+  transform:translateX(-50%);
+  border-radius:5px;
+}
 
 </style>
 </head>
 
 <body>
+<div class="watermark">SuccessSetu</div>
 
 <div class="container">
+<div class="lang-switch">
+  <button onclick="setLang('en')">English</button>
+  <button onclick="setLang('hi')">हिंदी</button>
+</div>
 
-    <div class="title">
-        📜 Historical Background of Indian Constitution
-    </div>
+<div class="card">
+
+    <!-- English -->
+    <div class="lang en">
+
+    <h1 class="title">📜 Historical Background of Indian Constitution</h1>
 
     <div class="timeline">
 
-        <div class="left">
+    <!-- LEFT -->
+    <div class="left">
 
-            <!-- 1773 -->
-            <div class="card">
-                <div class="year">1773</div>
-                <div class="heading">Regulating Act</div>
-                <div class="content">
-                    • First control by British Government<br>
-                    • Governor-General of Bengal created<br>
-                    • Supreme Court in Calcutta (1774)<br>
-                    • Company servants banned from private trade<br>
-                    • Reporting to Court of Directors
-                </div>
-            </div>
+    <div class="card">
+    <span class="year">1773</span>
+    <h3 class="heading">Regulating Act</h3>
+    <p class="content">
+        • First control by British Government<br>
+        • Governor-General of Bengal created<br>
+        • Supreme Court in Calcutta (1774)<br>
+        • Company servants banned from private trade<br>
+        • Reporting to Court of Directors
+    </p>
+    </div>
 
-            <!-- 1784 -->
-            <div class="card">
-                <div class="year">1784</div>
-                <div class="heading">Pitt’s India Act</div>
-                <div class="content">
-                    • Separate political & commercial powers<br>
-                    • Board of Control created<br>
-                    • Double Government System<br>
-                    • British supremacy established
-                </div>
-            </div>
+    <div class="card">
+    <span class="year">1784</span>
+    <h3 class="heading">Pitt’s India Act</h3>
+    <p class="content">
+        • Separate political & commercial powers<br>
+        • Board of Control created<br>
+        • Double Government System<br>
+        • British supremacy established
+    </p>
+    </div>
 
+    </div>
+
+
+    <!-- RIGHT -->
+    <div class="right">
+
+    <div class="card">
+    <span class="year">1781</span>
+    <h3 class="heading">Amending Act</h3>
+    <p class="content">
+        • Limited Supreme Court powers<br>
+        • Revenue matters excluded<br>
+        • Personal laws recognized<br>
+        • Appeals to Governor-General-in-Council
+    </p>
+    </div>
+
+    <div class="card">
+    <span class="year">1786</span>
+    <h3 class="heading">Act of 1786</h3>
+    <p class="content">
+        • Lord Cornwallis appointed<br>
+        • Override Council decisions<br>
+        • Commander-in-Chief power<br>
+        • Strengthened Governor-General
+    </p>
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+        <div class="footer">
+            Indian Polity | www.successsetu.com |
         </div>
 
-        <div class="right">
-
-            <!-- 1781 -->
-            <div class="card">
-                <div class="year">1781</div>
-                <div class="heading">Amending Act</div>
-                <div class="content">
-                    • Limited Supreme Court powers<br>
-                    • Revenue matters excluded<br>
-                    • Personal laws recognized<br>
-                    • Appeals to Governor-General-in-Council
-                </div>
-            </div>
-
-            <!-- 1786 -->
-            <div class="card">
-                <div class="year">1786</div>
-                <div class="heading">Act of 1786</div>
-                <div class="content">
-                    • Lord Cornwallis appointed<br>
-                    • Override Council decisions<br>
-                    • Commander-in-Chief power<br>
-                    • Strengthened Governor-General
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="title">
-        📜 Charter Acts in British India (1793–1853)
-    </div>
-
-    <div class="timeline">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-            <!-- 1793 -->
-            <div class="card">
-                <div class="year">1793</div>
-                <div class="heading">Charter Act of 1793</div>
-                <div class="content">
-                    • Extended overriding power to all future Governor-Generals<br>
-                    • Gave more control over Bombay and Madras Presidencies<br>
-                    • Extended Company trade monopoly (20 years)<br>
-                    • Commander-in-Chief not member of council by default<br>
-                    • Board of Control paid from Indian revenues
-                </div>
-            </div>
-
-            <!-- 1833 -->
-            <div class="card">
-                <div class="year">1833</div>
-                <div class="heading">Charter Act of 1833</div>
-                <div class="content">
-                    • Governor-General of Bengal became Governor-General of India<br>
-                    • Centralised civil and military powers<br>
-                    • Bombay & Madras lost legislative powers<br>
-                    • Company became administrative body<br>
-                    • Open competition for civil services (proposed)
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="right">
-
-            <!-- 1813 -->
-            <div class="card">
-                <div class="year">1813</div>
-                <div class="heading">Charter Act of 1813</div>
-                <div class="content">
-                    • Ended Company trade monopoly (except tea & China)<br>
-                    • British Crown sovereignty asserted<br>
-                    • Christian missionaries allowed<br>
-                    • Promoted Western education<br>
-                    • Local governments authorised to impose taxes
-                </div>
-            </div>
-
-            <!-- 1853 -->
-            <div class="card">
-                <div class="year">1853</div>
-                <div class="heading">Charter Act of 1853</div>
-                <div class="content">
-                    • Separated legislative and executive functions<br>
-                    • Indian Central Legislative Council formed<br>
-                    • Open competition for civil services introduced<br>
-                    • Macaulay Committee appointed (1854)<br>
-                    • Local representation introduced
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-    www.successsetu.com All Rights Reserved
-    </div>
-
-</div>
-
-
-<div class="container">
-
-    <div class="title">
-        👑 The Crown Rule in India (1858–1947)
-    </div>
-
-    <div class="timeline">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-            <!-- 1858 -->
-            <div class="card">
-                <div class="year">1858</div>
-                <div class="heading">Government of India Act, 1858</div>
-                <div class="content">
-                    • Company rule abolished after Revolt of 1857<br>
-                    • Governor-General became Viceroy of India<br>
-                    • Lord Canning became first Viceroy<br>
-                    • Board of Control and Court of Directors abolished<br>
-                    • Secretary of State for India created<br>
-                    • 15-member Council of India formed<br>
-                    • Secretary of State-in-Council became corporate body
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="right">
-
-            <!-- 1861 -->
-            <div class="card">
-                <div class="year">1861</div>
-                <div class="heading">Indian Councils Act, 1861</div>
-                <div class="content">
-                    • Indians associated with law-making process<br>
-                    • Non-official Indian members nominated<br>
-                    • Raja of Banaras, Maharaja of Patiala & Sir Dinkar Rao nominated<br>
-                    • Legislative powers restored to Bombay & Madras<br>
-                    • Decentralisation process started<br>
-                    • New councils in Bengal, NW Provinces & Punjab<br>
-                    • Portfolio system recognised<br>
-                    • Viceroy empowered to issue ordinances
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        Indian Polity | www.successsetu.com | Crown Rule Timeline
-    </div>
-
-</div>.
-
-<div class="container">
-
-    <div class="title">
-        🏛️ Indian Councils Acts (1892 & 1909)
-    </div>
-
-    <div class="timeline">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-            <!-- 1892 -->
-            <div class="card">
-                <div class="year">1892</div>
-                <div class="heading">Indian Councils Act, 1892</div>
-                <div class="content">
-                    • Increased non-official members in councils<br>
-                    • Official majority maintained<br>
-                    • Councils allowed to discuss budget<br>
-                    • Questions to executive permitted<br>
-                    • Non-official members nominated on recommendations<br>
-                    • Limited and indirect election system introduced
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="right">
-
-            <!-- 1909 -->
-            <div class="card">
-                <div class="year">1909</div>
-                <div class="heading">Indian Councils Act, 1909 (Morley-Minto Reforms)</div>
-                <div class="content">
-                    • Size of councils increased significantly<br>
-                    • Central council raised from 16 to 60 members<br>
-                    • Provincial councils got non-official majority<br>
-                    • Members allowed to ask questions & move resolutions<br>
-                    • Indians joined executive councils (S. P. Sinha)<br>
-                    • Separate electorate for Muslims introduced<br>
-                    • Communal representation legalised
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        Indian Polity | www.successsetu.com | Councils Acts Timeline
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="title">
-        📜 Government of India Act, 1919 (Montagu–Chelmsford Reforms)
-    </div>
-
-    <div class="timeline">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-            <!-- 1919 -->
-            <div class="card">
-                <div class="year">1919</div>
-                <div class="heading">Government of India Act, 1919</div>
-                <div class="content">
-                    • Introduced responsible government in India<br>
-                    • Central and provincial subjects classified<br>
-                    • Provincial subjects divided into Transferred & Reserved<br>
-                    • Dyarchy system introduced (dual government)<br>
-                    • Central control slightly relaxed<br>
-                    • Bicameral legislature introduced<br>
-                    • Direct elections started
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="right">
-
-            <!-- 1919 Continued -->
-            <div class="card">
-                <div class="year">1919</div>
-                <div class="heading">Main Provisions (Continued)</div>
-                <div class="content">
-                    • 3 of 6 Executive Council members to be Indians<br>
-                    • Separate electorates extended to minorities<br>
-                    • Limited franchise introduced<br>
-                    • High Commissioner for India created<br>
-                    • Public Service Commission proposed (CPSC – 1926)<br>
-                    • Provincial budgets separated<br>
-                    • Statutory Commission after 10 years<br>
-                    • Chamber of Princes established (1921)
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        Indian Polity | www.successsetu.com | Government of India Act, 1919
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="title">
-        📜 Constitutional Developments (1927–1932)
-    </div>
-
-    <div class="timeline">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-            <!-- 1927 -->
-            <div class="card">
-                <div class="year">1927–1930</div>
-                <div class="heading">Simon Commission</div>
-                <div class="content">
-                    • Appointed in November 1927 under Sir John Simon<br>
-                    • All members were British – Boycotted by Indians<br>
-                    • Submitted report in 1930<br>
-                    • Recommended abolition of dyarchy<br>
-                    • Suggested responsible government in provinces<br>
-                    • Proposed federation of British India & princely states<br>
-                    • Supported continuation of communal electorate<br>
-                    • Led to Round Table Conferences<br>
-                    • White Paper prepared on constitutional reforms<br>
-                    • Recommendations used in Government of India Act, 1935
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="right">
-
-            <!-- 1932 -->
-            <div class="card">
-                <div class="year">1932</div>
-                <div class="heading">Communal Award & Poona Pact</div>
-                <div class="content">
-                    • Announced by Ramsay MacDonald<br>
-                    • Continued separate electorates for minorities<br>
-                    • Extended to Depressed Classes (SCs)<br>
-                    • Gandhiji protested with fast in Yerawada Jail<br>
-                    • Agreement with Dr. B.R. Ambedkar<br>
-                    • Poona Pact signed<br>
-                    • Separate electorate for SCs dropped<br>
-                    • Reserved seats provided instead<br>
-                    • Provisions included in Government of India Act, 1935
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        Indian Polity | www.successsetu.com | Simon Commission & Communal Award
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="title">
-        📜 Government of India Act, 1935
-    </div>
-
-    <div class="timeline">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-            <!-- 1935 -->
-            <div class="card">
-                <div class="year">1935</div>
-                <div class="heading">Government of India Act, 1935</div>
-                <div class="content">
-                    • Second milestone towards responsible government<br>
-                    • 321 Sections and 10 Schedules<br>
-                    • All-India Federation proposed<br>
-                    • Federal, Provincial & Concurrent Lists created<br>
-                    • Residual powers given to Viceroy<br>
-                    • Provincial autonomy introduced (1937–39)<br>
-                    • Dyarchy abolished in provinces<br>
-                    • Dyarchy proposed at Centre (not implemented)
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="right">
-
-            <!-- 1935 Continued -->
-            <div class="card">
-                <div class="year">1935</div>
-                <div class="heading">Main Provisions (Continued)</div>
-                <div class="content">
-                    • Bicameralism in six provinces<br>
-                    • Reserved seats for SCs, women & labour<br>
-                    • Council of India abolished<br>
-                    • Franchise extended (14% population)<br>
-                    • RBI established<br>
-                    • Federal & Provincial PSCs created<br>
-                    • Federal Court set up (1937)<br>
-                    • Burma separated from India<br>
-                    • Orissa & Sind created<br>
-                    • Minority safeguards provided<br>
-                    • Federal Railway Authority formed<br>
-                    • Auditor-General appointed
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        Indian Polity |www.successsetu.com | Government of India Act, 1935
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="title">
-        🇮🇳 Indian Independence Act, 1947
-    </div>
-
-    <div class="timeline">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-            <!-- 1947 -->
-            <div class="card">
-                <div class="year">1947</div>
-                <div class="heading">Indian Independence Act, 1947</div>
-                <div class="content">
-                    • Partition of India and creation of India & Pakistan<br>
-                    • Two independent dominions formed<br>
-                    • Right to secede from British Commonwealth<br>
-                    • Office of Viceroy abolished<br>
-                    • Governor-General appointed for each dominion<br>
-                    • British Government ceased control over India
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="right">
-
-            <!-- 1947 Continued -->
-            <div class="card">
-                <div class="year">1947</div>
-                <div class="heading">Main Provisions (Continued)</div>
-                <div class="content">
-                    • Constituent Assemblies empowered to frame constitutions<br>
-                    • Assemblies authorised to legislate till new constitutions<br>
-                    • Secretary of State for India abolished<br>
-                    • British paramountcy over princely states ended<br>
-                    • Princely states free to join India/Pakistan/Independent<br>
-                    • Interim governance under Act of 1935<br>
-                    • Governor-General given assent powers<br>
-                    • Governors became constitutional heads<br>
-                    • Title of Emperor of India dropped<br>
-                    • Civil services protected
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        Indian Polity|www.successsetu.com | Indian Independence Act, 1947
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="title">
-        📜 Interim Government (1946) & First Cabinet (1947)
-    </div>
-
-    <!-- ================= INTERIM GOVERNMENT 1946 ================= -->
-
-    <h2 class="table-title">Table 1.1 : Interim Government (1946)</h2>
-
-    <table class="data-table">
-
-        <tr>
-            <th>Sl. No.</th>
-            <th>Members</th>
-            <th>Portfolios Held</th>
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td>Jawaharlal Nehru</td>
-            <td>Vice-President of the Council; External Affairs and Commonwealth Relations</td>
-        </tr>
-
-        <tr>
-            <td>2</td>
-            <td>Sardar Vallabhbhai Patel</td>
-            <td>Home, Information and Broadcasting</td>
-        </tr>
-
-        <tr>
-            <td>3</td>
-            <td>Dr. Rajendra Prasad</td>
-            <td>Food and Agriculture</td>
-        </tr>
-
-        <tr>
-            <td>4</td>
-            <td>Dr. John Mathai</td>
-            <td>Industries and Supplies</td>
-        </tr>
-
-        <tr>
-            <td>5</td>
-            <td>Jagjivan Ram</td>
-            <td>Labour</td>
-        </tr>
-
-        <tr>
-            <td>6</td>
-            <td>Sardar Baldev Singh</td>
-            <td>Defence</td>
-        </tr>
-
-        <tr>
-            <td>7</td>
-            <td>C.H. Bhabha</td>
-            <td>Works, Mines and Power</td>
-        </tr>
-
-        <tr>
-            <td>8</td>
-            <td>Liaquat Ali Khan</td>
-            <td>Finance</td>
-        </tr>
-
-        <tr>
-            <td>9</td>
-            <td>Abdur Rab Nishtar</td>
-            <td>Posts and Air</td>
-        </tr>
-
-        <tr>
-            <td>10</td>
-            <td>Asaf Ali</td>
-            <td>Railways and Transport</td>
-        </tr>
-
-        <tr>
-            <td>11</td>
-            <td>C. Rajagopalachari</td>
-            <td>Education and Arts</td>
-        </tr>
-
-        <tr>
-            <td>12</td>
-            <td>I.I. Chundrigar</td>
-            <td>Commerce</td>
-        </tr>
-
-        <tr>
-            <td>13</td>
-            <td>Ghaznafar Ali Khan</td>
-            <td>Health</td>
-        </tr>
-
-        <tr>
-            <td>14</td>
-            <td>Jogendra Nath Mandal</td>
-            <td>Law</td>
-        </tr>
-
-    </table>
-
-
-    <!-- ================= FIRST CABINET 1947 ================= -->
-
-    <h2 class="table-title">Table 1.2 : First Cabinet of Independent India (1947)</h2>
-
-    <table class="data-table">
-
-        <tr>
-            <th>Sl. No.</th>
-            <th>Members</th>
-            <th>Portfolios Held</th>
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td>Jawaharlal Nehru</td>
-            <td>Prime Minister; External Affairs and Commonwealth Relations; Scientific Research</td>
-        </tr>
-
-        <tr>
-            <td>2</td>
-            <td>Sardar Vallabhbhai Patel</td>
-            <td>Home, Information and Broadcasting; States</td>
-        </tr>
-
-        <tr>
-            <td>3</td>
-            <td>Dr. Rajendra Prasad</td>
-            <td>Food and Agriculture</td>
-        </tr>
-
-        <tr>
-            <td>4</td>
-            <td>Maulana Abul Kalam Azad</td>
-            <td>Education</td>
-        </tr>
-
-        <tr>
-            <td>5</td>
-            <td>Dr. John Mathai</td>
-            <td>Railways and Transport</td>
-        </tr>
-
-        <tr>
-            <td>6</td>
-            <td>R.K. Shanmugham Chetty</td>
-            <td>Finance</td>
-        </tr>
-
-        <tr>
-            <td>7</td>
-            <td>Dr. B.R. Ambedkar</td>
-            <td>Law</td>
-        </tr>
-
-        <tr>
-            <td>8</td>
-            <td>Jagjivan Ram</td>
-            <td>Labour</td>
-        </tr>
-
-        <tr>
-            <td>9</td>
-            <td>Sardar Baldev Singh</td>
-            <td>Defence</td>
-        </tr>
-
-        <tr>
-            <td>10</td>
-            <td>Raj Kumari Amrit Kaur</td>
-            <td>Health</td>
-        </tr>
-
-        <tr>
-            <td>11</td>
-            <td>C.H. Bhabha</td>
-            <td>Commerce</td>
-        </tr>
-
-        <tr>
-            <td>12</td>
-            <td>Rafi Ahmed Kidwai</td>
-            <td>Communication</td>
-        </tr>
-
-        <tr>
-            <td>13</td>
-            <td>Dr. Shyama Prasad Mukherjee</td>
-            <td>Industries and Supplies</td>
-        </tr>
-
-        <tr>
-            <td>14</td>
-            <td>V.N. Gadgil</td>
-            <td>Works, Mines and Power</td>
-        </tr>
-
-    </table>
-
-
-    <div class="footer">
-        Indian Polity | www.successsetu.com | Interim Government & First Cabinet
-    </div>
-
-</div>
-
-<div class="container">
-    <div class="center">
-            <div class="card">
-                <div class="heading">Notes</div>
-                <div class="content">
-                    • The Mughal Emperor, Shah Alam, granted ‘Diwani’ to the 
-                      Company after its victory
-                      in the Battle of Buxar (1764)<br>
-                    • It was introduced in the British Parliament by the then 
-                      Prime Minister,William Pitt.<br>
-                    • At that time, the Civil Services of the Company were 
-                      classified into covenanted (higher) and uncovenanted (lower)
-                      civil services.
-                </div>
-            </div>
-
-        </div>
-
-    <div class="footer">
-        Indian Polity | www.successsetu.com |
-    </div>
 
 </div>
 
@@ -881,6 +274,34 @@ function showCards(){
 
 window.addEventListener('scroll',showCards);
 showCards();
+
+
+function setLang(lang){
+
+  // Hide all
+  document.querySelectorAll('.lang').forEach(el=>{
+    el.style.display="none";
+  });
+
+  // Show selected
+  document.querySelectorAll('.'+lang).forEach(el=>{
+    el.style.display="block";
+  });
+
+  // Save
+  localStorage.setItem("language",lang);
+
+}
+
+
+// Load last language
+window.onload=function(){
+
+  let lang=localStorage.getItem("language") || "en";
+
+  setLang(lang);
+
+};
 
 </script>
 

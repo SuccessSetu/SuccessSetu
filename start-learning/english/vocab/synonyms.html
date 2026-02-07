@@ -89,51 +89,40 @@ h1{
     font-size:14px;
 }
 
+.back-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 16px;
+  background:#14b8a6;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:700;
+}
+
+.back-btn:hover{
+  background:#0f766e;
+}
+
 /* ===== WATERMARK LOGO ===== */
 .watermark{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    pointer-events:none;
-    user-select:none;
-    z-index:-1;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  font-size:120px;
+  font-weight:900;
+  color:rgba(7, 165, 238, 0.06);
+  z-index:5;
+  pointer-events:none;
+  user-select:none;
 }
 
-.watermark img{
-    width:35%;
-    max-width:420px;
-    opacity:0.15;
-    filter:brightness(1.5) contrast(1.2);
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
-@media(max-width:900px){
-
-    h1{
-        font-size:24px;
-    }
-
-    .word{
-        font-size:18px;
-    }
-
-    .watermark img{
-        width:60%;
-        opacity:0.12;
-    }
-
-}
 </style>
 </head>
 
 <body>
-<div class="watermark">
-  <!-- Yaha apna logo rakho -->
-  <img src="../../../images/exam-point-logo.png" alt="Exam Point Logo">
-</div>
-
+  <div class="watermark">SuccessSetu</div>
 <div class="container">
 
 <h1>📘 A–Z Vocabulary List (Easy Synonyms)</h1>
@@ -697,7 +686,11 @@ h1{
 </div>
 
 </div>
+<div style="text-align:center;margin-top:40px;">
 
+  <a href="../index.html" class="back-btn">⬅ Back to English</a>
+
+</div>
 </body>
 
 

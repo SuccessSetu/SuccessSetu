@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SuccessSetu - GS</title>
+
+<style>
+
+/* ===== BASIC ===== */
+
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#f1f5f9;
+}
+
+/* ===== HEADER ===== */
+
+.header{
+  background:linear-gradient(135deg,#0ea5a4,#14b8a6);
+  color:white;
+  padding:25px;
+  text-align:center;
+}
+
+.header h1{
+  margin:0;
+}
+
+.header p{
+  opacity:0.9;
+}
+
+
+/* ===== LANGUAGE SWITCH ===== */
+
+.lang-switch{
+  margin-top:15px;
+}
+
+.lang-switch button{
+  padding:8px 18px;
+  border:none;
+  border-radius:20px;
+  margin:5px;
+  cursor:pointer;
+  background:white;
+  color:#0f766e;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.lang-switch button:hover{
+  background:#ccfbf1;
+}
+
+
+/* ===== CONTAINER ===== */
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:25px;
+}
+
+
+/* ===== CONTENT BOX ===== */
+
+.box{
+  background:white;
+  border-radius:16px;
+  padding:25px;
+  margin-bottom:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  border-left:5px solid #14b8a6;
+}
+
+.box h2{
+  color:#0f766e;
+}
+
+.box p{
+  line-height:1.7;
+}
+
+
+/* ===== HIDE/SHOW LANGUAGE ===== */
+
+.lang{
+  display:none;
+}
+
+.lang.en{
+  display:block;
+}
+
+
+/* ===== FOOTER ===== */
+
+.footer{
+  text-align:center;
+  padding:20px;
+  color:#64748b;
+  font-size:14px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<div class="header">
+
+  <h1>📘 Making of the constitution</h1>
+
+  <p>SuccessSetu | Learn Smart</p>
+
+  <div class="lang-switch">
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('hi')">हिंदी</button>
+  </div>
+
+</div>
+
+
+
+<!-- ================= CONTENT ================= -->
+
+<div class="container">
+
+
+<!-- ================= TOPIC 1 ================= -->
+
+<div class="box">
+
+  <!-- English -->
+  <div class="lang en">
+
+    <h2>Indian Constitution</h2>
+
+    <p>
+      The Constitution of India was adopted on 26 November 1949
+      and came into effect on 26 January 1950.
+    </p>
+
+    <ul>
+      <li>Article 14 – Right to Equality</li>
+      <li>Article 19 – Freedom of Speech</li>
+      <li>Article 21 – Right to Life</li>
+    </ul>
+
+  </div>
+
+
+  <!-- Hindi -->
+  <div class="lang hi">
+
+    <h2>भारतीय संविधान</h2>
+
+    <p>
+      भारतीय संविधान 26 नवंबर 1949 को अपनाया गया
+      और 26 जनवरी 1950 को लागू हुआ।
+    </p>
+
+    <ul>
+      <li>अनुच्छेद 14 – समानता का अधिकार</li>
+      <li>अनुच्छेद 19 – अभिव्यक्ति की स्वतंत्रता</li>
+      <li>अनुच्छेद 21 – जीवन का अधिकार</li>
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<div class="footer">
+
+© 2026 SuccessSetu | All Rights Reserved
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+function setLang(lang){
+
+  // Hide all
+  document.querySelectorAll('.lang').forEach(el=>{
+    el.style.display="none";
+  });
+
+  // Show selected
+  document.querySelectorAll('.'+lang).forEach(el=>{
+    el.style.display="block";
+  });
+
+  // Save
+  localStorage.setItem("language",lang);
+
+}
+
+
+// Load last language
+window.onload=function(){
+
+  let lang=localStorage.getItem("language") || "en";
+
+  setLang(lang);
+
+};
+
+
+</script>
+
+
+</body>
+</html>

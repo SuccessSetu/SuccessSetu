@@ -99,11 +99,39 @@ body.dark h1{
 body.dark .arrow{
   color:#5eead4;
 }
+.back-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 16px;
+  background:#14b8a6;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:700;
+}
+
+.back-btn:hover{
+  background:#0f766e;
+}
+
+.watermark{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  font-size:120px;
+  font-weight:900;
+  color:rgba(14, 12, 14, 0.06);
+  z-index:5;
+  pointer-events:none;
+  user-select:none;
+}
 
 </style>
 </head>
 
 <body>
+  <div class="watermark">SuccessSetu</div>
 
 <div class="container">
 
@@ -201,8 +229,7 @@ body.dark .arrow{
 
 <div style="text-align:center;margin-top:40px;">
 
-  <a href="../index.html" class="btnX">⬅ Back</a>
-  <a href="../../../index.html" class="btnX">🏠 Home</a>
+  <a href="../index.html" class="back-btn">⬅ Back to English</a>
 
 </div>
 
