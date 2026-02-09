@@ -2,177 +2,98 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indian Polity Timeline</title>
+<title>History Notes</title>
 
 <style>
-
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Segoe UI, Arial, sans-serif;
+    font-family: "Segoe UI", sans-serif;
+    box-sizing: border-box;
 }
 
-/* Body */
 body{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#fff;
+    background:#eef2f7;
+    margin:0;
+    padding:20px;
 }
 
-/* Main Container */
 .container{
-  max-width:1400px;
-  margin:auto;
-  padding:80px 30px;
+    max-width:900px;
+    background:#fff;
+    margin:auto;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
-/* Language Switch */
-.lang-switch{
-  text-align:right;
-  margin-bottom:30px;
+/* Header */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #ddd;
+    padding-bottom:10px;
 }
 
-.lang-switch button{
-  padding:6px 15px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-  margin-left:5px;
-  font-weight:600;
+.header h1{
+    color:#1a237e;
 }
 
-/* Title */
-.title{
-  text-align:center;
-  font-size:48px;
-  color:#ffcc00;
-  margin-bottom:80px;
-  text-shadow:0 0 10px #000;
+button{
+    background:#3949ab;
+    color:#fff;
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-/* Timeline */
-.timeline{
-  position:relative;
-  display:flex;
-  justify-content:space-between;
-  padding:40px 0;
+button:hover{
+    background:#283593;
 }
 
-/* Center Line */
-.timeline::before{
-  content:"";
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:5px;
-  background:#ffcc00;
-  border-radius:10px;
-  box-shadow:0 0 15px #ffcc00;
+/* Sections */
+.section{
+    margin:20px 0;
 }
 
-/* Left Right */
-.left,.right{
-  width:45%;
-  display:flex;
-  flex-direction:column;
-  gap:70px;
+.section h2{
+    color:#303f9f;
+    border-left:5px solid #3949ab;
+    padding-left:10px;
 }
 
-.left{
-  align-items:flex-end;
-  text-align:right;
+.box{
+    background:#f1f5ff;
+    padding:15px;
+    border-radius:8px;
+    margin-top:10px;
 }
 
-.right{
-  align-items:flex-start;
-  text-align:left;
+/* Flowchart */
+.flow{
+    text-align:center;
+    margin-top:15px;
 }
 
-/* Cards */
-.card{
-  width:100%;
-  max-width:500px;
-  background:rgba(255,255,255,0.1);
-  padding:25px;
-  border-radius:15px;
-  border:2px solid rgba(255,204,0,0.4);
-  backdrop-filter:blur(8px);
-  box-shadow:0 0 20px rgba(0,0,0,0.5);
-  transition:0.4s;
-  opacity:0;
-  transform:translateY(40px);
+.flow div{
+    background:#c5cae9;
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:6px;
+    margin:8px;
+    font-weight:600;
 }
 
-.card:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 30px #ffcc00;
+.arrow{
+    font-size:22px;
 }
-
-/* Show Animation */
-.card.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* Year Badge */
-.year{
-  display:inline-block;
-  background:#ffcc00;
-  color:#000;
-  padding:5px 15px;
-  border-radius:20px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-/* Heading */
-.heading{
-  color:#00ffff;
-  font-size:24px;
-  margin-bottom:10px;
-}
-
-/* Content */
-.content{
-  font-size:18px;
-  line-height:1.6;
-}
-
-/* Language */
-.lang{display:none;}
-.lang.en{display:block;}
 
 /* Footer */
-.footer{
-  text-align:center;
-  margin-top:80px;
-  color:#ccc;
+footer{
+    text-align:center;
+    margin-top:25px;
+    color:#666;
 }
-
-/* Mobile */
-@media(max-width:900px){
-
-  .timeline{
-    flex-direction:column;
-    gap:50px;
-  }
-
-  .timeline::before{
-    left:20px;
-  }
-
-  .left,.right{
-    width:100%;
-    align-items:flex-start;
-    text-align:left;
-    padding-left:40px;
-  }
-
-}
-
 </style>
 </head>
 
@@ -180,194 +101,175 @@ body{
 
 <div class="container">
 
-<!-- Language Switch -->
-<div class="lang-switch">
-  <button onclick="setLang('en')">English</button>
-  <button onclick="setLang('hi')">हिंदी</button>
+<!-- Header -->
+<div class="header">
+<h1>Historical Background</h1>
+<button onclick="lang()">Hindi / English</button>
 </div>
 
 
-<!-- ENGLISH -->
-<div class="lang en">
+<!-- English -->
+<div id="en">
 
-<h1 class="title">📜 Historical Background of Indian Constitution</h1>
-
-<div class="timeline">
-
-<!-- LEFT -->
-<div class="left">
-
-<div class="card">
-<span class="year">1773</span>
-<h3 class="heading">Regulating Act</h3>
-<p class="content">
-• First control by British Government<br>
-• Governor-General of Bengal created<br>
-• Supreme Court in Calcutta (1774)<br>
-• Company servants banned from private trade<br>
-• Reporting to Court of Directors
-</p>
+<div class="section">
+<h2>Introduction</h2>
+<div class="box">
+British came in 1608 as traders.  
+Later they ruled India.  
+Independence in 1947, Constitution in 1950.
+</div>
 </div>
 
-<div class="card">
-<span class="year">1784</span>
-<h3 class="heading">Pitt’s India Act</h3>
-<p class="content">
-• Separate political & commercial powers<br>
-• Board of Control created<br>
-• Double Government System<br>
-• British supremacy established
-</p>
+<div class="section">
+<h2>Company Rule (1773–1858)</h2>
+<div class="box">
+Regulating Act 1773 controlled East India Company.
+</div>
 </div>
 
+<div class="section">
+<h2>Regulating Act 1773 – Features</h2>
+<div class="box">
+<ul>
+<li>Governor-General system</li>
+<li>Bombay & Madras under Bengal</li>
+<li>Supreme Court in Calcutta</li>
+<li>No private trade</li>
+<li>Company under British control</li>
+</ul>
+</div>
 </div>
 
+<div class="section">
+<h2>Flowchart</h2>
 
-<!-- RIGHT -->
-<div class="right">
+<div class="flow">
 
-<div class="card">
-<span class="year">1781</span>
-<h3 class="heading">Amending Act</h3>
-<p class="content">
-• Limited Supreme Court powers<br>
-• Revenue matters excluded<br>
-• Personal laws recognized<br>
-• Appeals to Governor-General-in-Council
-</p>
-</div>
+<div>1608 Company</div>
+<div class="arrow">⬇</div>
 
-<div class="card">
-<span class="year">1786</span>
-<h3 class="heading">Act of 1786</h3>
-<p class="content">
-• Lord Cornwallis appointed<br>
-• Override Council decisions<br>
-• Commander-in-Chief power<br>
-• Strengthened Governor-General
-</p>
-</div>
+<div>1765 Diwani</div>
+<div class="arrow">⬇</div>
+
+<div>1773 Act</div>
+<div class="arrow">⬇</div>
+
+<div>1858 Crown</div>
+<div class="arrow">⬇</div>
+
+<div>1947 Freedom</div>
+<div class="arrow">⬇</div>
+
+<div>1950 Constitution</div>
 
 </div>
-
 </div>
 
 </div>
 
 
-<!-- HINDI -->
-<div class="lang hi">
+<!-- Hindi -->
+<div id="hi" style="display:none">
 
-<h1 class="title">📜 भारतीय संविधान की ऐतिहासिक पृष्ठभूमि</h1>
+<div class="section">
+<h2>परिचय</h2>
+<div class="box">
+1608 में ब्रिटिश व्यापारी बनकर आए।  
+बाद में शासन किया।  
+1947 में स्वतंत्रता, 1950 में संविधान।
+</div>
+</div>
 
-<div class="timeline">
+<div class="section">
+<h2>कंपनी शासन (1773–1858)</h2>
+<div class="box">
+1773 का अधिनियम कंपनी को नियंत्रित करता था।
+</div>
+</div>
 
-<div class="left">
+<div class="section">
+<h2>नियामक अधिनियम 1773</h2>
+<div class="box">
+<ul>
+<li>गवर्नर जनरल</li>
+<li>बॉम्बे-मद्रास अधीन</li>
+<li>सुप्रीम कोर्ट</li>
+<li>निजी व्यापार बंद</li>
+<li>सरकारी नियंत्रण</li>
+</ul>
+</div>
+</div>
 
-<div class="card">
-<span class="year">1773</span>
-<h3 class="heading">नियामक अधिनियम</h3>
-<p class="content">
-• ब्रिटिश सरकार का पहला नियंत्रण<br>
-• बंगाल का गवर्नर जनरल नियुक्त<br>
-• कलकत्ता में सुप्रीम कोर्ट (1774)<br>
-• निजी व्यापार पर रोक<br>
-• निदेशक मंडल को रिपोर्ट
-</p>
+<div class="section">
+<h2>फ्लोचार्ट</h2>
+
+<div class="flow">
+
+<div>1608 कंपनी</div>
+<div class="arrow">⬇</div>
+
+<div>1765 दीवानी</div>
+<div class="arrow">⬇</div>
+
+<div>1773 अधिनियम</div>
+<div class="arrow">⬇</div>
+
+<div>1858 क्राउन</div>
+<div class="arrow">⬇</div>
+
+<div>1947 आज़ादी</div>
+<div class="arrow">⬇</div>
+
+<div>1950 संविधान</div>
+
+</div>
 </div>
 
 </div>
 
 
-<div class="right">
-
-<div class="card">
-<span class="year">1781</span>
-<h3 class="heading">संशोधन अधिनियम</h3>
-<p class="content">
-• सुप्रीम कोर्ट की शक्तियाँ सीमित<br>
-• राजस्व मामलों से बाहर<br>
-• व्यक्तिगत कानून मान्यता<br>
-• अपील की व्यवस्था
-</p>
-</div>
-</div>
-<div class="left">
-
-<div class="card">
-<span class="year">1784</span>
-<h3 class="heading">संशोधन अधिनियम</h3>
-<p class="content">
-• राजनीतिक और व्यावसायिक शक्तियों को अलग किया गया<br>
-• बोर्ड ऑफ कंट्रोल बनाया गया<br>
-• डबल गवर्नमेंट सिस्टम<br>
-• ब्रिटिश सर्वोच्चता स्थापित
-</p>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="footer">
-© SuccessSetu | Indian Polity Timeline
-</div>
+<footer>
+Student Notes Project
+</footer>
 
 </div>
 
 
 <script>
+let e=true;
 
-/* Scroll Animation */
+function lang(){
 
-const cards=document.querySelectorAll('.card');
-
-function showCards(){
-
-  const trigger=window.innerHeight*0.85;
-
-  cards.forEach(card=>{
-
-    const top=card.getBoundingClientRect().top;
-
-    if(top<trigger){
-      card.classList.add('show');
-    }
-
-  });
-
+if(e){
+document.getElementById("en").style.display="none";
+document.getElementById("hi").style.display="block";
+}
+else{
+document.getElementById("en").style.display="block";
+document.getElementById("hi").style.display="none";
 }
 
-window.addEventListener('scroll',showCards);
-showCards();
-
-
-/* Language Switch */
-
-function setLang(lang){
-
-  document.querySelectorAll('.lang').forEach(el=>{
-    el.style.display="none";
-  });
-
-  document.querySelectorAll('.'+lang).forEach(el=>{
-    el.style.display="block";
-  });
-
-  localStorage.setItem("lang",lang);
-
+e=!e;
 }
 
-window.onload=function(){
+function switchLang(){
 
-  const lang=localStorage.getItem("lang") || "en";
+let en = document.getElementById("en");
+let hi = document.getElementById("hi");
 
-  setLang(lang);
+if(en.style.display === "none"){
+    en.style.display = "block";
+    hi.style.display = "none";
+}
+else{
+    en.style.display = "none";
+    hi.style.display = "block";
+}
 
-};
+}
 
 </script>
+
 
 </body>
 </html>
