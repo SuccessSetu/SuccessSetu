@@ -12,7 +12,7 @@ body{
 }
 
 .header{
-    background:linear-gradient(to right,#0f766e,#14b8a6);
+    background:linear-gradient(to right,#9ca5a4,#14b8a6);
     color:white;
     text-align:center;
     padding:25px;
@@ -28,7 +28,7 @@ body{
 
 .practice-card{
     flex:1;
-    background:white;
+    background:rgb(118, 155, 129);
     border-radius:15px;
     padding:25px;
     text-align:center;
@@ -46,17 +46,34 @@ body{
 }
 
 .practice-card button{
-    background:#14b8a6;
-    color:white;
+    background:#12d272;
+    color:rgb(224, 222, 222);
     border:none;
     padding:8px 15px;
     border-radius:8px;
     cursor:pointer;
 }
+.back-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 16px;
+  background:#14b8a6;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:700;
+}
+
+.back-btn:hover{
+  background:#0f766e;
+}
+
 </style>
 </head>
 
 <body>
+<div class="app-header">
+  <img src="../../images/exam-point-logo.png" alt="SuccessSetu">
 
 <div class="header">Practice Setu</div>
 
@@ -75,9 +92,13 @@ body{
         <h3>Railway Exams</h3>
         <button>Start</button>
     </div>
+</div>
+<div style="text-align:center;margin-top:40px;">
+
+  <a href="../index.html" class="back-btn">⬅ Back to SuccessSetu</a>
 
 </div>
-  <a href="index.html" class="active"><span>🏠</span>Home</a>
+<script src="../../script.js"></script>
 
 </body>
 </html>

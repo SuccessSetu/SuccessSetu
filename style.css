@@ -11,7 +11,7 @@ html{
 
 body{
   font-family:"Inter","Segoe UI",system-ui,sans-serif;
-  background:linear-gradient(180deg,#f8fafc,#eef2f7);
+  background:linear-gradient(180deg,#447ab0,#5074a0);
   color:#0f172a;
   transition:background .4s,color .4s;
 }
@@ -20,7 +20,7 @@ body{
 .app-header{
   text-align:center;
   padding:40px 20px 70px;
-  background:linear-gradient(135deg,#020617,#0f766e,#14b8a6);
+  background:linear-gradient(135deg,#1ca76d,#447ab0,#33af8e);
   border-radius:0 0 50px 50px;
   color:white;
 }
@@ -51,7 +51,7 @@ body{
   margin:35px 22px 20px;
   font-size:22px;
   font-weight:700;
-  color:#0f766e;
+  color:#14beb0;
 }
 
 /* ================= SEARCH ================= */
@@ -237,7 +237,7 @@ body{
   position:fixed;
   bottom:0;
   width:100%;
-  background:white;
+  background:rgb(70, 122, 99);
   display:flex;
   justify-content:space-around;
   padding:14px 0 10px;
