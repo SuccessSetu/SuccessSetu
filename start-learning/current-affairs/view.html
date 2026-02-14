@@ -1,76 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>View PDF | Exam Point</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../style.css">
 
-  <style>
-    .pdf-wrapper {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.15);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .pdf-actions {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
+<title>PDF Viewer | SuccessSetu</title>
 
-    iframe {
-      width: 100%;
-      height: 80vh;
-      border: none;
-      border-radius: 10px;
-    }
-  </style>
+<style>
+
+body{
+  margin:0;
+  font-family:Segoe UI, Arial;
+  background:#020617;
+  color:white;
+}
+
+/* Header */
+.header{
+  background:#0f766e;
+  padding:16px;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+}
+
+/* Viewer */
+.viewer-container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+/* Controls */
+.controls{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.back-btn{
+  background:#14b8a6;
+  color:black;
+  padding:7px 15px;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.back-btn:hover{
+  background:#5eead4;
+}
+
+.pdf-name{
+  font-size:16px;
+  color:#94a3b8;
+}
+
+/* PDF */
+iframe{
+  width:100%;
+  height:80vh;
+  border:none;
+  border-radius:12px;
+  background:white;
+}
+
+.footer{
+  text-align:center;
+  margin-top:25px;
+  color:#64748b;
+  font-size:14px;
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-  <div class="app-header">
-    <h1>Current Affairs PDF</h1>
-    
-  </div>
+<div class="header">
+📖 PDF Viewer
+</div>
 
-  <div class="pdf-wrapper">
-    <div class="pdf-actions">
-      
-      <a href="index.html" class="btn">⬅ Back</a>
-    </div>
 
-    <iframe src="pdf/jan-2026.pdf#toolbar=0" width="100%" height="600px"></iframe>
+<div class="viewer-container">
 
-  </div>
+  <div class="controls">
 
-  <div class="pdf-wrapper">
-    <div class="pdf-actions">
-      
-      <a href="index.html" class="btn">⬅ Back</a>
-    </div>
+    <a href="index.html" class="back-btn">⬅ Back</a>
 
-    <iframe src="pdf/dec-2025.pdf#toolbar=0" width="100%" height="600px"></iframe>
+    <div class="pdf-name" id="pdfName"></div>
 
   </div>
 
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get('file');
+  <iframe id="pdfViewer"></iframe>
 
-    if (file) {
-      const pdfPath = "pdf/" + file;
-      document.getElementById("pdfViewer").src = pdfPath;
-      
-    } else {
-      document.body.innerHTML = "<h2 style='text-align:center'>PDF not found</h2>";
-    }
-  </script>
+</div>
+
+
+<div class="footer">
+© 2026 SuccessSetu | Powered by You 💪
+</div>
+
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const file = params.get("file");
+
+if(file){
+
+  document.getElementById("pdfViewer").src =
+    "pdf/" + file + "#toolbar=0";
+
+  document.getElementById("pdfName").innerText =
+    "Viewing: " + file;
+
+}else{
+
+  document.body.innerHTML =
+    "<h2 style='text-align:center;margin-top:100px'>PDF Not Found ❌</h2>";
+
+}
+
+</script>
 
 </body>
 </html>
