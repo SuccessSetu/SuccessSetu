@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CHSL Mock 3</title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#070707,#080808);
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.box{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+width:80%;
+margin:auto;
+}
+
+textarea{
+width:100%;
+height:150px;
+margin-top:15px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+.paragraph-box {
+  height: 180px;
+  overflow-y: scroll;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Smooth scrollbar */
+.paragraph-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paragraph-box::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CHSL Typing Test - Mock 3</h2>
+
+<div class="box">
+
+<p id="timer">Time: 600 sec</p>
+<p id="keys">Keys Typed: 0</p>
+<p id="wpm">WPM: 0</p>
+<p id="accuracy">Accuracy: 100%</p>
+
+<hr>
+
+<div class="paragraph-box">
+  <p id="paragraph">
+  Local governance plays a crucial role in strengthening democracy by bringing decision-making closer to the people. It ensures that development initiatives are tailored to the specific needs of communities and that public resources are used effectively. Institutions such as municipal corporations, panchayats, and district councils act as the foundation of grassroots administration, enabling citizens to participate in governance processes and influence policies that directly impact their daily lives.
+
+Through decentralization, local bodies are empowered to manage public services such as sanitation, water supply, education, and healthcare. This localized approach allows for quicker identification of problems and more responsive solutions. Elected representatives at the local level are better positioned to understand community challenges and prioritize developmental activities accordingly. Moreover, local governance encourages transparency and accountability by promoting citizen engagement through public meetings, social audits, and participatory planning.
+
+Effective local governance also supports sustainable development by incorporating local knowledge and ensuring equitable distribution of resources. It fosters community ownership of projects and strengthens trust between the administration and residents. However, challenges such as limited financial autonomy, administrative constraints, and lack of technical expertise can hinder performance. Strengthening institutional capacity and ensuring adequate funding are essential for improving service delivery.
+
+Ultimately, robust local governance enhances democratic values and promotes inclusive growth by empowering communities to actively shape their future and contribute to national development.
+  </p>
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 600;
+let timer;
+let started = false;
+
+function startTest(){
+
+if(started) return;
+
+started = true;
+document.getElementById("inputBox").disabled = false;
+document.getElementById("inputBox").focus();
+
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText = "Time: " + time + " sec";
+
+if(time<=0){
+submitTest();
+}
+
+},1000);
+}
+
+document.getElementById("inputBox").addEventListener("input",function(){
+
+let typed = this.value.length;
+document.getElementById("keys").innerText = "Keys Typed: " + typed;
+
+let minutes = (600 - time)/60;
+let wpm = Math.round((typed/5)/minutes);
+
+if(minutes>0){
+document.getElementById("wpm").innerText = "WPM: " + wpm;
+}
+
+let original = document.getElementById("paragraph").innerText;
+let correct = 0;
+
+for(let i=0;i<this.value.length;i++){
+if(this.value[i] == original[i]){
+correct++;
+}
+}
+
+let acc = Math.round((correct/this.value.length)*100);
+if(!isNaN(acc)){
+document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+}
+
+});
+
+function submitTest(){
+clearInterval(timer);
+document.getElementById("inputBox").disabled = true;
+alert("Test Completed");
+}
+
+</script>
+
+</body>
+</html>

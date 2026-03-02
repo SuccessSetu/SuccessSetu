@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CHSL Mock 2</title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#070707,#080808);
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.box{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+width:80%;
+margin:auto;
+}
+
+textarea{
+width:100%;
+height:150px;
+margin-top:15px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+.paragraph-box {
+  height: 180px;
+  overflow-y: scroll;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Smooth scrollbar */
+.paragraph-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paragraph-box::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CHSL Typing Test - Mock 2</h2>
+
+<div class="box">
+
+<p id="timer">Time: 600 sec</p>
+<p id="keys">Keys Typed: 0</p>
+<p id="wpm">WPM: 0</p>
+<p id="accuracy">Accuracy: 100%</p>
+
+<hr>
+<div class="paragraph-box">
+<p id="paragraph">
+Technology has become an integral part of modern life and continues to transform the way individuals communicate, learn, and work. The rapid growth of digital infrastructure has enabled faster exchange of information and improved access to services across various sectors. In the field of education, online platforms and virtual classrooms have made knowledge more accessible to students regardless of geographical boundaries. Similarly, advancements in communication technology have reduced distances and strengthened global connectivity, allowing businesses and individuals to collaborate efficiently.
+
+In the economic sphere, technology has contributed to productivity and innovation. Automation and artificial intelligence are streamlining operations and reducing human effort in repetitive tasks. Digital payment systems and online banking have made financial transactions more secure and convenient, encouraging financial inclusion. Governments are also adopting digital tools to improve transparency, enhance governance, and deliver public services more effectively.
+
+However, the increasing dependence on technology has also raised concerns related to privacy, cybersecurity, and digital inequality. While technological advancements offer numerous benefits, it is important to ensure responsible usage and equal access for all sections of society. Investments in digital literacy and secure infrastructure can help bridge the gap and promote inclusive growth.
+
+Ultimately, technology should be viewed not merely as a tool for convenience but as a means to foster sustainable development. Balanced integration of technological progress with ethical considerations will ensure long-term societal benefit and economic resilience.
+</p>
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 600;
+let timer;
+let started = false;
+
+function startTest(){
+
+if(started) return;
+
+started = true;
+document.getElementById("inputBox").disabled = false;
+document.getElementById("inputBox").focus();
+
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText = "Time: " + time + " sec";
+
+if(time<=0){
+submitTest();
+}
+
+},1000);
+}
+
+document.getElementById("inputBox").addEventListener("input",function(){
+
+let typed = this.value.length;
+document.getElementById("keys").innerText = "Keys Typed: " + typed;
+
+let minutes = (600 - time)/60;
+let wpm = Math.round((typed/5)/minutes);
+
+if(minutes>0){
+document.getElementById("wpm").innerText = "WPM: " + wpm;
+}
+
+let original = document.getElementById("paragraph").innerText;
+let correct = 0;
+
+for(let i=0;i<this.value.length;i++){
+if(this.value[i] == original[i]){
+correct++;
+}
+}
+
+let acc = Math.round((correct/this.value.length)*100);
+if(!isNaN(acc)){
+document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+}
+
+});
+
+function submitTest(){
+clearInterval(timer);
+document.getElementById("inputBox").disabled = true;
+alert("Test Completed");
+}
+
+</script>
+
+</body>
+</html>
