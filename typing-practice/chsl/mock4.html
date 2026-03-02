@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CHSL Mock 4</title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#070707,#080808);
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.box{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+width:80%;
+margin:auto;
+}
+
+textarea{
+width:100%;
+height:150px;
+margin-top:15px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+.paragraph-box {
+  height: 180px;
+  overflow-y: scroll;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Smooth scrollbar */
+.paragraph-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paragraph-box::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CHSL Typing Test - Mock 4</h2>
+
+<div class="box">
+
+<p id="timer">Time: 600 sec</p>
+<p id="keys">Keys Typed: 0</p>
+<p id="wpm">WPM: 0</p>
+<p id="accuracy">Accuracy: 100%</p>
+
+<hr>
+
+<div class="paragraph-box">
+  <p id="paragraph">
+  Digital citizenship refers to the responsible, ethical, and informed use of technology in a connected world. In today’s rapidly evolving digital landscape, individuals are not merely passive users of technology but active participants in virtual communities that shape opinions, behaviors, and social interactions. The internet has transformed communication, education, commerce, and governance, offering unprecedented access to information and opportunities. However, this accessibility also brings challenges such as misinformation, cyberbullying, data privacy concerns, and digital addiction. Being a responsible digital citizen requires more than technical skills; it demands critical thinking, empathy, and accountability.
+
+At its core, digital citizenship involves understanding the impact of one’s online actions. Just as behavior in physical society is guided by norms and laws, the digital space also requires adherence to principles of respect, integrity, and safety. Sharing unverified information, engaging in harmful discourse, or violating privacy can have far-reaching consequences. Therefore, individuals must cultivate habits such as verifying sources, protecting personal data, and maintaining respectful communication. Educational institutions play a crucial role in fostering these values by integrating digital literacy into curricula and encouraging students to navigate online spaces thoughtfully.
+
+Moreover, digital citizenship is closely linked to democratic participation and social responsibility. Online platforms provide avenues for civic engagement, public discourse, and collective problem-solving. When used constructively, these tools can strengthen community bonds and amplify marginalized voices. Conversely, misuse of digital platforms can deepen divisions and spread intolerance. Hence, responsible engagement becomes essential for sustaining a healthy digital ecosystem.
+
+In addition, awareness of digital footprints is vital. Every interaction in the virtual world contributes to a lasting record that can influence personal and professional opportunities. Practicing mindful sharing and understanding long-term implications empower users to maintain a positive digital identity. Ultimately, digital citizenship is not a static concept but an evolving commitment to using technology in ways that promote knowledge, inclusivity, and societal well-being.
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 600;
+let timer;
+let started = false;
+
+function startTest(){
+
+if(started) return;
+
+started = true;
+document.getElementById("inputBox").disabled = false;
+document.getElementById("inputBox").focus();
+
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText = "Time: " + time + " sec";
+
+if(time<=0){
+submitTest();
+}
+
+},1000);
+}
+
+document.getElementById("inputBox").addEventListener("input",function(){
+
+let typed = this.value.length;
+document.getElementById("keys").innerText = "Keys Typed: " + typed;
+
+let minutes = (600 - time)/60;
+let wpm = Math.round((typed/5)/minutes);
+
+if(minutes>0){
+document.getElementById("wpm").innerText = "WPM: " + wpm;
+}
+
+let original = document.getElementById("paragraph").innerText;
+let correct = 0;
+
+for(let i=0;i<this.value.length;i++){
+if(this.value[i] == original[i]){
+correct++;
+}
+}
+
+let acc = Math.round((correct/this.value.length)*100);
+if(!isNaN(acc)){
+document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+}
+
+});
+
+function submitTest(){
+clearInterval(timer);
+document.getElementById("inputBox").disabled = true;
+alert("Test Completed");
+}
+
+</script>
+
+</body>
+</html>
