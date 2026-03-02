@@ -129,19 +129,24 @@ if(minutes>0){
 document.getElementById("wpm").innerText = "WPM: " + wpm;
 }
 
-let original = document.getElementById("paragraph").innerText;
+let originalText = document.getElementById("paragraph").innerText;
+let typedText = this.value;
+
 let correct = 0;
 
-for(let i=0;i<this.value.length;i++){
-if(this.value[i] == original[i]){
-correct++;
-}
+for (let i = 0; i < typedText.length && i < originalText.length; i++) {
+    if (typedText[i] === originalText[i]) {
+        correct++;
+    }
 }
 
-let acc = Math.round((correct/this.value.length)*100);
-if(!isNaN(acc)){
+let totalTyped = typedText.length;
+
+let acc = totalTyped > 0 
+    ? Math.round((correct / totalTyped) * 100) 
+    : 0;
+
 document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
-}
 
 });
 
