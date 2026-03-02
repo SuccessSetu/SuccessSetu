@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Word Substitution</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f5f5f5;
+margin:0;
+padding:0;
+}
+
+.container{
+width:95%;
+max-width:900px;
+margin:auto;
+padding:15px;
+}
+
+h2{
+text-align:center;
+}
+
+.question{
+background:white;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.options{
+margin-top:10px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.option{
+padding:8px;
+background:#f1f1f1;
+border-radius:6px;
+cursor:pointer;
+text-align:center;
+}
+
+.option:hover{
+background:#dff3ff;
+}
+
+.correct{
+background:#b6fcb6 !important;
+}
+
+.wrong{
+background:#ffb6b6 !important;
+}
+
+@media(max-width:600px){
+.options{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>One Word Substitution</h2>
+
+<div class="question">
+<p><b>Q.</b> A person who travels to sacred places for religious reasons.</p>
+<div class="options">
+<div class="option" onclick="check(this,false)">Ascetic</div>
+<div class="option" onclick="check(this,false)">Hermit</div>
+<div class="option" onclick="check(this,true)">Pilgrim</div>
+<div class="option" onclick="check(this,false)">Evangelist</div>
+</div>
+</div>
+
+<div class="question">
+<p><b>Q.</b> To clear someone of blame or suspicion.</p>
+<div class="options">
+<div class="option" onclick="check(this,false)">Accuse</div>
+<div class="option" onclick="check(this,false)">Indict</div>
+<div class="option" onclick="check(this,true)">Exonerate</div>
+<div class="option" onclick="check(this,false)">Incriminate</div>
+</div>
+</div>
+
+<div class="question">
+<p><b>Q.</b> A person who acts as a go-between.</p>
+<div class="options">
+<div class="option" onclick="check(this,false)">Arbitrator</div>
+<div class="option" onclick="check(this,true)">Mediator</div>
+<div class="option" onclick="check(this,false)">Emissary</div>
+<div class="option" onclick="check(this,false)">Interlocutor</div>
+</div>
+</div>
+
+<div class="question">
+<p><b>Q.</b> A government ruled by the military.</p>
+<div class="options">
+<div class="option" onclick="check(this,false)">Bureaucracy</div>
+<div class="option" onclick="check(this,false)">Autocracy</div>
+<div class="option" onclick="check(this,true)">Stratocracy</div>
+<div class="option" onclick="check(this,false)">Plutocracy</div>
+</div>
+</div>
+
+<div class="question">
+<p><b>Q.</b> Fear of open or crowded places.</p>
+<div class="options">
+<div class="option" onclick="check(this,true)">Agoraphobia</div>
+<div class="option" onclick="check(this,false)">Thanatophobia</div>
+<div class="option" onclick="check(this,false)">Acrophobia</div>
+<div class="option" onclick="check(this,false)">Xenophobia</div>
+</div>
+</div>
+
+<div class="question">
+<p><b>Q.</b> A place where weapons are stored.</p>
+<div class="options">
+<div class="option" onclick="check(this,true)">Arsenal</div>
+<div class="option" onclick="check(this,false)">Dockyard</div>
+<div class="option" onclick="check(this,false)">Repository</div>
+<div class="option" onclick="check(this,false)">Hangar</div>
+</div>
+</div>
+
+<div class="question">
+<p><b>Q.</b> A speech delivered without preparation.</p>
+<div class="options">
+<div class="option" onclick="check(this,true)">Extempore</div>
+<div class="option" onclick="check(this,false)">Monologue</div>
+<div class="option" onclick="check(this,false)">Dialogue</div>
+<div class="option" onclick="check(this,false)">Soliloquy</div>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+function check(el,isCorrect){
+
+let parent = el.parentElement;
+let options = parent.children;
+
+for(let opt of options){
+opt.style.pointerEvents="none";
+}
+
+if(isCorrect){
+el.classList.add("correct");
+}else{
+el.classList.add("wrong");
+}
+
+}
+
+</script>
+
+</body>
+</html>
