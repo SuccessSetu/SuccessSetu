@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CHSL Mock 5/title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#070707,#080808);
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.box{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+width:80%;
+margin:auto;
+}
+
+textarea{
+width:100%;
+height:150px;
+margin-top:15px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+.paragraph-box {
+  height: 180px;
+  overflow-y: scroll;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Smooth scrollbar */
+.paragraph-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paragraph-box::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CHSL Typing Test - Mock 5h2>
+
+<div class="box">
+
+<p id="timer">Time: 600 sec</p>
+<p id="keys">Keys Typed: 0</p>
+<p id="wpm">WPM: 0</p>
+<p id="accuracy">Accuracy: 100%</p>
+
+<hr>
+
+<div class="paragraph-box">
+  <p id="paragraph">
+    Self-improvement is often misunderstood as a relentless pursuit of productivity, but its true essence lies in conscious evolution rather than constant acceleration. Genuine growth involves introspection—the ability to examine one’s values, patterns, and limitations without defensiveness or denial. Many individuals equate self-betterment with acquiring new skills or achieving external milestones, yet meaningful transformation begins internally. Recognising one’s thought habits, emotional triggers, and recurring behavioural tendencies often precedes any lasting change in action or perspective. Without such awareness, improvement becomes superficial and temporary.
+
+Another key dimension of self-improvement is consistency. Grand resolutions may generate short-lived enthusiasm, but small, repeated actions cultivate real and sustainable progress. This occurs because repetition strengthens neural pathways, gradually turning intentional effort into natural behaviour. Over time, these habits form the foundation of personal stability and confidence. Equally important is self-compassion. Improvement that stems from self-criticism usually breeds anxiety and discouragement, whereas a kind and patient attitude toward one’s imperfections encourages resilience and persistence.
+
+Furthermore, self-improvement is not a linear journey but a cyclical process that demands periodic reflection and recalibration. Life circumstances, priorities, and aspirations evolve, requiring individuals to reassess their direction and adapt accordingly. By accepting setbacks as feedback rather than evidence of failure, individuals remain motivated and open to learning. Ultimately, authentic self-improvement is not about becoming someone else, but about aligning daily choices more closely with deeper values, long-term aspirations, and a purposeful sense of identity.
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 600;
+let timer;
+let started = false;
+
+function startTest(){
+
+if(started) return;
+
+started = true;
+document.getElementById("inputBox").disabled = false;
+document.getElementById("inputBox").focus();
+
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText = "Time: " + time + " sec";
+
+if(time<=0){
+submitTest();
+}
+
+},1000);
+}
+
+document.getElementById("inputBox").addEventListener("input",function(){
+
+let typed = this.value.length;
+document.getElementById("keys").innerText = "Keys Typed: " + typed;
+
+let minutes = (600 - time)/60;
+let wpm = Math.round((typed/5)/minutes);
+
+if(minutes>0){
+document.getElementById("wpm").innerText = "WPM: " + wpm;
+}
+
+let originalText = document.getElementById("paragraph").innerText;
+let typedText = this.value;
+
+let correct = 0;
+
+for (let i = 0; i < typedText.length && i < originalText.length; i++) {
+    if (typedText[i] === originalText[i]) {
+        correct++;
+    }
+}
+
+let totalTyped = typedText.length;
+
+let acc = totalTyped > 0 
+    ? Math.round((correct / totalTyped) * 100) 
+    : 0;
+
+document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+
+});
+
+function submitTest(){
+clearInterval(timer);
+document.getElementById("inputBox").disabled = true;
+alert("Test Completed");
+}
+
+</script>
+
+</body>
+</html>
