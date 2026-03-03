@@ -69,7 +69,8 @@ cursor:pointer;
 <p id="keys">Keys Typed: 0</p>
 <p id="wpm">WPM: 0</p>
 <p id="accuracy">Accuracy: 100%</p>
-
+<p id="error">Errors: 0 (0%)</p>
+<p id="netwpm">Net WPM: 0</p>
 <hr>
 
 <div class="paragraph-box">
@@ -91,71 +92,104 @@ Furthermore, self-improvement is not a linear journey but a cyclical process tha
 
 </div>
 
+
+
 <script>
 
-let time = 600;
+let totalTime = 600;
+let timeLeft = totalTime;
 let timer;
 let started = false;
 
 function startTest(){
+    if(started) return;
 
-if(started) return;
+    started = true;
+    document.getElementById("inputBox").disabled = false;
+    document.getElementById("inputBox").focus();
 
-started = true;
-document.getElementById("inputBox").disabled = false;
-document.getElementById("inputBox").focus();
+    timer = setInterval(()=>{
+        timeLeft--;
+        document.getElementById("timer").innerText = "Time: " + timeLeft + " sec";
 
-timer = setInterval(()=>{
-time--;
-document.getElementById("timer").innerText = "Time: " + time + " sec";
-
-if(time<=0){
-submitTest();
+        if(timeLeft <= 0){
+            submitTest();
+        }
+    },1000);
 }
 
-},1000);
-}
+document.getElementById("inputBox").addEventListener("input", function(){
 
-document.getElementById("inputBox").addEventListener("input",function(){
+    let originalText = document.getElementById("paragraph")
+        .textContent
+        .replace(/—/g,"-")
+        .replace(/[“”]/g,'"')
+        .replace(/[‘’]/g,"'")
+        .replace(/\s+/g," ")
+        .trim();
 
-let typed = this.value.length;
-document.getElementById("keys").innerText = "Keys Typed: " + typed;
+    let typedText = this.value
+        .replace(/—/g,"-")
+        .replace(/[“”]/g,'"')
+        .replace(/[‘’]/g,"'")
+        .replace(/\s+/g," ")
+        .trim();
 
-let minutes = (600 - time)/60;
-let wpm = Math.round((typed/5)/minutes);
+    // KEYS TYPED
+    document.getElementById("keys").innerText = "Keys Typed: " + this.value.length;
 
-if(minutes>0){
-document.getElementById("wpm").innerText = "WPM: " + wpm;
-}
+    // CALCULATE CORRECT & ERRORS
+    let correct = 0;
+    let errors = 0;
 
-let originalText = document.getElementById("paragraph").innerText;
-let typedText = this.value;
-
-let correct = 0;
-
-for (let i = 0; i < typedText.length && i < originalText.length; i++) {
-    if (typedText[i] === originalText[i]) {
-        correct++;
+    for(let i = 0; i < typedText.length; i++){
+        if(typedText[i] === originalText[i]){
+            correct++;
+        } else {
+            errors++;
+        }
     }
-}
 
-let totalTyped = typedText.length;
+    // ACCURACY
+    let accuracy = typedText.length > 0 
+        ? Math.round((correct / typedText.length) * 100)
+        : 0;
 
-let acc = totalTyped > 0 
-    ? Math.round((correct / totalTyped) * 100) 
-    : 0;
+    document.getElementById("accuracy").innerText = "Accuracy: " + accuracy + "%";
 
-document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+    // ERROR %
+    let errorPercent = typedText.length > 0
+        ? Math.round((errors / typedText.length) * 100)
+        : 0;
+
+    document.getElementById("error").innerText = "Errors: " + errors + " (" + errorPercent + "%)";
+
+    // WPM CALCULATION
+    let minutes = (totalTime - timeLeft) / 60;
+    if(minutes > 0){
+
+        let grossWPM = Math.round((typedText.length / 5) / minutes);
+
+        // NET WPM (SSC Style)
+        let netWPM = Math.round(grossWPM - (errors / minutes));
+
+        if(netWPM < 0) netWPM = 0;
+
+        document.getElementById("wpm").innerText = "Gross WPM: " + grossWPM;
+        document.getElementById("netwpm").innerText = "Net WPM: " + netWPM;
+    }
 
 });
 
 function submitTest(){
-clearInterval(timer);
-document.getElementById("inputBox").disabled = true;
-alert("Test Completed");
+    clearInterval(timer);
+    document.getElementById("inputBox").disabled = true;
+    alert("Test Completed");
 }
 
 </script>
+
+
 
 </body>
 </html>
