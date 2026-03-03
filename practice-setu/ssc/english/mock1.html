@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SSC Error Detection Practice</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin:0;
+    padding:0;
+}
+
+.header{
+    background:#003366;
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-size:20px;
+}
+
+.container{
+    max-width:800px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.question{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.option-btn{
+    display:block;
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    background:#e9ecef;
+    cursor:pointer;
+    border-radius:5px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.option-btn:hover{
+    background:#d6e4ff;
+}
+
+.next-btn{
+    margin-top:15px;
+    padding:8px 15px;
+    border:none;
+    background:#003366;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.next-btn:hover{
+    background:#00509e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+SSC CGL Error Detection Practice
+</div>
+
+<div class="container">
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <button class="next-btn" onclick="nextQuestion()">Next Question</button>
+</div>
+
+<script>
+
+const questions = [
+{
+q:"The committee is committed (1)/ for ensuring that all members (2)/ have an equal opportunity (3)/ to voice their opinions. (4)",
+options:["(1)","(2)","(3)","(4)"],
+answer:1
+},
+{
+q:"The museum, which located near the river, (1)/ attracts thousands of visitors (2)/ every year for its rare collection (3)/ of ancient manuscripts. (4)",
+options:["(1)","(2)","(3)","(4)"],
+answer:0
+},
+{
+q:"Neither of the applicants (1)/ have submitted (2)/ the required documents (3)/ to the office yet. (4)",
+options:["(1)","(2)","(3)","(4)"],
+answer:1
+},
+{
+q:"She  enjoys  reading  novels  (1)/listening  to  music  (2)/  and  to  paint landscapes (3)/ during her free time. (4)",
+options:["(1)","(2)","(3)","(4)"],
+answer:2
+},
+{
+q:" The  unique  challenges  of  the project,  including  its  remote  location  (1)/ and  the  unpredictable  weather  patterns, (2)/  makes  its  successful  completion (3)/  a  testament  to  the  team's  resilience. (4) ",
+options:["(1)","(2)","(3)","(4)"],
+answer:2    
+}
+];
+
+let current = 0;
+let answered = false;
+
+function loadQuestion(){
+    answered = false;
+    document.getElementById("question").innerText =
+    "Q" + (current+1) + ". " + questions[current].q;
+
+    const optDiv = document.getElementById("options");
+    optDiv.innerHTML="";
+
+    questions[current].options.forEach((opt,i)=>{
+        const btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.classList.add("option-btn");
+
+        btn.onclick = function(){
+            if(!answered){
+                checkAnswer(i);
+            }
+        };
+
+        optDiv.appendChild(btn);
+    });
+}
+
+function checkAnswer(selected){
+    answered = true;
+    const buttons = document.querySelectorAll(".option-btn");
+
+    buttons.forEach((btn,index)=>{
+        btn.disabled = true;
+
+        if(index === questions[current].answer){
+            btn.style.background = "#28a745"; // Green
+            btn.style.color = "white";
+        }
+
+        if(index === selected && selected !== questions[current].answer){
+            btn.style.background = "#dc3545"; // Red
+            btn.style.color = "white";
+        }
+    });
+}
+
+function nextQuestion(){
+    if(current < questions.length - 1){
+        current++;
+        loadQuestion();
+    } else {
+        alert("Practice Completed ✅");
+        current = 0;
+        loadQuestion();
+    }
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
