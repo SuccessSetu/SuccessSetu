@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CHSL Mock 9</title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#070707,#080808);
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.box{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+width:80%;
+margin:auto;
+}
+
+textarea{
+width:100%;
+height:150px;
+margin-top:15px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+.paragraph-box {
+  height: 180px;
+  overflow-y: scroll;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Smooth scrollbar */
+.paragraph-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paragraph-box::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CHSL Typing Test - Mock 9 </h2>
+
+<div class="box">
+
+<p id="timer">Time: 600 sec</p>
+<p id="keys">Keys Typed: 0</p>
+<p id="wpm">WPM: 0</p>
+<p id="accuracy">Accuracy: 100%</p>
+
+<hr>
+
+<div class="paragraph-box">
+  <p id="paragraph">
+  As artificial intelligence (AI) technologies continue to proliferate across every sector of human activity, the ethical implications of their deployment have become a matter of urgent concern. Once relegated to the realm of speculative fiction, AI now permeates decision-making in fields as diverse as healthcare, finance, education, and criminal justice. While proponents argue that AI can increase efficiency, reduce human bias, and democratize access to services, critics warn of the potential for algorithmic discrimination, erosion of privacy, and the deepening of existing social inequalities.
+
+At the heart of the debate lies a fundamental tension between technological progress and moral responsibility. Machines, no matter how sophisticated, lack consciousness and intrinsic values; they merely execute instructions based on data inputs and programmed algorithms. Thus, when an AI system makes a life-altering decision—such as denying a loan application or predicting a defendant's likelihood of reoffending—it is not the machine itself that is accountable, but the human architects behind its creation and training.
+
+Moreover, the opacity of many AI systems, often referred to as the "black box" problem, poses a significant ethical challenge. When even developers cannot fully explain how a machine arrived at a given outcome, the prospect of ensuring fairness, transparency, and accountability becomes deeply problematic.
+
+Addressing these concerns will require not only technical innovations, such as explainable AI, but also rigorous interdisciplinary collaboration between engineers, ethicists, policymakers, and the public.
+</p>
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 600;
+let timer;
+let started = false;
+
+function startTest(){
+
+if(started) return;
+
+started = true;
+document.getElementById("inputBox").disabled = false;
+document.getElementById("inputBox").focus();
+
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText = "Time: " + time + " sec";
+
+if(time<=0){
+submitTest();
+}
+
+},1000);
+}
+
+document.getElementById("inputBox").addEventListener("input",function(){
+
+let typed = this.value.length;
+document.getElementById("keys").innerText = "Keys Typed: " + typed;
+
+let minutes = (600 - time)/60;
+let wpm = Math.round((typed/5)/minutes);
+
+if(minutes>0){
+document.getElementById("wpm").innerText = "WPM: " + wpm;
+}
+
+let originalText = document.getElementById("paragraph").innerText;
+let typedText = this.value;
+
+let correct = 0;
+
+for (let i = 0; i < typedText.length && i < originalText.length; i++) {
+    if (typedText[i] === originalText[i]) {
+        correct++;
+    }
+}
+
+let totalTyped = typedText.length;
+
+let acc = totalTyped > 0 
+    ? Math.round((correct / totalTyped) * 100) 
+    : 0;
+
+document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+
+});
+function submitTest(){
+clearInterval(timer);
+document.getElementById("inputBox").disabled = true;
+alert("Test Completed");
+}
+</script>
+
+</body>
+</html>
