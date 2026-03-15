@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CHSL Mock 11</title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#070707,#080808);
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.box{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+width:80%;
+margin:auto;
+}
+
+textarea{
+width:100%;
+height:150px;
+margin-top:15px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+.paragraph-box {
+  height: 180px;
+  overflow-y: scroll;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Smooth scrollbar */
+.paragraph-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paragraph-box::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CHSL Typing Test - Mock 11</h2>
+
+<div class="box">
+
+<p id="timer">Time: 600 sec</p>
+<p id="keys">Keys Typed: 0</p>
+<p id="wpm">WPM: 0</p>
+<p id="accuracy">Accuracy: 100%</p>
+
+<hr>
+
+<div class="paragraph-box">
+  <p id="paragraph">
+ Science and technology play a crucial role in shaping modern society. They influence the way people live, work, communicate, and solve problems. Over the past few decades, scientific discoveries and technological innovations have transformed many aspects of human life. From medical advancements to space exploration, science continues to expand our understanding of the world and improve the quality of life.
+
+One of the most remarkable developments in recent years is the rapid growth of digital technology. Computers, smartphones, and the internet have revolutionized communication and information sharing. Today, people can send messages, attend online classes, and conduct business across different parts of the world within seconds. This digital revolution has made knowledge more accessible and has created new opportunities for education and employment.
+
+In the field of medicine, scientific research has led to important breakthroughs. Vaccines, advanced diagnostic tools, and modern treatment methods have helped control many diseases and increased life expectancy. Medical technologies such as robotic surgery, artificial organs, and telemedicine allow doctors to treat patients more effectively and reach people in remote areas. Continuous research in biotechnology and genetics also promises new solutions for complex health problems.
+
+Space science is another area where technology has achieved remarkable success. Satellites play an important role in communication, weather forecasting, navigation, and disaster management. Space agencies around the world continue to explore planets, study distant galaxies, and search for signs of life beyond Earth. These missions not only increase scientific knowledge but also inspire future generations of scientists and engineers.
+
+However, the rapid development of technology also brings certain challenges. Issues such as cybercrime, data privacy, and technological unemployment have become important concerns in the digital age. Society must learn to balance technological progress with ethical responsibility and social well being.
+
+In conclusion, science and technology are powerful tools for progress and development. When used wisely, they can help solve global problems and create a better future for humanity. Therefore, it is essential to encourage scientific thinking, innovation, and responsible use of technology in every part of society.
+</p>
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 600;
+let timer;
+let started = false;
+
+function startTest(){
+
+if(started) return;
+
+started = true;
+document.getElementById("inputBox").disabled = false;
+document.getElementById("inputBox").focus();
+
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText = "Time: " + time + " sec";
+
+if(time<=0){
+submitTest();
+}
+
+},1000);
+}
+
+document.getElementById("inputBox").addEventListener("input",function(){
+
+let typed = this.value.length;
+document.getElementById("keys").innerText = "Keys Typed: " + typed;
+
+let minutes = (600 - time)/60;
+let wpm = Math.round((typed/5)/minutes);
+
+if(minutes>0){
+document.getElementById("wpm").innerText = "WPM: " + wpm;
+}
+
+let originalText = document.getElementById("paragraph").innerText;
+let typedText = this.value;
+
+let correct = 0;
+
+for (let i = 0; i < typedText.length && i < originalText.length; i++) {
+    if (typedText[i] === originalText[i]) {
+        correct++;
+    }
+}
+
+let totalTyped = typedText.length;
+
+let acc = totalTyped > 0 
+    ? Math.round((correct / totalTyped) * 100) 
+    : 0;
+
+document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+
+});
+function submitTest(){
+clearInterval(timer);
+document.getElementById("inputBox").disabled = true;
+alert("Test Completed");
+}
+</script>
+
+</body>
+</html>
