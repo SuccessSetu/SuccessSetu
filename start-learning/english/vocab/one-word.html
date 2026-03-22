@@ -1,176 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solution Notes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      color: #111;
+      line-height: 1.45;
+      padding: 20px;
+    }
 
-<title>One Word Substitution</title>
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
 
-<style>
+    .sol {
+      margin-bottom: 28px;
+    }
 
-body{
-font-family: Arial, sans-serif;
-background:#f5f5f5;
-margin:0;
-padding:0;
-}
+    .item {
+      margin: 8px 0;
+      font-size: 18px;
+    }
 
-.container{
-width:95%;
-max-width:900px;
-margin:auto;
-padding:15px;
-}
+    .word {
+      font-weight: 700;
+    }
 
-h2{
-text-align:center;
-}
+    .dash {
+      margin: 0 6px;
+    }
 
-.question{
-background:white;
-padding:15px;
-margin-bottom:15px;
-border-radius:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
 
-.options{
-margin-top:10px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
+      .container {
+        padding: 18px;
+      }
 
-.option{
-padding:8px;
-background:#f1f1f1;
-border-radius:6px;
-cursor:pointer;
-text-align:center;
-}
-
-.option:hover{
-background:#dff3ff;
-}
-
-.correct{
-background:#b6fcb6 !important;
-}
-
-.wrong{
-background:#ffb6b6 !important;
-}
-
-@media(max-width:600px){
-.options{
-grid-template-columns:1fr;
-}
-}
-
-</style>
-
+      .item {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container" id="content"></div>
 
-<div class="container">
+  <script>
+    const solutions = [
+      {
+        items: [
+          ["Palindrome", "a word, phrase, or sequence that reads the same backwards as forwards."],
+          ["Anagram", "a word, phrase, or name formed by rearranging the letters of another."],
+          ["Homonym", "each of two or more words having the same spelling or pronunciation but different meanings and origins."],
+          ["Synonym", "a word or phrase that means exactly or nearly the same as another word or phrase in the same language."]
+        ]
+      },
+      {
+        items: [
+          ["Austere", "practising severe self-discipline and abstention, typically for religious reasons."],
+          ["Hedonistic", "engaged in the pursuit of pleasure."],
+          ["Debauched", "indulging in sensual pleasures to a degree considered immoral or harmful."],
+          ["Sybaritic", "fond of sensuous luxury or pleasure."]
+        ]
+      },
+      {
+        items: [
+          ["Apoplexy", "a sudden, violent outburst of emotion or activity."],
+          ["Frenzy", "wild excitement or uncontrolled activity."],
+          ["Tempest", "a violent storm."],
+          ["Maelstrom", "a powerful whirlpool or turbulent situation."]
+        ]
+      },
+      {
+        items: [
+          ["Nihilism", "the rejection of all religious and moral principles, often in the belief that life is meaningless."]
+        ]
+      },
+      {
+        items: [
+          ["Feud", "a prolonged and bitter quarrel or dispute."],
+          ["Consensus", "general agreement."],
+          ["Amity", "a friendly relationship."],
+          ["Concord", "agreement or harmony between people or groups."]
+        ]
+      },
+      {
+        items: [
+          ["Entomologist", "a specialist in the study of insects."],
+          ["Zoologist", "a scientist who studies animals."],
+          ["Ornithologist", "a scientist who studies birds."],
+          ["Botanist", "a scientist who studies plants."]
+        ]
+      },
+      {
+        items: [
+          ["Loquacious", "a person talks excessively, often about unimportant things."],
+          ["Taciturn", "means reserved or silent by nature."]
+        ]
+      },
+      {
+        items: [
+          ["Hedonist", "a person who believes that the pursuit of pleasure is the most important goal in life."],
+          ["Stoic", "someone who endures pain or hardship without showing feelings."],
+          ["Cynic", "a person who believes people are motivated purely by self-interest."],
+          ["Epicure", "a person with refined taste in food and drink."]
+        ]
+      },
+      {
+        items: [
+          ["Amnesty", "an official pardon for people who have been convicted of political offenses."],
+          ["Absolution", "a formal release from guilt, obligation, or punishment."],
+          ["Reprieve", "a cancellation or postponement of a punishment."],
+          ["Exoneration", "the action of officially absolving someone from blame; vindication."]
+        ]
+      },
+      {
+        items: [
+          ["Haphephobia", "an extreme or irrational fear of being touched."],
+          ["Atychiphobia", "fear of failure."],
+          ["Gamophobia", "fear of marriage or commitment."],
+          ["Thanatophobia", "fear of death or dying."]
+        ]
+      },
+      {
+        items: [
+          ["Xenodochial", "friendly and kind to strangers or foreigners."],
+          ["Misoneistic", "having a hatred or fear of change or innovation."],
+          ["Misanthropic", "disliking or distrusting humankind in general."],
+          ["Xylotomous", "capable of cutting or boring into wood (used for certain insects)."]
+        ]
+      },
+      {
+        items: [
+          ["Solipsist", "a person who believes that only the self exists and that everything outside one’s own mind is merely an illusion."],
+          ["Nihilist", "denies all religious and moral principles, believing life is meaningless."],
+          ["Existentialist", "emphasizes individual freedom and responsibility in creating meaning."],
+          ["Idealist", "believes reality is mentally constructed or spiritual in essence."]
+        ]
+      },
+      {
+        items: [
+          ["Incendiary", "a person who deliberately stirs up discord or rebellion within an organization, often to achieve personal or political ends."],
+          ["Iconoclast", "someone who challenges or attacks established beliefs or traditions."]
+        ]
+      },
+      {
+        items: [
+          ["Anthology", "a collection of literary extracts, especially from one author."],
+          ["Lexicographer", "a person who compiles a dictionary."],
+          ["Bibliophile", "a person who loves reading and collecting books."],
+          ["Ennui", "feelings of being bored and not satisfied because nothing interesting is happening."]
+        ]
+      },
+      {
+        items: [
+          ["Extempore", "a speech made without any preparation."],
+          ["Dialogue", "a conversation between two or more people."],
+          ["Monologue", "a long speech by one person, often in a play or performance."],
+          ["Soliloquy", "a speech in which a character speaks their thoughts aloud when alone on stage."]
+        ]
+      },
+      {
+        items: [
+          ["Paleographer", "a person who studies ancient writings and inscriptions."],
+          ["Archaeologist", "a person who studies human history and prehistory through the excavation of sites and the analysis of artefacts and other physical remains."],
+          ["Epigraphist", "a person who studies inscriptions, which are writings engraved on hard surfaces like stone or metal."],
+          ["Philologist", "a person who studies language in historical sources, such as literature and written records."]
+        ]
+      },
+      {
+        items: [
+          ["Esoteric", "able to be understood by only a few people who have special knowledge or interest."],
+          ["Opaque", "unable to be understood."],
+          ["Inefficient", "not achieving maximum productivity."],
+          ["Illegible", "not clear enough to be read."]
+        ]
+      },
+      {
+        items: [
+          ["Confluence", "a place where two rivers meet."],
+          ["Estuary", "the tidal mouth of a large river, where the tide meets the stream."],
+          ["Delta", "a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets."],
+          ["Tributary", "a river or stream flowing into a larger river or lake."]
+        ]
+      },
+      {
+        items: [
+          ["Recluse", "a person who avoids human society and prefers to live alone."],
+          ["Renegade", "a person who deserts or betrays an organization, country, or set of principles."],
+          ["Prodigy", "a person, especially a young one, with exceptional talents or abilities."],
+          ["Mystic", "a person who seeks spiritual truth or union with the divine through meditation or contemplation."]
+        ]
+      },
+      {
+        items: [
+          ["Quixotic", "extremely idealistic, unrealistic, and impractical in pursuit of ideals."],
+          ["Visionary", "one who thinks about or plans the future with imagination or wisdom."],
+          ["Sagacious", "having or showing keen mental discernment and good judgment; wise."]
+        ]
+      }
+    ];
 
-<h2>One Word Substitution</h2>
+    const container = document.getElementById("content");
 
-<div class="question">
-<p><b>Q.</b> A person who travels to sacred places for religious reasons.</p>
-<div class="options">
-<div class="option" onclick="check(this,false)">Ascetic</div>
-<div class="option" onclick="check(this,false)">Hermit</div>
-<div class="option" onclick="check(this,true)">Pilgrim</div>
-<div class="option" onclick="check(this,false)">Evangelist</div>
-</div>
-</div>
+    solutions.forEach(sol => {
+      const section = document.createElement("section");
+      section.className = "sol";
 
-<div class="question">
-<p><b>Q.</b> To clear someone of blame or suspicion.</p>
-<div class="options">
-<div class="option" onclick="check(this,false)">Accuse</div>
-<div class="option" onclick="check(this,false)">Indict</div>
-<div class="option" onclick="check(this,true)">Exonerate</div>
-<div class="option" onclick="check(this,false)">Incriminate</div>
-</div>
-</div>
+      sol.items.forEach(([word, meaning]) => {
+        const p = document.createElement("p");
+        p.className = "item";
+        p.innerHTML = `<span class="word">${word}</span><span class="dash">-</span>${meaning}`;
+        section.appendChild(p);
+      });
 
-<div class="question">
-<p><b>Q.</b> A person who acts as a go-between.</p>
-<div class="options">
-<div class="option" onclick="check(this,false)">Arbitrator</div>
-<div class="option" onclick="check(this,true)">Mediator</div>
-<div class="option" onclick="check(this,false)">Emissary</div>
-<div class="option" onclick="check(this,false)">Interlocutor</div>
-</div>
-</div>
-
-<div class="question">
-<p><b>Q.</b> A government ruled by the military.</p>
-<div class="options">
-<div class="option" onclick="check(this,false)">Bureaucracy</div>
-<div class="option" onclick="check(this,false)">Autocracy</div>
-<div class="option" onclick="check(this,true)">Stratocracy</div>
-<div class="option" onclick="check(this,false)">Plutocracy</div>
-</div>
-</div>
-
-<div class="question">
-<p><b>Q.</b> Fear of open or crowded places.</p>
-<div class="options">
-<div class="option" onclick="check(this,true)">Agoraphobia</div>
-<div class="option" onclick="check(this,false)">Thanatophobia</div>
-<div class="option" onclick="check(this,false)">Acrophobia</div>
-<div class="option" onclick="check(this,false)">Xenophobia</div>
-</div>
-</div>
-
-<div class="question">
-<p><b>Q.</b> A place where weapons are stored.</p>
-<div class="options">
-<div class="option" onclick="check(this,true)">Arsenal</div>
-<div class="option" onclick="check(this,false)">Dockyard</div>
-<div class="option" onclick="check(this,false)">Repository</div>
-<div class="option" onclick="check(this,false)">Hangar</div>
-</div>
-</div>
-
-<div class="question">
-<p><b>Q.</b> A speech delivered without preparation.</p>
-<div class="options">
-<div class="option" onclick="check(this,true)">Extempore</div>
-<div class="option" onclick="check(this,false)">Monologue</div>
-<div class="option" onclick="check(this,false)">Dialogue</div>
-<div class="option" onclick="check(this,false)">Soliloquy</div>
-</div>
-</div>
-
-
-</div>
-
-<script>
-
-function check(el,isCorrect){
-
-let parent = el.parentElement;
-let options = parent.children;
-
-for(let opt of options){
-opt.style.pointerEvents="none";
-}
-
-if(isCorrect){
-el.classList.add("correct");
-}else{
-el.classList.add("wrong");
-}
-
-}
-
-</script>
-
+      container.appendChild(section);
+    });
+  </script>
 </body>
 </html>
