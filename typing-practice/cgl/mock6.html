@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CGL Mock 6</title>
+
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#070707,#080808);
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.box{
+background: rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+width:80%;
+margin:auto;
+}
+
+textarea{
+width:100%;
+height:150px;
+margin-top:15px;
+padding:10px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+}
+.paragraph-box {
+  height: 180px;
+  overflow-y: scroll;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Smooth scrollbar */
+.paragraph-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paragraph-box::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>CGL Typing Test - Mock 6</h2>
+
+<div class="box">
+
+<p id="timer">Time: 900 sec</p>
+<p id="keys">Keys Typed: 0</p>
+<p id="wpm">WPM: 0</p>
+<p id="accuracy">Accuracy: 0%</p>
+
+<hr>
+
+<div class="paragraph-box">
+  <p id="paragraph">
+  India’s transition to electric vehicles (EVs) has gained strong momentum in recent years due to environmental concerns, rising fuel prices, and supportive government policies. However, the key question remains whether the country is fully prepared for a large-scale EV revolution.
+
+On the positive side, the Indian government has taken several proactive steps through subsidies, tax benefits, and schemes like FAME (Faster Adoption and Manufacturing of Electric Vehicles). These initiatives aim to make EVs more affordable and promote domestic manufacturing. At the same time, growing awareness about climate change and the need to reduce carbon emissions has encouraged people to adopt cleaner mobility options.
+
+Despite these developments, multiple challenges still exist. One major issue is the lack of proper charging infrastructure. Compared to petrol pumps, EV charging stations are limited, especially in rural and semi-urban areas, which creates “range anxiety” among buyers. In addition, the high initial cost of EVs, mainly due to expensive batteries, discourages middle-class consumers.
+
+Another concern is India’s dependence on imports for important battery materials like lithium, raising questions about long-term sustainability and cost efficiency. In some regions, inconsistent power supply also affects reliable EV charging.
+
+However, the future looks promising. With technological advancements, falling battery prices, and increasing private sector involvement, India is steadily building a strong EV ecosystem. Both startups and major automobile companies are investing heavily in research and infrastructure.
+
+In conclusion, although India may not yet be fully ready for a complete EV transition, it is clearly moving in the right direction. With continuous policy support, better infrastructure, and innovation, India has the potential to become a global leader in electric mobility.
+</p>
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 900;
+let timer;
+let started = false;
+
+function startTest(){
+
+if(started) return;
+
+started = true;
+document.getElementById("inputBox").disabled = false;
+document.getElementById("inputBox").focus();
+
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText = "Time: " + time + " sec";
+
+if(time<=0){
+submitTest();
+}
+
+},1000);
+}
+
+document.getElementById("inputBox").addEventListener("input",function(){
+
+let typed = this.value.length;
+document.getElementById("keys").innerText = "Keys Typed: " + typed;
+
+let minutes = (900 - time)/60;
+let wpm = Math.round((typed/5)/minutes);
+
+if(minutes>0){
+document.getElementById("wpm").innerText = "WPM: " + wpm;
+}
+
+let originalText = document.getElementById("paragraph").innerText;
+let typedText = this.value;
+
+let correct = 0;
+
+for (let i = 0; i < typedText.length && i < originalText.length; i++) {
+    if (typedText[i] === originalText[i]) {
+        correct++;
+    }
+}
+
+let totalTyped = typedText.length;
+
+let acc = totalTyped > 0 
+    ? Math.round((correct / totalTyped) * 100) 
+    : 0;
+
+document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+
+});
+function submitTest(){
+clearInterval(timer);
+document.getElementById("inputBox").disabled = true;
+alert("Test Completed");
+}
+</script>
+
+</body>
+</html>
