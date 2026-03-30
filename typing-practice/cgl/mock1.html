@@ -74,7 +74,7 @@ button{
 <div class="paragraph-box">
 <p id="paragraph"> In the architecture of digital consciousness, where algorithms increasingly shape perception, the boundary between autonomy and automation becomes dangerously thin. Every scroll, click, or pause is analyzed by unseen systems that learn, adapt, and anticipate, creating a feedback loop in which human preference is both the input and the outcome. The abundance of content sustains an illusion of choice, yet beneath it lies a subtle curation of thought. Recommendation engines, often presented as neutral tools, are influenced by data hierarchies and corporate objectives. What appears as personalization may instead reflect algorithmic steering, gently guiding desires rather than allowing them to emerge freely.
 
-The modern attention economy has transformed focus into a commodity. Distraction is no longer incidental; it is structured into the design of platforms. Emotional triggers amplify engagement, while nuanced reflection struggles for visibility. In this environment, outrage circulates faster than careful reasoning, and visibility becomes synonymous with influence. The language of digital ethics—transparency, fairness, accountability—often trails behind rapid technological innovation. Artificial intelligence, frequently portrayed as objective, inherits the assumptions and biases embedded in its training data. It mirrors not only human intelligence but also human prejudice.
+The modern attention economy has transformed focus into a commodity. Distraction is no longer incidental; it is structured into the design of platforms. Emotional triggers amplify engagement, while nuanced reflection struggles for visibility. In this environment, outrage circulates faster than careful reasoning, and visibility becomes synonymous with influence. The language of digital ethics-transparency, fairness, accountability-often trails behind rapid technological innovation. Artificial intelligence, frequently portrayed as objective, inherits the assumptions and biases embedded in its training data. It mirrors not only human intelligence but also human prejudice.
 
 Yet the digital age also presents unprecedented opportunity. Access to knowledge, collaboration, and global communication has expanded human potential in remarkable ways. The paradox lies in balancing empowerment with discernment. The challenge is not to reject technology but to cultivate responsible design and conscious usage. Digital systems must enhance critical thinking rather than erode it. True progress will be measured not merely by computational efficiency, but by the degree to which technology strengthens human judgment, empathy, and collective well-being.
 
@@ -159,15 +159,21 @@ document.getElementById("inputBox").addEventListener("input", function(){
     let typedText = this.value;
     let originalText = document.getElementById("paragraph").textContent.trim();
 
-    // ✅ normalize spaces
-    typedText = typedText.replace(/\s+/g, " ");
-    originalText = originalText.replace(/\s+/g, " ");
-    typedText = typedText.replace(/’/g, "'");
+    // normalize spaces
+typedText = typedText.replace(/\s+/g, " ");
+originalText = originalText.replace(/\s+/g, " ");
 
-originalText = originalText.replace(/’/g, "'");
+// normalize apostrophe
+typedText = typedText.replace(/[’‘]/g, "'");
+originalText = originalText.replace(/[’‘]/g, "'");
+
+// normalize quotes
+typedText = typedText.replace(/[“”]/g, '"');
+originalText = originalText.replace(/[“”]/g, '"');
+
+// normalize dash
 typedText = typedText.replace(/[–—]/g, "-");
 originalText = originalText.replace(/[–—]/g, "-");
-
     let typed = typedText.length;
     document.getElementById("keys").innerText = "Keys: " + typed;
 
@@ -192,8 +198,6 @@ originalText = originalText.replace(/[–—]/g, "-");
 let paraBox = document.querySelector(".paragraph-box");
 let progress = typedText.length / originalText.length;
 
-// scroll based on typing progress
-paraBox.scrollTop = paraBox.scrollHeight * progress;
 });
 
 </script>

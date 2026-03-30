@@ -161,12 +161,19 @@ document.getElementById("inputBox").addEventListener("input", function(){
     let typedText = this.value;
     let originalText = document.getElementById("paragraph").textContent.trim();
 
-    // ✅ normalize spaces
-    typedText = typedText.replace(/\s+/g, " ");
-    originalText = originalText.replace(/\s+/g, " ");
-    typedText = typedText.replace(/’/g, "'");
+   // normalize spaces
+typedText = typedText.replace(/\s+/g, " ");
+originalText = originalText.replace(/\s+/g, " ");
 
-originalText = originalText.replace(/’/g, "'");
+// normalize apostrophe
+typedText = typedText.replace(/[’‘]/g, "'");
+originalText = originalText.replace(/[’‘]/g, "'");
+
+// normalize quotes
+typedText = typedText.replace(/[“”]/g, '"');
+originalText = originalText.replace(/[“”]/g, '"');
+
+// normalize dash
 typedText = typedText.replace(/[–—]/g, "-");
 originalText = originalText.replace(/[–—]/g, "-");
 
@@ -194,8 +201,7 @@ originalText = originalText.replace(/[–—]/g, "-");
 let paraBox = document.querySelector(".paragraph-box");
 let progress = typedText.length / originalText.length;
 
-// scroll based on typing progress
-paraBox.scrollTop = paraBox.scrollHeight * progress;
+
 });
 
 </script>
