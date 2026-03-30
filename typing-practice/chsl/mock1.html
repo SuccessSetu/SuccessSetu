@@ -5,74 +5,73 @@
 
 <style>
 body{
-font-family: Arial;
-background: linear-gradient(135deg,#070707,#080808);
-text-align:center;
-padding:20px;
-color:white;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #000;
+    margin: 0;
+    padding: 0;
 }
 
-.box{
-background: rgba(255,255,255,0.2);
-padding:20px;
-border-radius:15px;
-width:80%;
-margin:auto;
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+    font-size: 18px;
+}
+.container{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.paragraph-box{
+    border: 2px solid #000;
+    padding: 20px;
+    height: 200px;
+    overflow-y: auto;   /* ✅ enable vertical scroll */
+    font-size: 16px;
+    line-height: 1.7;
+    background: #fff;
 }
 
 textarea{
-width:100%;
-height:150px;
-margin-top:15px;
-padding:10px;
-font-size:16px;
+    width: 100%;
+    height: 170px;
+    border: 2px solid #000;
+    font-size: 16px;
+    padding: 15px;
+    outline: none;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: bold;
+    width: 100%;
 }
 
 button{
-padding:10px 20px;
-margin:10px;
-font-size:16px;
-cursor:pointer;
-}
-.paragraph-box {
-  height: 180px;
-  overflow-y: scroll;
-  background: rgba(255,255,255,0.15);
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  text-align: left;
-  line-height: 1.6;
-  font-size: 16px;
-}
-
-/* Smooth scrollbar */
-.paragraph-box::-webkit-scrollbar {
-  width: 6px;
-}
-
-.paragraph-box::-webkit-scrollbar-thumb {
-  background: #00d4ff;
-  border-radius: 10px;
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: 1px solid #000;
+    background: #eee;
+    cursor: pointer;
 }
 </style>
 
 </head>
 <body>
+<div class="header">
+    <div>SSC CHSL Typing Test</div>
+    <div id="timer">Time: 10:00</div>
+</div>
 
-<h2>CHSL Typing Test - Mock 1</h2>
-
-<div class="box">
-
-<p id="timer">Time: 600 sec</p>
-<p id="keys">Keys Typed: 0</p>
-<p id="wpm">WPM: 0</p>
-<p id="accuracy">Accuracy: 100%</p>
-
-<hr>
+<div class="container">
 
 <div class="paragraph-box">
-  <p id="paragraph">
+<p id="paragraph">
   The concept of environmental stewardship extends beyond simple conservation and represents a proactive commitment to sustaining the biosphere through ethical action, scientific understanding, and social responsibility. Ecosystems are complex networks of interdependent species and natural factors, showing that ecological stability depends on balance rather than dominance. In earlier times, societies that aligned their lifestyles with nature through sustainable farming, water management, and preservation of forests demonstrated resilience and long-term sustainability. In contrast, excessive exploitation driven by short-term benefits has caused biodiversity loss, soil erosion, and increased vulnerability to climate change.
 
   Environmental stewardship challenges the belief that human needs should always take priority over ecological limits. It encourages people to develop ecological awareness and respect for all forms of life. This sense of responsibility promotes protection of nature not just for economic benefit but as a moral duty. At the governance level, stewardship appears in environmental laws, policies, and community efforts aimed at maintaining ecological balance.
@@ -83,9 +82,13 @@ cursor:pointer;
 
 <textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
 
-<br>
+<div class="stats">
+    <span id="wpm">WPM: 0</span>
+    <span id="accuracy">Accuracy: 0%</span>
+    <span id="keys">Keys: 0</span>
+</div>
 
-<button onclick="startTest()">Start</button>
+<button onclick="startTest()">Start Test</button>
 <button onclick="submitTest()">Submit</button>
 
 </div>
@@ -96,63 +99,109 @@ let time = 600;
 let timer;
 let started = false;
 
+updateTimer();
+
+function updateTimer(){
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+    sec = sec < 10 ? "0" + sec : sec;
+    document.getElementById("timer").innerText = `Time: ${min}:${sec}`;
+}
+
 function startTest(){
+    if(started) return;
 
-if(started) return;
+    started = true;
 
-started = true;
-document.getElementById("inputBox").disabled = false;
-document.getElementById("inputBox").focus();
+    let box = document.getElementById("inputBox");
+    box.disabled = false;
+    box.focus();
 
-timer = setInterval(()=>{
-time--;
-document.getElementById("timer").innerText = "Time: " + time + " sec";
+    timer = setInterval(()=>{
+        time--;
+        updateTimer();
 
-if(time<=0){
-submitTest();
+        if(time <= 0){
+            submitTest();
+        }
+    },1000);
 }
 
-},1000);
-}
+// block paste
+document.getElementById("inputBox").addEventListener("paste", e => e.preventDefault());
 
-document.getElementById("inputBox").addEventListener("input",function(){
-
-let typed = this.value.length;
-document.getElementById("keys").innerText = "Keys Typed: " + typed;
-
-let minutes = (600 - time)/60;
-let wpm = Math.round((typed/5)/minutes);
-
-if(minutes>0){
-document.getElementById("wpm").innerText = "WPM: " + wpm;
-}
-
-let originalText = document.getElementById("paragraph").innerText;
-let typedText = this.value;
-
-let correct = 0;
-
-for (let i = 0; i < typedText.length && i < originalText.length; i++) {
-    if (typedText[i] === originalText[i]) {
-        correct++;
+// prevent typing before start
+document.getElementById("inputBox").addEventListener("keydown", function(e){
+    if(!started){
+        e.preventDefault();
     }
+});
+
+function submitTest(){
+    clearInterval(timer);
+
+    let wpm = document.getElementById("wpm").innerText;
+    let acc = document.getElementById("accuracy").innerText;
+    let keys = document.getElementById("keys").innerText;
+
+    document.body.innerHTML = `
+        <h2>Test Completed</h2>
+        <p>${wpm}</p>
+        <p>${acc}</p>
+        <p>${keys}</p>
+        <button onclick="location.reload()">Retry</button>
+    `;
 }
 
-let totalTyped = typedText.length;
+document.getElementById("inputBox").addEventListener("input", function(){
 
-let acc = totalTyped > 0 
-    ? Math.round((correct / totalTyped) * 100) 
-    : 0;
+    let typedText = this.value;
+    let originalText = document.getElementById("paragraph").textContent.trim();
 
-document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+    // normalize spaces
+typedText = typedText.replace(/\s+/g, " ");
+originalText = originalText.replace(/\s+/g, " ");
+
+// normalize apostrophe
+typedText = typedText.replace(/[’‘]/g, "'");
+originalText = originalText.replace(/[’‘]/g, "'");
+
+// normalize quotes
+typedText = typedText.replace(/[“”]/g, '"');
+originalText = originalText.replace(/[“”]/g, '"');
+
+// normalize dash
+typedText = typedText.replace(/[–—]/g, "-");
+originalText = originalText.replace(/[–—]/g, "-");
+    let typed = typedText.length;
+    document.getElementById("keys").innerText = "Keys: " + typed;
+
+    let minutes = (600 - time) / 60;
+    if (minutes > 0 && typed > 0) {
+        let wpm = Math.round((typed / 5) / minutes);
+        document.getElementById("wpm").innerText = "WPM: " + wpm;
+    }
+
+    let correct = 0;
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === originalText[i]) {
+            correct++;
+        }
+    }
+
+    let acc = typedText.length > 0
+        ? Math.round((correct / typedText.length) * 100)
+        : 0;
+
+    document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+let paraBox = document.querySelector(".paragraph-box");
+let progress = typedText.length / originalText.length;
 
 });
-function submitTest(){
-clearInterval(timer);
-document.getElementById("inputBox").disabled = true;
-alert("Test Completed");
-}
+
 </script>
+
+
 
 </body>
 </html>

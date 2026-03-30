@@ -1,80 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>CHSL Mock 5</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
-font-family: Arial;
-background: linear-gradient(135deg,#070707,#080808);
-text-align:center;
-padding:20px;
-color:white;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #000;
+    margin: 0;
+    padding: 0;
 }
 
-.box{
-background: rgba(255,255,255,0.2);
-padding:20px;
-border-radius:15px;
-width:80%;
-margin:auto;
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+    font-size: 18px;
+}
+.container{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.paragraph-box{
+    border: 2px solid #000;
+    padding: 20px;
+    height: 200px;
+    overflow-y: auto;   /* ✅ enable vertical scroll */
+    font-size: 16px;
+    line-height: 1.7;
+    background: #fff;
 }
 
 textarea{
-width:100%;
-height:150px;
-margin-top:15px;
-padding:10px;
-font-size:16px;
+    width: 100%;
+    height: 170px;
+    border: 2px solid #000;
+    font-size: 16px;
+    padding: 15px;
+    outline: none;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: bold;
+    width: 100%;
 }
 
 button{
-padding:10px 20px;
-margin:10px;
-font-size:16px;
-cursor:pointer;
-}
-.paragraph-box {
-  height: 180px;
-  overflow-y: scroll;
-  background: rgba(255,255,255,0.15);
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  text-align: left;
-  line-height: 1.6;
-  font-size: 16px;
-}
-
-/* Smooth scrollbar */
-.paragraph-box::-webkit-scrollbar {
-  width: 6px;
-}
-
-.paragraph-box::-webkit-scrollbar-thumb {
-  background: #00d4ff;
-  border-radius: 10px;
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: 1px solid #000;
+    background: #eee;
+    cursor: pointer;
 }
 </style>
 
 </head>
 <body>
+<div class="header">
+    <div>SSC CHSL Typing Test</div>
+    <div id="timer">Time: 10:00</div>
+</div>
 
-<h2>CHSL Typing Test - Mock 5</h2>
-
-<div class="box">
-
-<p id="timer">Time: 600 sec</p>
-<p id="keys">Keys Typed: 0</p>
-<p id="wpm">WPM: 0</p>
-<p id="accuracy">Accuracy: 100%</p>
-<p id="error">Errors: 0 (0%)</p>
-<p id="netwpm">Net WPM: 0</p>
-<hr>
+<div class="container">
 
 <div class="paragraph-box">
-  <p id="paragraph">
+<p id="paragraph">
   Self-improvement is often misunderstood as a relentless pursuit of productivity, but its true essence lies in conscious evolution rather than constant acceleration. Genuine growth involves introspection—the ability to examine one’s values, patterns, and limitations without defensiveness or denial. Many individuals equate self-betterment with acquiring new skills or achieving external milestones, yet meaningful transformation begins internally. Recognising one’s thought habits, emotional triggers, and recurring behavioural tendencies often precedes any lasting change in action or perspective. Without such awareness, improvement becomes superficial and temporary.
 
 Another key dimension of self-improvement is consistency. Grand resolutions may generate short-lived enthusiasm, but small, repeated actions cultivate real and sustainable progress. This occurs because repetition strengthens neural pathways, gradually turning intentional effort into natural behaviour. Over time, these habits form the foundation of personal stability and confidence. Equally important is self-compassion. Improvement that stems from self-criticism usually breeds anxiety and discouragement, whereas a kind and patient attitude toward one’s imperfections encourages resilience and persistence.
@@ -85,107 +82,122 @@ Furthermore, self-improvement is not a linear journey but a cyclical process tha
 
 <textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
 
-<br>
+<div class="stats">
+    <span id="wpm">WPM: 0</span>
+    <span id="accuracy">Accuracy: 0%</span>
+    <span id="keys">Keys: 0</span>
+</div>
 
-<button onclick="startTest()">Start</button>
+<button onclick="startTest()">Start Test</button>
 <button onclick="submitTest()">Submit</button>
 
 </div>
 
-
-
 <script>
 
-let totalTime = 600;
-let timeLeft = totalTime;
+let time = 600;
 let timer;
 let started = false;
+
+updateTimer();
+
+function updateTimer(){
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+    sec = sec < 10 ? "0" + sec : sec;
+    document.getElementById("timer").innerText = `Time: ${min}:${sec}`;
+}
 
 function startTest(){
     if(started) return;
 
     started = true;
-    document.getElementById("inputBox").disabled = false;
-    document.getElementById("inputBox").focus();
+
+    let box = document.getElementById("inputBox");
+    box.disabled = false;
+    box.focus();
 
     timer = setInterval(()=>{
-        timeLeft--;
-        document.getElementById("timer").innerText = "Time: " + timeLeft + " sec";
+        time--;
+        updateTimer();
 
-        if(timeLeft <= 0){
+        if(time <= 0){
             submitTest();
         }
     },1000);
 }
 
-document.getElementById("inputBox").addEventListener("input", function(){
+// block paste
+document.getElementById("inputBox").addEventListener("paste", e => e.preventDefault());
 
-    let originalText = document.getElementById("paragraph")
-        .textContent
-        .replace(/—/g,"-")
-        .replace(/[“”]/g,'"')
-        .replace(/[‘’]/g,"'")
-        .replace(/\s+/g," ")
-        .trim();
-
-    let typedText = this.value
-        .replace(/—/g,"-")
-        .replace(/[“”]/g,'"')
-        .replace(/[‘’]/g,"'")
-        .replace(/\s+/g," ")
-        .trim();
-
-    // KEYS TYPED
-    document.getElementById("keys").innerText = "Keys Typed: " + this.value.length;
-
-    // CALCULATE CORRECT & ERRORS
-    let correct = 0;
-    let errors = 0;
-
-    for(let i = 0; i < typedText.length; i++){
-        if(typedText[i] === originalText[i]){
-            correct++;
-        } else {
-            errors++;
-        }
+// prevent typing before start
+document.getElementById("inputBox").addEventListener("keydown", function(e){
+    if(!started){
+        e.preventDefault();
     }
-
-    // ACCURACY
-    let accuracy = typedText.length > 0 
-        ? Math.round((correct / typedText.length) * 100)
-        : 0;
-
-    document.getElementById("accuracy").innerText = "Accuracy: " + accuracy + "%";
-
-    // ERROR %
-    let errorPercent = typedText.length > 0
-        ? Math.round((errors / typedText.length) * 100)
-        : 0;
-
-    document.getElementById("error").innerText = "Errors: " + errors + " (" + errorPercent + "%)";
-
-    // WPM CALCULATION
-    let minutes = (totalTime - timeLeft) / 60;
-    if(minutes > 0){
-
-        let grossWPM = Math.round((typedText.length / 5) / minutes);
-
-        // NET WPM (SSC Style)
-        let netWPM = Math.round(grossWPM - (errors / minutes));
-
-        if(netWPM < 0) netWPM = 0;
-
-        document.getElementById("wpm").innerText = "Gross WPM: " + grossWPM;
-        document.getElementById("netwpm").innerText = "Net WPM: " + netWPM;
-    }
-
 });
 
 function submitTest(){
     clearInterval(timer);
-    document.getElementById("inputBox").disabled = true;
-    alert("Test Completed");
+
+    let wpm = document.getElementById("wpm").innerText;
+    let acc = document.getElementById("accuracy").innerText;
+    let keys = document.getElementById("keys").innerText;
+
+    document.body.innerHTML = `
+        <h2>Test Completed</h2>
+        <p>${wpm}</p>
+        <p>${acc}</p>
+        <p>${keys}</p>
+        <button onclick="location.reload()">Retry</button>
+    `;
 }
+
+document.getElementById("inputBox").addEventListener("input", function(){
+
+    let typedText = this.value;
+    let originalText = document.getElementById("paragraph").textContent.trim();
+
+    // normalize spaces
+typedText = typedText.replace(/\s+/g, " ");
+originalText = originalText.replace(/\s+/g, " ");
+
+// normalize apostrophe
+typedText = typedText.replace(/[’‘]/g, "'");
+originalText = originalText.replace(/[’‘]/g, "'");
+
+// normalize quotes
+typedText = typedText.replace(/[“”]/g, '"');
+originalText = originalText.replace(/[“”]/g, '"');
+
+// normalize dash
+typedText = typedText.replace(/[–—]/g, "-");
+originalText = originalText.replace(/[–—]/g, "-");
+    let typed = typedText.length;
+    document.getElementById("keys").innerText = "Keys: " + typed;
+
+    let minutes = (600 - time) / 60;
+    if (minutes > 0 && typed > 0) {
+        let wpm = Math.round((typed / 5) / minutes);
+        document.getElementById("wpm").innerText = "WPM: " + wpm;
+    }
+
+    let correct = 0;
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === originalText[i]) {
+            correct++;
+        }
+    }
+
+    let acc = typedText.length > 0
+        ? Math.round((correct / typedText.length) * 100)
+        : 0;
+
+    document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+let paraBox = document.querySelector(".paragraph-box");
+let progress = typedText.length / originalText.length;
+
+});
 
 </script>
 
