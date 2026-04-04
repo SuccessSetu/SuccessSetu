@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>CGL Mock 12</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+    font-size: 18px;
+}
+.container{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.paragraph-box{
+    border: 2px solid #000;
+    padding: 20px;
+    height: 200px;
+    overflow-y: auto;   /* ✅ enable vertical scroll */
+    font-size: 16px;
+    line-height: 1.7;
+    background: #fff;
+}
+
+textarea{
+    width: 100%;
+    height: 170px;
+    border: 2px solid #000;
+    font-size: 16px;
+    padding: 15px;
+    outline: none;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: bold;
+    width: 100%;
+}
+
+button{
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: 1px solid #000;
+    background: #eee;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+<div class="header">
+    <div>SSC CGL Typing Test</div>
+    <div id="timer">Time: 15:00</div>
+</div>
+
+<div class="container">
+
+<div class="paragraph-box">
+<p id="paragraph"> The sight of the giant rocket carrying NASA’s Artemis II crew into the sky on April 2 sparked excitement among spectators worldwide. This mission, developed over many years at great financial cost, marks a significant step toward returning humans to the Moon. Today, the United States and China stand at the forefront of a renewed global race to the lunar surface. This competition is not merely symbolic; both nations are interested in securing access to valuable resources such as water ice and strategic lunar terrain, which could support long term bases and future missions deeper into space. Programmes like NASA’s Artemis and China’s International Lunar Research Station aim to establish research hubs, refuelling stations, communication systems, and resource extraction facilities. Such infrastructure would offer a decisive advantage in future exploration of cis lunar space and missions to Mars.
+
+While space is often described as a shared global commons, the reality is shaped by geopolitical ambitions and the desire for national prestige. China’s progress has largely been self driven and tightly controlled, whereas the United States has pursued a collaborative approach through the Artemis Accords, involving private companies and multiple partner nations. Although this model may appear slower, it promises greater transparency and long term stability. India, which signed the Accords in 2023, has committed to peaceful and cooperative space exploration. Though not directly involved in Artemis missions, India’s Gaganyaan programme and plans for a future space station and lunar missions position it as a valuable partner. By contributing experiments, payloads, and potential joint missions, India can benefit from collaboration rather than starting independently.</p>
+</div>
+
+<textarea id="inputBox" placeholder="Start typing here..." disabled></textarea>
+
+<div class="stats">
+    <span id="wpm">WPM: 0</span>
+    <span id="accuracy">Accuracy: 0%</span>
+    <span id="keys">Keys: 0</span>
+</div>
+
+<button onclick="startTest()">Start Test</button>
+<button onclick="submitTest()">Submit</button>
+
+</div>
+
+<script>
+
+let time = 900;
+let timer;
+let started = false;
+
+updateTimer();
+
+function updateTimer(){
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+    sec = sec < 10 ? "0" + sec : sec;
+    document.getElementById("timer").innerText = `Time: ${min}:${sec}`;
+}
+
+function startTest(){
+    if(started) return;
+
+    started = true;
+
+    let box = document.getElementById("inputBox");
+    box.disabled = false;
+    box.focus();
+
+    timer = setInterval(()=>{
+        time--;
+        updateTimer();
+
+        if(time <= 0){
+            submitTest();
+        }
+    },1000);
+}
+
+// block paste
+document.getElementById("inputBox").addEventListener("paste", e => e.preventDefault());
+
+// prevent typing before start
+document.getElementById("inputBox").addEventListener("keydown", function(e){
+    if(!started){
+        e.preventDefault();
+    }
+});
+
+function submitTest(){
+    clearInterval(timer);
+
+    let wpm = document.getElementById("wpm").innerText;
+    let acc = document.getElementById("accuracy").innerText;
+    let keys = document.getElementById("keys").innerText;
+
+    document.body.innerHTML = `
+        <h2>Test Completed</h2>
+        <p>${wpm}</p>
+        <p>${acc}</p>
+        <p>${keys}</p>
+        <button onclick="location.reload()">Retry</button>
+    `;
+}
+
+document.getElementById("inputBox").addEventListener("input", function(){
+
+    let typedText = this.value;
+    let originalText = document.getElementById("paragraph").textContent.trim();
+
+    // normalize spaces
+typedText = typedText.replace(/\s+/g, " ");
+originalText = originalText.replace(/\s+/g, " ");
+
+// normalize apostrophe
+typedText = typedText.replace(/[’‘]/g, "'");
+originalText = originalText.replace(/[’‘]/g, "'");
+
+// normalize quotes
+typedText = typedText.replace(/[“”]/g, '"');
+originalText = originalText.replace(/[“”]/g, '"');
+
+// normalize dash
+typedText = typedText.replace(/[–—]/g, "-");
+originalText = originalText.replace(/[–—]/g, "-");
+
+    let typed = typedText.length;
+    document.getElementById("keys").innerText = "Keys: " + typed;
+
+    let minutes = (900 - time) / 60;
+    if (minutes > 0 && typed > 0) {
+        let wpm = Math.round((typed / 5) / minutes);
+        document.getElementById("wpm").innerText = "WPM: " + wpm;
+    }
+
+    let correct = 0;
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === originalText[i]) {
+            correct++;
+        }
+    }
+
+    let acc = typedText.length > 0
+        ? Math.round((correct / typedText.length) * 100)
+        : 0;
+
+    document.getElementById("accuracy").innerText = "Accuracy: " + acc + "%";
+let paraBox = document.querySelector(".paragraph-box");
+let progress = typedText.length / originalText.length;
+
+
+});
+
+</script>
+
+
+
+</body>
+</html>
